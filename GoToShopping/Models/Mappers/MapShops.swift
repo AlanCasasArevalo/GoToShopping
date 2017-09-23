@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import SDWebImage
+
 
 func mapShopCoreDataIntoShop(shopCoreData: ShopCoreData) -> Shop{
     let shop = Shop(name: shopCoreData.nameCD ?? "Empty" )
@@ -31,6 +33,11 @@ func mapShopintoShopCoreData(context:NSManagedObjectContext, shop:Shop) -> ShopC
     shopCoreData.nameCD = shop.name
     shopCoreData.addressCD = shop.address
     shopCoreData.imageCD = shop.image
+    
+    
+    
+    
+    
     shopCoreData.logoCD = shop.logo
     shopCoreData.openingHoursCD = shop.openingHours
     shopCoreData.descriptionCD = shop.description
