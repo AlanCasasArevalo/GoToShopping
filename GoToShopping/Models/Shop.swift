@@ -6,15 +6,15 @@
 //  Copyright © 2017 Alan. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class Shop {
     var name: String
     var description: String = ""
     var latitude: Float? = nil
     var longitude: Float? = nil
-    var image: String = ""
-    var logo: String = ""
+    var image: String? = ""
+    var logo: String? = ""
     var openingHours: String = ""
     var address: String = ""
     var telephone: String = ""
@@ -30,7 +30,10 @@ final class Shop {
 
 extension Shop{
     var proxy : String{
-        return "\(name) \(image)"
+        if let image = image {
+            return "\(name) \(image)"
+        }
+        return "\(name)"
     }
 }
 

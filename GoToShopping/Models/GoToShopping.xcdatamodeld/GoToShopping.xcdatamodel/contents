@@ -4,9 +4,9 @@
         <attribute name="addressCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="descriptionCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="emailCD" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="imageCD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageCD" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="latitudeCD" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="logoCD" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="logoCD" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="longitudeCD" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nameCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="openingHoursCD" optional="YES" attributeType="String" syncable="YES"/>

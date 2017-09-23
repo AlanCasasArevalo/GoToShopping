@@ -17,7 +17,7 @@ class ShopCollectionViewCell: UICollectionViewCell {
     
     func refresh(shop:Shop){
         self.shop = shop
-        shop.logo.loadImage(imageView: self.shopImage)
+        shop.logo?.loadImage(imageView: self.shopImage)
         self.nameShopLabel.text = shop.name
         self.openingHoursLabel.text = shop.openingHours
     }
