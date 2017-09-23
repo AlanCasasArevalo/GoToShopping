@@ -10,6 +10,7 @@ import Foundation
 
 final class DownloadAllShopsInteractorNSOpImplementation : DownloadAllShopsIteractorProtocol{
     func execute(onSuccess: @escaping (Shops) -> Void, onError: onErrorClosure) {
+        
         let urlStringBackEnd = "https://madrid-shops.com/json_new/getShops.php"
         let queue = OperationQueue()
 
@@ -28,3 +29,15 @@ final class DownloadAllShopsInteractorNSOpImplementation : DownloadAllShopsItera
         execute(onSuccess: onSuccess, onError: nil)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
