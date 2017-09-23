@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
     }
         
     func initializeData () {
-        let downloadShops:DownloadAllShopsIteractorProtocol = DownloadAllShopsInteractorNSOpImplementation()
+        let downloadShops:DownloadAllShopsIteractorProtocol = DownloadAllShopsInteractorURLSessionImpl()
         
         downloadShops.execute { (shops:Shops) in
             let cacheInteractor = SaveAllShopsInteractorImplementation()

@@ -20,6 +20,7 @@
 		5115606D1F7420CC007E5583 /* CoreDataSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115606C1F7420CC007E5583 /* CoreDataSingleton.swift */; };
 		5129A36E1F6E6AF9001DD298 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5129A36D1F6E6AF9001DD298 /* JSONParser.swift */; };
 		5129A3701F6E6DD6001DD298 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5129A36F1F6E6DD6001DD298 /* Alerts.swift */; };
+		512B227C1F766E4F006327FF /* DownloadAllShopsInteractorURLSessionImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512B227B1F766E4F006327FF /* DownloadAllShopsInteractorURLSessionImpl.swift */; };
 		512C28F91F6D1C7D00AD9714 /* ViewController+CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C28F81F6D1C7D00AD9714 /* ViewController+CollectionViewController.swift */; };
 		512C28FB1F6D1FC200AD9714 /* ShopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C28FA1F6D1FC200AD9714 /* ShopCollectionViewCell.swift */; };
 		512C28FE1F6D221500AD9714 /* String+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C28FD1F6D221500AD9714 /* String+Image.swift */; };
@@ -66,6 +67,7 @@
 		5115606C1F7420CC007E5583 /* CoreDataSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSingleton.swift; sourceTree = "<group>"; };
 		5129A36D1F6E6AF9001DD298 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		5129A36F1F6E6DD6001DD298 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		512B227B1F766E4F006327FF /* DownloadAllShopsInteractorURLSessionImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAllShopsInteractorURLSessionImpl.swift; sourceTree = "<group>"; };
 		512C28F81F6D1C7D00AD9714 /* ViewController+CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CollectionViewController.swift"; sourceTree = "<group>"; };
 		512C28FA1F6D1FC200AD9714 /* ShopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCollectionViewCell.swift; sourceTree = "<group>"; };
 		512C28FD1F6D221500AD9714 /* String+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Image.swift"; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				512FB73D1F75993100D7A533 /* SaveAllShopsInteractorImplementation.swift */,
 				512FB73F1F75997200D7A533 /* SaveAllShopsInteractorProtocol.swift */,
 				512C28FF1F6D338F00AD9714 /* DownloadAllShopsInteractorNSOpImplementation.swift */,
+				512B227B1F766E4F006327FF /* DownloadAllShopsInteractorURLSessionImpl.swift */,
 				51A2D40D1F759CE300FA4770 /* ExecuteOnceInteractorProtocol.swift */,
 				51A2D4111F759D3800FA4770 /* SetExecutedOnceInteractorProtocol.swift */,
 				51A2D4131F759DAA00FA4770 /* SetExecutedOnceInteractorImplementation.swift */,
@@ -361,6 +364,7 @@
 				512C29001F6D338F00AD9714 /* DownloadAllShopsInteractorNSOpImplementation.swift in Sources */,
 				51A2D40E1F759CE300FA4770 /* ExecuteOnceInteractorProtocol.swift in Sources */,
 				512C28FE1F6D221500AD9714 /* String+Image.swift in Sources */,
+				512B227C1F766E4F006327FF /* DownloadAllShopsInteractorURLSessionImpl.swift in Sources */,
 				512FB7401F75997200D7A533 /* SaveAllShopsInteractorProtocol.swift in Sources */,
 				51A2D4141F759DAA00FA4770 /* SetExecutedOnceInteractorImplementation.swift in Sources */,
 				5115606D1F7420CC007E5583 /* CoreDataSingleton.swift in Sources */,
