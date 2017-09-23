@@ -43,7 +43,12 @@ class MainViewController: UIViewController {
             cacheInteractor.execute(shops: shops, context: self.context, onSuccess: { (shops: Shops) in
                 
                 SetExecutedOnceInteractorImplementation().execute()
+
                 self._fetchedResultsController = nil
+                self.shopCollectionView.delegate = self
+                self.shopCollectionView.dataSource = self
+                self.shopCollectionView.reloadData()
+
             })
         }
 

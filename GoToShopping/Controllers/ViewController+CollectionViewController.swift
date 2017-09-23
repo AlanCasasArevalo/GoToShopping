@@ -44,8 +44,10 @@ extension MainViewController{
             let indexPath = shopCollectionView.indexPathsForSelectedItems![0]
             
             let vc = segue.destination as! ShopDetailViewController
-            let shopToDetail = self.shops?.getShop(index: indexPath.row)
-            vc.shopDetail = shopToDetail
+//            let shopToDetail = self.shops?.getShop(index: indexPath.row)
+
+            let shopToDetail = self.fetchedResultsController.object(at: indexPath)
+            vc.shopDetail = mapShopCoreDataIntoShop(shopCoreData: shopToDetail)
         }
     }
 }
