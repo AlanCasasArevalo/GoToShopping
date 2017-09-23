@@ -25,7 +25,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        internetTest()
         ExecuteOnceInteractorImplementation().execute {
             initializeData()
         }
@@ -78,6 +78,12 @@ class MainViewController: UIViewController {
             alertControllerToView(message: "\(nserror)")
         }
         return _fetchedResultsController!
+    }
+    
+    func internetTest(){
+        if !Reachability.isConnectedToNetwork(){
+            alertControllerToView(message: "Necesita tener acceso a internet para poder acceder al menos una vez a los datos.")
+        }
     }
     
 }

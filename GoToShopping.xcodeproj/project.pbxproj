@@ -18,6 +18,7 @@
 		511560671F741F64007E5583 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 511560661F741F64007E5583 /* CoreData.framework */; };
 		5115606A1F741F91007E5583 /* GoToShopping.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 511560681F741F91007E5583 /* GoToShopping.xcdatamodeld */; };
 		5115606D1F7420CC007E5583 /* CoreDataSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5115606C1F7420CC007E5583 /* CoreDataSingleton.swift */; };
+		5124A58C1F7658A0009A8958 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5124A58B1F7658A0009A8958 /* Reachability.swift */; };
 		5129A36E1F6E6AF9001DD298 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5129A36D1F6E6AF9001DD298 /* JSONParser.swift */; };
 		5129A3701F6E6DD6001DD298 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5129A36F1F6E6DD6001DD298 /* Alerts.swift */; };
 		512C28F91F6D1C7D00AD9714 /* ViewController+CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C28F81F6D1C7D00AD9714 /* ViewController+CollectionViewController.swift */; };
@@ -64,6 +65,7 @@
 		511560661F741F64007E5583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		511560691F741F91007E5583 /* GoToShopping.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoToShopping.xcdatamodel; sourceTree = "<group>"; };
 		5115606C1F7420CC007E5583 /* CoreDataSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSingleton.swift; sourceTree = "<group>"; };
+		5124A58B1F7658A0009A8958 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		5129A36D1F6E6AF9001DD298 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		5129A36F1F6E6DD6001DD298 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		512C28F81F6D1C7D00AD9714 /* ViewController+CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CollectionViewController.swift"; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			children = (
 				5129A36F1F6E6DD6001DD298 /* Alerts.swift */,
 				512C28FD1F6D221500AD9714 /* String+Image.swift */,
+				5124A58B1F7658A0009A8958 /* Reachability.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				512C28FE1F6D221500AD9714 /* String+Image.swift in Sources */,
 				512FB7401F75997200D7A533 /* SaveAllShopsInteractorProtocol.swift in Sources */,
 				51A2D4141F759DAA00FA4770 /* SetExecutedOnceInteractorImplementation.swift in Sources */,
+				5124A58C1F7658A0009A8958 /* Reachability.swift in Sources */,
 				5115606D1F7420CC007E5583 /* CoreDataSingleton.swift in Sources */,
 				512FB73E1F75993100D7A533 /* SaveAllShopsInteractorImplementation.swift in Sources */,
 				510C196D1F6C51AA00BFCB6E /* AppDelegate.swift in Sources */,
