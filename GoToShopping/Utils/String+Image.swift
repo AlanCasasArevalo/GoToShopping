@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import SDWebImage
+
+
 
 extension String{
     func loadImage(imageView: UIImageView) {
@@ -14,7 +17,9 @@ extension String{
         queue.addOperation {
             if let url = URL(string: self), let data = NSData(contentsOf: url), let image = UIImage(data: data as Data){
                 OperationQueue.main.addOperation {
-                    imageView.image = image
+                    imageView.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "placeHolder"), options: [.continueInBackground, .refreshCached, .highPriority, .retryFailed], completed: nil)
+                    
+                    
                 }
             }
         }

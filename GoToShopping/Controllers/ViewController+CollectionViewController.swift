@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import SDWebImage
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -17,7 +18,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let shopToCell:Shop = (shops?.getShop(index: indexPath.row))!
+
         let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ShopCollectionViewCell
   
         let shopCoreData = fetchedResultsController.object(at: indexPath)
