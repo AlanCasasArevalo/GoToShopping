@@ -31,25 +31,15 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.delegate = self
-        self.shopMapView.delegate = self
-        self.shopMapView.showsScale = true
-        self.shopMapView.showsUserLocation = true
         
-        centerMapOnLocation(mapView: shopMapView, regionRadius: 1000)
-        addShopAnnotationsToMap()
         internetTest()
         ExecuteOnceInteractorImplementation().execute {
             initializeData()
         }
-        
-        self.shopCollectionView.delegate = self
-        self.shopCollectionView.dataSource = self
-        self.shopCollectionView.reloadData()
-        self.shopMapView.reloadInputViews()
+        initializeDelegates()
     }
-        
+    
+    
     func initializeData () {
         let downloadShops:DownloadAllShopsIteractorProtocol = DownloadAllShopsInteractorURLSessionImpl()
         
@@ -60,13 +50,10 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                 SetExecutedOnceInteractorImplementation().execute()
 
                 self._fetchedResultsController = nil
-                self.shopCollectionView.delegate = self
-                self.shopCollectionView.dataSource = self
-                self.shopCollectionView.reloadData()
+                self.initializeDelegates()
 
             })
         }
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -100,6 +87,24 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             alertControllerToView(message: "Necesita tener acceso a internet para poder acceder al menos una vez a los datos.")
         }
     }
+    
+    func initializeDelegates(){
+        
+        
+        self.centerMapOnLocation(mapView: shopMapView, regionRadius: 1000)
+        self.addShopAnnotationsToMap()
+        self.shopMapView.delegate = self
+        self.shopMapView.showsScale = true
+        self.shopMapView.showsUserLocation = true
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.delegate = self
+        self.shopMapView.reloadInputViews()
+        
+        self.shopCollectionView.delegate = self
+        self.shopCollectionView.dataSource = self
+        self.shopCollectionView.reloadData()
+    }
+
 }
 
 
