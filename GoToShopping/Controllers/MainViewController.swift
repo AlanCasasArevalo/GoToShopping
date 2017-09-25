@@ -37,13 +37,13 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         self.shopMapView.showsScale = true
         self.shopMapView.showsUserLocation = true
         
-        centerMapOnLocation(mapView: shopMapView, regionRadius: 1000)
-        addShopAnnotationsToMap()
         internetTest()
         ExecuteOnceInteractorImplementation().execute {
             initializeData()
         }
         
+        centerMapOnLocation(mapView: shopMapView, regionRadius: 1000)
+
         self.shopCollectionView.delegate = self
         self.shopCollectionView.dataSource = self
         self.shopCollectionView.reloadData()
@@ -63,6 +63,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                 self.shopCollectionView.delegate = self
                 self.shopCollectionView.dataSource = self
                 self.shopCollectionView.reloadData()
+                self.addShopAnnotationsToMap()
 
             })
         }
