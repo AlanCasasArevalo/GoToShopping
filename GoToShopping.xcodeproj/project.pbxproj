@@ -10,7 +10,7 @@
 		510BA0B81F76C50C001FEE37 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 510BA0B71F76C50C001FEE37 /* Podfile */; };
 		510BA0C41F77184E001FEE37 /* ViewController+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BA0C31F77184E001FEE37 /* ViewController+Map.swift */; };
 		510C196D1F6C51AA00BFCB6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C196C1F6C51AA00BFCB6E /* AppDelegate.swift */; };
-		510C196F1F6C51AA00BFCB6E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C196E1F6C51AA00BFCB6E /* MainViewController.swift */; };
+		510C196F1F6C51AA00BFCB6E /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C196E1F6C51AA00BFCB6E /* ShopViewController.swift */; };
 		510C19721F6C51AA00BFCB6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510C19701F6C51AA00BFCB6E /* Main.storyboard */; };
 		510C19741F6C51AA00BFCB6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510C19731F6C51AA00BFCB6E /* Assets.xcassets */; };
 		510C19771F6C51AA00BFCB6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510C19751F6C51AA00BFCB6E /* LaunchScreen.storyboard */; };
@@ -37,7 +37,6 @@
 		51873B2A1F6C74080067D6B3 /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51873B291F6C74080067D6B3 /* TypeAlias.swift */; };
 		51873B2C1F6C74EC0067D6B3 /* DownloadAllShopsIteractorImplementationFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51873B2B1F6C74EC0067D6B3 /* DownloadAllShopsIteractorImplementationFake.swift */; };
 		518EC34C1F790A2E00B92533 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518EC34B1F790A2E00B92533 /* MenuViewController.swift */; };
-		518EC34E1F790BC500B92533 /* InstagramActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518EC34D1F790BC500B92533 /* InstagramActivityIndicator.swift */; };
 		519B645C1F7410FB009D0DBE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 519B645B1F7410FB009D0DBE /* MapKit.framework */; };
 		51A2D40E1F759CE300FA4770 /* ExecuteOnceInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A2D40D1F759CE300FA4770 /* ExecuteOnceInteractorProtocol.swift */; };
 		51A2D4101F759D1600FA4770 /* ExecuteOnceInteractorImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A2D40F1F759D1600FA4770 /* ExecuteOnceInteractorImplementation.swift */; };
@@ -66,7 +65,7 @@
 		510BA0C31F77184E001FEE37 /* ViewController+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Map.swift"; sourceTree = "<group>"; };
 		510C19691F6C51AA00BFCB6E /* GoToShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoToShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		510C196C1F6C51AA00BFCB6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		510C196E1F6C51AA00BFCB6E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		510C196E1F6C51AA00BFCB6E /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		510C19711F6C51AA00BFCB6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		510C19731F6C51AA00BFCB6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		510C19761F6C51AA00BFCB6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,7 +95,6 @@
 		51873B291F6C74080067D6B3 /* TypeAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
 		51873B2B1F6C74EC0067D6B3 /* DownloadAllShopsIteractorImplementationFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAllShopsIteractorImplementationFake.swift; sourceTree = "<group>"; };
 		518EC34B1F790A2E00B92533 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		518EC34D1F790BC500B92533 /* InstagramActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstagramActivityIndicator.swift; path = "../../../../../../../Downloads/InstagramActivityIndicator-master/InstagramActivityIndicator.swift"; sourceTree = "<group>"; };
 		519B645B1F7410FB009D0DBE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		51A2D40D1F759CE300FA4770 /* ExecuteOnceInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecuteOnceInteractorProtocol.swift; sourceTree = "<group>"; };
 		51A2D40F1F759D1600FA4770 /* ExecuteOnceInteractorImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecuteOnceInteractorImplementation.swift; sourceTree = "<group>"; };
@@ -194,8 +192,7 @@
 		510C198D1F6C51E700BFCB6E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				518EC34D1F790BC500B92533 /* InstagramActivityIndicator.swift */,
-				510C196E1F6C51AA00BFCB6E /* MainViewController.swift */,
+				510C196E1F6C51AA00BFCB6E /* ShopViewController.swift */,
 				518EC34B1F790A2E00B92533 /* MenuViewController.swift */,
 				512C28F81F6D1C7D00AD9714 /* ViewController+CollectionViewController.swift */,
 				51C6EEC91F77D51700AFFF1C /* ViewController+MapKit.swift */,
@@ -455,7 +452,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				518EC34E1F790BC500B92533 /* InstagramActivityIndicator.swift in Sources */,
 				512C28FB1F6D1FC200AD9714 /* ShopCollectionViewCell.swift in Sources */,
 				51873B2A1F6C74080067D6B3 /* TypeAlias.swift in Sources */,
 				5129A36E1F6E6AF9001DD298 /* JSONParser.swift in Sources */,
@@ -464,7 +460,7 @@
 				510C19901F6C520700BFCB6E /* Shop.swift in Sources */,
 				5115606A1F741F91007E5583 /* GoToShopping.xcdatamodeld in Sources */,
 				51A2D4101F759D1600FA4770 /* ExecuteOnceInteractorImplementation.swift in Sources */,
-				510C196F1F6C51AA00BFCB6E /* MainViewController.swift in Sources */,
+				510C196F1F6C51AA00BFCB6E /* ShopViewController.swift in Sources */,
 				518EC34C1F790A2E00B92533 /* MenuViewController.swift in Sources */,
 				512C29001F6D338F00AD9714 /* DownloadAllShopsInteractorNSOpImplementation.swift in Sources */,
 				51A2D40E1F759CE300FA4770 /* ExecuteOnceInteractorProtocol.swift in Sources */,

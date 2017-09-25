@@ -9,8 +9,13 @@
 import UIKit
 
 func parseDataToShop(data: Data) -> Shops {
+    
+    let local = Locale.current.languageCode as! String
+    print(local)
+    
     let shopsList = Shops()
     do {
+        
         let jsonObject = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! Dictionary<String,Any>
         let result = jsonObject["result"] as! [Dictionary<String,Any>]
         for shopJSON in result {
@@ -18,8 +23,28 @@ func parseDataToShop(data: Data) -> Shops {
             shop.address = shopJSON["address"]! as! String
             shop.image = shopJSON["img"] as! String
             shop.logo = shopJSON["logo_img"] as! String
+
+        switch local.lowercased() {
+        case "es":
             shop.description = shopJSON ["description_es"] as! String
             shop.openingHours = shopJSON["opening_hours_es"] as! String
+
+        case "en":
+            shop.description = shopJSON ["description_en"] as! String
+            shop.openingHours = shopJSON["opening_hours_en"] as! String
+
+        case "ja" :
+            shop.description = shopJSON ["description_jp"] as! String
+            shop.openingHours = shopJSON["opening_hours_jp"] as! String
+
+        case "zh":
+            shop.description = shopJSON ["description_cn"] as! String
+            shop.openingHours = shopJSON["opening_hours_cn"] as! String
+            
+        default:
+            shop.description = shopJSON ["description_en"] as! String
+            shop.openingHours = shopJSON["opening_hours_en"] as! String
+        }
             
             if var latitudeParser = shopJSON["gps_lat"] as? String,
                 let longitude = shopJSON["gps_lon"] as? String{
@@ -40,11 +65,11 @@ func parseDataToShop(data: Data) -> Shops {
             shop.email = shopJSON["email"] as! String
             shop.url = shopJSON["url"] as! String
             
-            print(shop)
-            if (shop.longitude != nil && shop.longitude != nil ) {
-                print(shop.latitude!)
-                print(shop.longitude!)
-            }
+//            print(shop)
+//            if (shop.longitude != nil && shop.longitude != nil ) {
+//                print(shop.latitude!)
+//                print(shop.longitude!)
+//            }
             
             
             shopsList.addShop(shop: shop)

@@ -30,7 +30,7 @@ class MenuViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToShopping"{
-            let vc = segue.destination as! MainViewController
+            let vc = segue.destination as! ShopViewController
             vc.context = self.context
         }
     }

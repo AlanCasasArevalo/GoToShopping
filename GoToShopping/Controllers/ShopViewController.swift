@@ -13,11 +13,10 @@ import CoreLocation
 import RSLoadingView
 import SDWebImage
 
-class MainViewController: UIViewController,CLLocationManagerDelegate {
+class ShopViewController: UIViewController,CLLocationManagerDelegate {
 
     @IBOutlet weak var shopMapView: MKMapView!
     @IBOutlet weak var shopCollectionView: UICollectionView!
-    @IBOutlet weak var activityView: UIActivityIndicatorView!
     
     let locationManager = CLLocationManager()
         
@@ -33,9 +32,12 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        activityView.startAnimating()
-        
+//        
+//
+//        let local = Locale.current.languageCode as! String
+//        print(local)
+
+        showOnWindow()
         
         internetTest()
         ExecuteOnceInteractorImplementation().execute {
@@ -43,8 +45,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         }
         initializeDelegates()
         RSLoadingView.hide(from: view)
-        activityView.stopAnimating()
-        
         
     }
     

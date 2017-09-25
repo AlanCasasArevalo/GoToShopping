@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import SDWebImage
 
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let sectionInfo = fetchedResultsController.sections![section]
@@ -29,7 +29,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
-extension MainViewController{
+extension ShopViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "shopShowDetail"{
             let indexPath = shopCollectionView.indexPathsForSelectedItems![0]            

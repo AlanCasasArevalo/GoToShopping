@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-extension MainViewController: MKMapViewDelegate{
+extension ShopViewController: MKMapViewDelegate{
     
     func addShopAnnotationsToMap(){
         var annotationsShop:[MKAnnotation] = []
@@ -28,7 +28,7 @@ extension MainViewController: MKMapViewDelegate{
     
 }
 
-extension MainViewController{
+extension ShopViewController{
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationIdentifier = "AnnotationIdentifier"
