@@ -12,6 +12,34 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--¿Que quieres hacer?-->
+        <scene sceneID="YVu-OU-THH">
+            <objects>
+                <viewController id="wAW-6R-8CS" customClass="MenuViewController" customModule="GoToShopping" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wlE-4b-Q3m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpm-tr-7UV">
+                                <rect key="frame" x="137" y="318" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="GoToShopping"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="goToShopping" id="Tea-1A-5cV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="p8C-A6-bju"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="¿Que quieres hacer?" id="hs2-oF-26r">
+                        <barButtonItem key="backBarButtonItem" title="    " id="uec-P8-q3d"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cnv-ES-ORw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-314" y="541"/>
+        </scene>
         <!-- -->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -30,7 +58,7 @@
                                         </constraints>
                                     </mapView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pBF-9y-YtO">
-                                        <rect key="frame" x="0.0" y="321" width="375" height="1126"/>
+                                        <rect key="frame" x="0.0" y="366" width="375" height="1126"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="pBF-9y-YtO" secondAttribute="height" multiplier="375:1126" id="QQc-Nx-FK0"/>
@@ -92,17 +120,24 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="YbI-v5-Sgv">
+                                        <rect key="frame" x="169.5" y="321" width="37" height="40"/>
+                                        <color key="color" red="0.0" green="0.0" blue="0.0" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="pBF-9y-YtO" secondAttribute="trailing" id="1aT-cM-hfY"/>
-                                    <constraint firstItem="pBF-9y-YtO" firstAttribute="top" secondItem="bQ7-oo-Iwe" secondAttribute="bottom" constant="5" id="2Qb-Xz-B0d"/>
+                                    <constraint firstItem="pBF-9y-YtO" firstAttribute="top" secondItem="YbI-v5-Sgv" secondAttribute="bottom" constant="5" id="1v8-zv-8Mu"/>
+                                    <constraint firstItem="pBF-9y-YtO" firstAttribute="top" secondItem="bQ7-oo-Iwe" secondAttribute="bottom" constant="50" id="2Qb-Xz-B0d"/>
                                     <constraint firstItem="pBF-9y-YtO" firstAttribute="leading" secondItem="0eS-eI-SDA" secondAttribute="leading" id="E68-wP-erR"/>
+                                    <constraint firstItem="YbI-v5-Sgv" firstAttribute="top" secondItem="bQ7-oo-Iwe" secondAttribute="bottom" constant="5" id="FC3-3E-1qb"/>
                                     <constraint firstAttribute="trailing" secondItem="bQ7-oo-Iwe" secondAttribute="trailing" id="GUI-RL-h5r"/>
                                     <constraint firstItem="pBF-9y-YtO" firstAttribute="width" secondItem="bQ7-oo-Iwe" secondAttribute="width" id="Hdk-HZ-bLh"/>
                                     <constraint firstItem="bQ7-oo-Iwe" firstAttribute="centerX" secondItem="0eS-eI-SDA" secondAttribute="centerX" id="JR3-LR-E33"/>
                                     <constraint firstItem="bQ7-oo-Iwe" firstAttribute="top" secondItem="0eS-eI-SDA" secondAttribute="top" id="QAi-5I-Jdp"/>
                                     <constraint firstAttribute="bottom" secondItem="pBF-9y-YtO" secondAttribute="bottom" id="Tdg-C7-ADm"/>
                                     <constraint firstItem="bQ7-oo-Iwe" firstAttribute="leading" secondItem="0eS-eI-SDA" secondAttribute="leading" id="Y3p-Ln-YRO"/>
+                                    <constraint firstItem="YbI-v5-Sgv" firstAttribute="centerX" secondItem="0eS-eI-SDA" secondAttribute="centerX" id="er1-Nv-sqc"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -120,6 +155,7 @@
                     </navigationItem>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
+                        <outlet property="activityView" destination="YbI-v5-Sgv" id="zpz-vb-6f0"/>
                         <outlet property="shopCollectionView" destination="pBF-9y-YtO" id="pPS-O7-nQ5"/>
                         <outlet property="shopMapView" destination="bQ7-oo-Iwe" id="D2r-Hb-C5r"/>
                     </connections>
@@ -210,12 +246,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Nre-df-BRW"/>
+                        <segue destination="wAW-6R-8CS" kind="relationship" relationship="rootViewController" id="UsW-Hp-trH"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10y-Fp-m42" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-327" y="-173"/>
+            <point key="canvasLocation" x="-1199" y="530"/>
         </scene>
     </scenes>
     <resources>

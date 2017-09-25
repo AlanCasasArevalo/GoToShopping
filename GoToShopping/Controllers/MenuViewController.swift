@@ -7,12 +7,13 @@
 //
 
 import UIKit
-import CoreData 
+import CoreData
+import CoreLocation
 
 class MenuViewController: UIViewController {
     
-    var core = CoreDataStackSingleton()
     var context:NSManagedObjectContext!
+    let locationManager = CLLocationManager()
 
 
     override func viewDidLoad() {
@@ -26,6 +27,7 @@ class MenuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToShopping"{
             let vc = segue.destination as! MainViewController
@@ -34,23 +36,3 @@ class MenuViewController: UIViewController {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

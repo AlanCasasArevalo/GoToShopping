@@ -3,9 +3,9 @@ platform :ios, '10.0'
 use_frameworks!
 
 def common_pods
-#pod 'RSLoadingView'
+pod 'RSLoadingView'
 pod 'SDWebImage', '~> 4.0'
-
+#pod 'Bubble'
 end
 
 target 'GoToShopping' do

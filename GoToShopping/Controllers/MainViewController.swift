@@ -10,11 +10,14 @@ import UIKit
 import MapKit
 import CoreData
 import CoreLocation
+import RSLoadingView
+import SDWebImage
 
 class MainViewController: UIViewController,CLLocationManagerDelegate {
 
     @IBOutlet weak var shopMapView: MKMapView!
     @IBOutlet weak var shopCollectionView: UICollectionView!
+    @IBOutlet weak var activityView: UIActivityIndicatorView!
     
     let locationManager = CLLocationManager()
         
@@ -23,7 +26,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     var shopsDownloadFinished = false
     var core = CoreDataStackSingleton()
     var context:NSManagedObjectContext!
-
+    
     override var prefersStatusBarHidden: Bool{
         return true
     }
@@ -31,12 +34,18 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityView.startAnimating()
+        
         
         internetTest()
         ExecuteOnceInteractorImplementation().execute {
             initializeData()
         }
         initializeDelegates()
+        RSLoadingView.hide(from: view)
+        activityView.stopAnimating()
+        
+        
     }
     
     
@@ -58,6 +67,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
     }
     
     var _fetchedResultsController: NSFetchedResultsController<ShopCoreData>? = nil
@@ -89,8 +99,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     func initializeDelegates(){
-        
-        
+    
         self.centerMapOnLocation(mapView: shopMapView, regionRadius: 1000)
         self.addShopAnnotationsToMap()
         self.shopMapView.delegate = self
@@ -103,7 +112,24 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         self.shopCollectionView.delegate = self
         self.shopCollectionView.dataSource = self
         self.shopCollectionView.reloadData()
+        
+        
+        
+        
     }
+    
+    func showOnWindow() {
+        let loadingView = RSLoadingView(effectType: RSLoadingView.Effect.twins)
+        loadingView.mainColor = UIColor(red: 72, green: 176, blue: 226, alpha: 0.8)
+        loadingView.shouldTapToDismiss = false
+        loadingView.isBlocking = true
+        loadingView.variantKey = "inAndOut"
+        loadingView.speedFactor = 1.0
+        loadingView.sizeFactor = 2.0
+        loadingView.lifeSpanFactor = 1.0
+        loadingView.show(on: view)
+    }
+
 
 }
 

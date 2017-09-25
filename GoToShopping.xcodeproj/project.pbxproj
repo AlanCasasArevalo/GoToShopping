@@ -36,6 +36,8 @@
 		51873B281F6C739F0067D6B3 /* DownloadAllShopsIteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51873B271F6C739F0067D6B3 /* DownloadAllShopsIteractorProtocol.swift */; };
 		51873B2A1F6C74080067D6B3 /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51873B291F6C74080067D6B3 /* TypeAlias.swift */; };
 		51873B2C1F6C74EC0067D6B3 /* DownloadAllShopsIteractorImplementationFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51873B2B1F6C74EC0067D6B3 /* DownloadAllShopsIteractorImplementationFake.swift */; };
+		518EC34C1F790A2E00B92533 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518EC34B1F790A2E00B92533 /* MenuViewController.swift */; };
+		518EC34E1F790BC500B92533 /* InstagramActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518EC34D1F790BC500B92533 /* InstagramActivityIndicator.swift */; };
 		519B645C1F7410FB009D0DBE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 519B645B1F7410FB009D0DBE /* MapKit.framework */; };
 		51A2D40E1F759CE300FA4770 /* ExecuteOnceInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A2D40D1F759CE300FA4770 /* ExecuteOnceInteractorProtocol.swift */; };
 		51A2D4101F759D1600FA4770 /* ExecuteOnceInteractorImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A2D40F1F759D1600FA4770 /* ExecuteOnceInteractorImplementation.swift */; };
@@ -93,6 +95,8 @@
 		51873B271F6C739F0067D6B3 /* DownloadAllShopsIteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAllShopsIteractorProtocol.swift; sourceTree = "<group>"; };
 		51873B291F6C74080067D6B3 /* TypeAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
 		51873B2B1F6C74EC0067D6B3 /* DownloadAllShopsIteractorImplementationFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAllShopsIteractorImplementationFake.swift; sourceTree = "<group>"; };
+		518EC34B1F790A2E00B92533 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		518EC34D1F790BC500B92533 /* InstagramActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstagramActivityIndicator.swift; path = "../../../../../../../Downloads/InstagramActivityIndicator-master/InstagramActivityIndicator.swift"; sourceTree = "<group>"; };
 		519B645B1F7410FB009D0DBE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		51A2D40D1F759CE300FA4770 /* ExecuteOnceInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecuteOnceInteractorProtocol.swift; sourceTree = "<group>"; };
 		51A2D40F1F759D1600FA4770 /* ExecuteOnceInteractorImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecuteOnceInteractorImplementation.swift; sourceTree = "<group>"; };
@@ -190,7 +194,9 @@
 		510C198D1F6C51E700BFCB6E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				518EC34D1F790BC500B92533 /* InstagramActivityIndicator.swift */,
 				510C196E1F6C51AA00BFCB6E /* MainViewController.swift */,
+				518EC34B1F790A2E00B92533 /* MenuViewController.swift */,
 				512C28F81F6D1C7D00AD9714 /* ViewController+CollectionViewController.swift */,
 				51C6EEC91F77D51700AFFF1C /* ViewController+MapKit.swift */,
 				5154648C1F6E933200A42E41 /* ShopDetailViewController.swift */,
@@ -396,10 +402,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GoToShopping/Pods-GoToShopping-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RSLoadingView/RSLoadingView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSLoadingView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				518EC34E1F790BC500B92533 /* InstagramActivityIndicator.swift in Sources */,
 				512C28FB1F6D1FC200AD9714 /* ShopCollectionViewCell.swift in Sources */,
 				51873B2A1F6C74080067D6B3 /* TypeAlias.swift in Sources */,
 				5129A36E1F6E6AF9001DD298 /* JSONParser.swift in Sources */,
@@ -456,6 +465,7 @@
 				5115606A1F741F91007E5583 /* GoToShopping.xcdatamodeld in Sources */,
 				51A2D4101F759D1600FA4770 /* ExecuteOnceInteractorImplementation.swift in Sources */,
 				510C196F1F6C51AA00BFCB6E /* MainViewController.swift in Sources */,
+				518EC34C1F790A2E00B92533 /* MenuViewController.swift in Sources */,
 				512C29001F6D338F00AD9714 /* DownloadAllShopsInteractorNSOpImplementation.swift in Sources */,
 				51A2D40E1F759CE300FA4770 /* ExecuteOnceInteractorProtocol.swift in Sources */,
 				512C28FE1F6D221500AD9714 /* String+Image.swift in Sources */,

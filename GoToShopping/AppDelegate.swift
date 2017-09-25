@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.context = coreDataStack.createContainer(dataBaseName: "GoToShopping").viewContext
         let navVC = self.window?.rootViewController as! UINavigationController
-        let mainVC = navVC.topViewController as! MainViewController
+        let mainVC = navVC.topViewController as! MenuViewController
         mainVC.context = self.context
         
         return true
