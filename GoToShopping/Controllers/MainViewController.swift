@@ -31,16 +31,12 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.delegate = self
-        self.shopMapView.delegate = self
-        self.shopMapView.showsScale = true
-        self.shopMapView.showsUserLocation = true
         
         internetTest()
         ExecuteOnceInteractorImplementation().execute {
             initializeData()
         }
+<<<<<<< HEAD
         
         centerMapOnLocation(mapView: shopMapView, regionRadius: 1000)
 
@@ -48,8 +44,12 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         self.shopCollectionView.dataSource = self
         self.shopCollectionView.reloadData()
         self.shopMapView.reloadInputViews()
+=======
+        initializeDelegates()
+>>>>>>> master
     }
-        
+    
+    
     func initializeData () {
         let downloadShops:DownloadAllShopsIteractorProtocol = DownloadAllShopsInteractorURLSessionImpl()
         
@@ -60,14 +60,17 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                 SetExecutedOnceInteractorImplementation().execute()
 
                 self._fetchedResultsController = nil
+<<<<<<< HEAD
                 self.shopCollectionView.delegate = self
                 self.shopCollectionView.dataSource = self
                 self.shopCollectionView.reloadData()
                 self.addShopAnnotationsToMap()
+=======
+                self.initializeDelegates()
+>>>>>>> master
 
             })
         }
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,6 +104,24 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             alertControllerToView(message: "Necesita tener acceso a internet para poder acceder al menos una vez a los datos.")
         }
     }
+    
+    func initializeDelegates(){
+        
+        
+        self.centerMapOnLocation(mapView: shopMapView, regionRadius: 1000)
+        self.addShopAnnotationsToMap()
+        self.shopMapView.delegate = self
+        self.shopMapView.showsScale = true
+        self.shopMapView.showsUserLocation = true
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.delegate = self
+        self.shopMapView.reloadInputViews()
+        
+        self.shopCollectionView.delegate = self
+        self.shopCollectionView.dataSource = self
+        self.shopCollectionView.reloadData()
+    }
+
 }
 
 
