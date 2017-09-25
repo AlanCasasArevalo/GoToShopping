@@ -36,17 +36,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         ExecuteOnceInteractorImplementation().execute {
             initializeData()
         }
-<<<<<<< HEAD
-        
-        centerMapOnLocation(mapView: shopMapView, regionRadius: 1000)
-
-        self.shopCollectionView.delegate = self
-        self.shopCollectionView.dataSource = self
-        self.shopCollectionView.reloadData()
-        self.shopMapView.reloadInputViews()
-=======
         initializeDelegates()
->>>>>>> master
     }
     
     
@@ -60,14 +50,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                 SetExecutedOnceInteractorImplementation().execute()
 
                 self._fetchedResultsController = nil
-<<<<<<< HEAD
-                self.shopCollectionView.delegate = self
-                self.shopCollectionView.dataSource = self
-                self.shopCollectionView.reloadData()
-                self.addShopAnnotationsToMap()
-=======
                 self.initializeDelegates()
->>>>>>> master
 
             })
         }
