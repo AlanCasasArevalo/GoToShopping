@@ -22,10 +22,6 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0eS-eI-SDA">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                                 <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uW7-mC-Arj">
-                                        <rect key="frame" x="169" y="731.5" width="37" height="37"/>
-                                        <color key="color" cocoaTouchSystemColor="darkTextColor"/>
-                                    </activityIndicatorView>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bQ7-oo-Iwe">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="316"/>
                                         <constraints>
@@ -106,8 +102,6 @@
                                     <constraint firstItem="bQ7-oo-Iwe" firstAttribute="top" secondItem="0eS-eI-SDA" secondAttribute="top" id="QAi-5I-Jdp"/>
                                     <constraint firstAttribute="bottom" secondItem="pBF-9y-YtO" secondAttribute="bottom" id="Tdg-C7-ADm"/>
                                     <constraint firstItem="bQ7-oo-Iwe" firstAttribute="leading" secondItem="0eS-eI-SDA" secondAttribute="leading" id="Y3p-Ln-YRO"/>
-                                    <constraint firstItem="uW7-mC-Arj" firstAttribute="centerX" secondItem="0eS-eI-SDA" secondAttribute="centerX" id="d3s-sP-lc2"/>
-                                    <constraint firstItem="uW7-mC-Arj" firstAttribute="centerY" secondItem="0eS-eI-SDA" secondAttribute="centerY" id="tH6-pm-r1B"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -125,7 +119,6 @@
                     </navigationItem>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="uW7-mC-Arj" id="0v3-QV-sRB"/>
                         <outlet property="shopCollectionView" destination="pBF-9y-YtO" id="pPS-O7-nQ5"/>
                         <outlet property="shopMapView" destination="bQ7-oo-Iwe" id="D2r-Hb-C5r"/>
                     </connections>

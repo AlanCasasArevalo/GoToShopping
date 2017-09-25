@@ -19,12 +19,33 @@ func parseDataToShop(data: Data) -> Shops {
             shop.image = shopJSON["img"] as! String
             shop.logo = shopJSON["logo_img"] as! String
             shop.description = shopJSON ["description_es"] as! String
-            shop.openingHours = shopJSON["opening_hours_en"] as! String
-            shop.latitude = shopJSON["gps_lat"] as? Float
-            shop.longitude = shopJSON["gps_lon"] as? Float
+            shop.openingHours = shopJSON["opening_hours_es"] as! String
+            
+            if var latitudeParser = shopJSON["gps_lat"] as? String,
+                let longitude = shopJSON["gps_lon"] as? String{
+                shop.latitude = 40.000
+
+                    var latitude = ""
+                    for myCharacter in latitudeParser.characters{
+                        if myCharacter != " "{
+                            latitude.append(myCharacter)
+                        }
+                    }
+                    shop.latitude = Float(latitude)
+                
+                shop.longitude = Float(longitude)
+            }
+            
             shop.telephone = shopJSON["telephone"] as! String
             shop.email = shopJSON["email"] as! String
             shop.url = shopJSON["url"] as! String
+            
+            print(shop)
+            if (shop.longitude != nil && shop.longitude != nil ) {
+                print(shop.latitude!)
+                print(shop.longitude!)
+            }
+            
             
             shopsList.addShop(shop: shop)
         }

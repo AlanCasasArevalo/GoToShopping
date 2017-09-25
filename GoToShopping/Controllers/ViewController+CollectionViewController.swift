@@ -29,31 +29,16 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
-extension MainViewController: MKMapViewDelegate{
-    func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
-        if shopsDownloadFinished{
-            if fullyRendered{
-                activityIndicator.stopAnimating()
-            }
-        }
-    }
-}
-
 extension MainViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "shopShowDetail"{
-            let indexPath = shopCollectionView.indexPathsForSelectedItems![0]
-            
+            let indexPath = shopCollectionView.indexPathsForSelectedItems![0]            
             let vc = segue.destination as! ShopDetailViewController
-//            let shopToDetail = self.shops?.getShop(index: indexPath.row)
-
             let shopToDetail = self.fetchedResultsController.object(at: indexPath)
             vc.shopDetail = mapShopCoreDataIntoShop(shopCoreData: shopToDetail)
         }
     }
 }
-
-
 
 
 

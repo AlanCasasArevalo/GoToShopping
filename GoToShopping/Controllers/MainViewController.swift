@@ -9,12 +9,14 @@
 import UIKit
 import MapKit
 import CoreData
+import CoreLocation
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController,CLLocationManagerDelegate {
 
     @IBOutlet weak var shopMapView: MKMapView!
     @IBOutlet weak var shopCollectionView: UICollectionView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    let locationManager = CLLocationManager()
         
     let cellID = "CollectionCell"
     var shops:Shops?
@@ -22,9 +24,21 @@ class MainViewController: UIViewController {
     var core = CoreDataStackSingleton()
     var context:NSManagedObjectContext!
 
+    override var prefersStatusBarHidden: Bool{
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.delegate = self
+        self.shopMapView.delegate = self
+        self.shopMapView.showsScale = true
+        self.shopMapView.showsUserLocation = true
+        
+        centerMapOnLocation(mapView: shopMapView, regionRadius: 1000)
+        addShopAnnotationsToMap()
         internetTest()
         ExecuteOnceInteractorImplementation().execute {
             initializeData()
@@ -33,6 +47,7 @@ class MainViewController: UIViewController {
         self.shopCollectionView.delegate = self
         self.shopCollectionView.dataSource = self
         self.shopCollectionView.reloadData()
+        self.shopMapView.reloadInputViews()
     }
         
     func initializeData () {
@@ -85,7 +100,6 @@ class MainViewController: UIViewController {
             alertControllerToView(message: "Necesita tener acceso a internet para poder acceder al menos una vez a los datos.")
         }
     }
-    
 }
 
 

@@ -43,5 +43,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Esta aplicacion necesita su permiso para geolocalizar las tiendas a su alrededor</string>
 </dict>
 </plist>

@@ -11,8 +11,8 @@ import Foundation
 final class Shop {
     var name: String
     var description: String = ""
-    var latitude: Float? = nil
-    var longitude: Float? = nil
+    var latitude: Float? = 40.4137053
+    var longitude: Float? = -3.6682823
     var image: String = ""
     var logo: String = ""
     var openingHours: String = ""

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		510BA0B81F76C50C001FEE37 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 510BA0B71F76C50C001FEE37 /* Podfile */; };
+		510BA0C41F77184E001FEE37 /* ViewController+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BA0C31F77184E001FEE37 /* ViewController+Map.swift */; };
 		510C196D1F6C51AA00BFCB6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C196C1F6C51AA00BFCB6E /* AppDelegate.swift */; };
 		510C196F1F6C51AA00BFCB6E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510C196E1F6C51AA00BFCB6E /* MainViewController.swift */; };
 		510C19721F6C51AA00BFCB6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510C19701F6C51AA00BFCB6E /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		512C29001F6D338F00AD9714 /* DownloadAllShopsInteractorNSOpImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C28FF1F6D338F00AD9714 /* DownloadAllShopsInteractorNSOpImplementation.swift */; };
 		512FB73E1F75993100D7A533 /* SaveAllShopsInteractorImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FB73D1F75993100D7A533 /* SaveAllShopsInteractorImplementation.swift */; };
 		512FB7401F75997200D7A533 /* SaveAllShopsInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FB73F1F75997200D7A533 /* SaveAllShopsInteractorProtocol.swift */; };
+		51325B501F78D5C50001026D /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51325B4F1F78D5C50001026D /* MapPin.swift */; };
 		5154648D1F6E933200A42E41 /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5154648C1F6E933200A42E41 /* ShopDetailViewController.swift */; };
 		5167A6001F759083001200F0 /* MapShops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167A5FF1F759083001200F0 /* MapShops.swift */; };
 		51873B281F6C739F0067D6B3 /* DownloadAllShopsIteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51873B271F6C739F0067D6B3 /* DownloadAllShopsIteractorProtocol.swift */; };
@@ -39,6 +41,7 @@
 		51A2D4101F759D1600FA4770 /* ExecuteOnceInteractorImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A2D40F1F759D1600FA4770 /* ExecuteOnceInteractorImplementation.swift */; };
 		51A2D4121F759D3800FA4770 /* SetExecutedOnceInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A2D4111F759D3800FA4770 /* SetExecutedOnceInteractorProtocol.swift */; };
 		51A2D4141F759DAA00FA4770 /* SetExecutedOnceInteractorImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A2D4131F759DAA00FA4770 /* SetExecutedOnceInteractorImplementation.swift */; };
+		51C6EECA1F77D51700AFFF1C /* ViewController+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C6EEC91F77D51700AFFF1C /* ViewController+MapKit.swift */; };
 		B9A2F54DE6DC7601FB396ACE /* Pods_GoToShopping.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41BA21879798353ACAA5D2A3 /* Pods_GoToShopping.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +61,7 @@
 		510BA0B71F76C50C001FEE37 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		510BA0B91F76C6B4001FEE37 /* GoToShopping-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoToShopping-Bridging-Header.h"; sourceTree = "<group>"; };
 		510BA0BD1F76FE18001FEE37 /* Haneke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Haneke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		510BA0C31F77184E001FEE37 /* ViewController+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Map.swift"; sourceTree = "<group>"; };
 		510C19691F6C51AA00BFCB6E /* GoToShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoToShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		510C196C1F6C51AA00BFCB6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		510C196E1F6C51AA00BFCB6E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 		512C28FF1F6D338F00AD9714 /* DownloadAllShopsInteractorNSOpImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAllShopsInteractorNSOpImplementation.swift; sourceTree = "<group>"; };
 		512FB73D1F75993100D7A533 /* SaveAllShopsInteractorImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAllShopsInteractorImplementation.swift; sourceTree = "<group>"; };
 		512FB73F1F75997200D7A533 /* SaveAllShopsInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAllShopsInteractorProtocol.swift; sourceTree = "<group>"; };
+		51325B4F1F78D5C50001026D /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
 		5154648C1F6E933200A42E41 /* ShopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
 		5167A5FF1F759083001200F0 /* MapShops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapShops.swift; sourceTree = "<group>"; };
 		51873B271F6C739F0067D6B3 /* DownloadAllShopsIteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAllShopsIteractorProtocol.swift; sourceTree = "<group>"; };
@@ -93,6 +98,7 @@
 		51A2D40F1F759D1600FA4770 /* ExecuteOnceInteractorImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecuteOnceInteractorImplementation.swift; sourceTree = "<group>"; };
 		51A2D4111F759D3800FA4770 /* SetExecutedOnceInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetExecutedOnceInteractorProtocol.swift; sourceTree = "<group>"; };
 		51A2D4131F759DAA00FA4770 /* SetExecutedOnceInteractorImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetExecutedOnceInteractorImplementation.swift; sourceTree = "<group>"; };
+		51C6EEC91F77D51700AFFF1C /* ViewController+MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+MapKit.swift"; sourceTree = "<group>"; };
 		9C54D5AACB5EA986AB6DE80D /* Pods-GoToShopping.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoToShopping.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoToShopping/Pods-GoToShopping.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,6 +192,7 @@
 			children = (
 				510C196E1F6C51AA00BFCB6E /* MainViewController.swift */,
 				512C28F81F6D1C7D00AD9714 /* ViewController+CollectionViewController.swift */,
+				51C6EEC91F77D51700AFFF1C /* ViewController+MapKit.swift */,
 				5154648C1F6E933200A42E41 /* ShopDetailViewController.swift */,
 				512C28FA1F6D1FC200AD9714 /* ShopCollectionViewCell.swift */,
 			);
@@ -201,6 +208,7 @@
 				510C198F1F6C520700BFCB6E /* Shop.swift */,
 				510C19911F6C521200BFCB6E /* Shops.swift */,
 				511560681F741F91007E5583 /* GoToShopping.xcdatamodeld */,
+				51325B4F1F78D5C50001026D /* MapPin.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -225,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				5129A36F1F6E6DD6001DD298 /* Alerts.swift */,
+				510BA0C31F77184E001FEE37 /* ViewController+Map.swift */,
 				512C28FD1F6D221500AD9714 /* String+Image.swift */,
 				5124A58B1F7658A0009A8958 /* Reachability.swift */,
 			);
@@ -442,6 +451,7 @@
 				51873B2A1F6C74080067D6B3 /* TypeAlias.swift in Sources */,
 				5129A36E1F6E6AF9001DD298 /* JSONParser.swift in Sources */,
 				51A2D4121F759D3800FA4770 /* SetExecutedOnceInteractorProtocol.swift in Sources */,
+				510BA0C41F77184E001FEE37 /* ViewController+Map.swift in Sources */,
 				510C19901F6C520700BFCB6E /* Shop.swift in Sources */,
 				5115606A1F741F91007E5583 /* GoToShopping.xcdatamodeld in Sources */,
 				51A2D4101F759D1600FA4770 /* ExecuteOnceInteractorImplementation.swift in Sources */,
@@ -453,6 +463,7 @@
 				512FB7401F75997200D7A533 /* SaveAllShopsInteractorProtocol.swift in Sources */,
 				51A2D4141F759DAA00FA4770 /* SetExecutedOnceInteractorImplementation.swift in Sources */,
 				5124A58C1F7658A0009A8958 /* Reachability.swift in Sources */,
+				51325B501F78D5C50001026D /* MapPin.swift in Sources */,
 				5115606D1F7420CC007E5583 /* CoreDataSingleton.swift in Sources */,
 				512FB73E1F75993100D7A533 /* SaveAllShopsInteractorImplementation.swift in Sources */,
 				510C196D1F6C51AA00BFCB6E /* AppDelegate.swift in Sources */,
@@ -462,6 +473,7 @@
 				512C28F91F6D1C7D00AD9714 /* ViewController+CollectionViewController.swift in Sources */,
 				5154648D1F6E933200A42E41 /* ShopDetailViewController.swift in Sources */,
 				51873B281F6C739F0067D6B3 /* DownloadAllShopsIteractorProtocol.swift in Sources */,
+				51C6EECA1F77D51700AFFF1C /* ViewController+MapKit.swift in Sources */,
 				51873B2C1F6C74EC0067D6B3 /* DownloadAllShopsIteractorImplementationFake.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -620,6 +632,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J2G4846S8;
 				INFOPLIST_FILE = GoToShopping/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail-alancasasarevalo.GoToShopping";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -639,6 +652,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J2G4846S8;
 				INFOPLIST_FILE = GoToShopping/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gmail-alancasasarevalo.GoToShopping";
 				PRODUCT_NAME = "$(TARGET_NAME)";
