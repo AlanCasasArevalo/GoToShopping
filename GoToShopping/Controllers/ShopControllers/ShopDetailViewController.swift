@@ -45,8 +45,8 @@ class ShopDetailViewController: UIViewController {
     
 }
 
-extension ShopDetailViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+extension UIViewController: MKMapViewDelegate {
+    public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationIdentifier = "AnnotationIdentifier"
         
         guard !(annotation is MKUserLocation) else {

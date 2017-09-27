@@ -9,14 +9,7 @@
 import Foundation
 import CoreData
 
-final class CoreDataStack {
-    static let sharedInstance: CoreDataStackSingleton = {
-        let instance = CoreDataStackSingleton()
-        return instance
-    }()
-}
-
-final class CoreDataStackSingleton {
+public class CoreDataStack {
     
     var createContainerError:NSError?
     var saveContextError: NSError?

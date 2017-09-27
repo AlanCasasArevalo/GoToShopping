@@ -24,7 +24,7 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
         
     let cellID = "CollectionCell"
     var shops:Shops?
-    var core = CoreDataStackSingleton()
+    var core = CoreDataStack()
     var context:NSManagedObjectContext!
     
     override var prefersStatusBarHidden: Bool{
@@ -33,12 +33,8 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        
-//
-//        let local = Locale.current.languageCode as! String
-//        print(local)
 
-        showOnWindow()
+//        showOnWindow()
         
         internetTest()
         ExecuteOnceInteractorImplementation().execute {
@@ -58,7 +54,7 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
                 
                 SetExecutedOnceInteractorImplementation().execute()
 
-                self._fetchedResultsController = nil
+                self._shopFetchedResultsController = nil
                 self.initializeDelegates()
 
             })
@@ -72,27 +68,28 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
         
     }
     
-    var _fetchedResultsController: NSFetchedResultsController<ShopCoreData>? = nil
+    var _shopFetchedResultsController: NSFetchedResultsController<ShopCoreData>? = nil
     
-    var fetchedResultsController: NSFetchedResultsController<ShopCoreData> {
-        if (_fetchedResultsController != nil) {
-            return _fetchedResultsController!
+    var shopFetchedResultsController: NSFetchedResultsController<ShopCoreData> {
+        if (_shopFetchedResultsController != nil) {
+            return _shopFetchedResultsController!
         }
-        let fetchRequest: NSFetchRequest<ShopCoreData> = ShopCoreData.fetchRequest()
-        fetchRequest.fetchBatchSize = 20
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "nameCD", ascending: true)]
-        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context!, sectionNameKeyPath: nil, cacheName: "ShopsCacheFile")
+        let shopFetchRequest: NSFetchRequest<ShopCoreData> = ShopCoreData.fetchRequest()
+        shopFetchRequest.fetchBatchSize = 20
+        shopFetchRequest.sortDescriptors = [NSSortDescriptor(key: "nameCD", ascending: true)]
+        let shopFetchedResultsController = NSFetchedResultsController(fetchRequest: shopFetchRequest, managedObjectContext: self.context!, sectionNameKeyPath: nil, cacheName: "ShopsCacheFile")
 
-        _fetchedResultsController = aFetchedResultsController
+        
+        _shopFetchedResultsController = shopFetchedResultsController
         
         do {
-            try _fetchedResultsController!.performFetch()
+            try _shopFetchedResultsController!.performFetch()
         } catch {
             let nserror = error as NSError
             alertControllerToView(message: "\(nserror)")
         }
 
-        return _fetchedResultsController!
+        return _shopFetchedResultsController!
         
     }
     
@@ -126,10 +123,10 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
         loadingView.variantKey = "inAndOut"
         loadingView.speedFactor = 1.0
         loadingView.sizeFactor = 2.0
-//        loadingView.lifeSpanFactor = 5.0
+        //        loadingView.lifeSpanFactor = 5.0
         loadingView.show(on: view)
     }
-
+    
 
 }
 

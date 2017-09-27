@@ -8,13 +8,10 @@
 
 import UIKit
 import CoreData
-import CoreLocation
 
 class MenuViewController: UIViewController {
     
     var context:NSManagedObjectContext!
-    let locationManager = CLLocationManager()
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +30,11 @@ class MenuViewController: UIViewController {
             let vc = segue.destination as! ShopViewController
             vc.context = self.context
         }
+        if segue.identifier == "goToActivities"{
+            let vc = segue.destination as! ActivityViewController
+            vc.context = self.context
+        }
+        
     }
 
 }

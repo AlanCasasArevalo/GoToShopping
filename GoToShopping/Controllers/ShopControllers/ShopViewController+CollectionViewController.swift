@@ -13,15 +13,17 @@ import SDWebImage
 extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let sectionInfo = fetchedResultsController.sections![section]
+        let sectionInfo = shopFetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ShopCollectionViewCell
-  
-        let shopCoreData = fetchedResultsController.object(at: indexPath)
+        
+//        let shopCoreData = shopFetchedResultsController(context: self.shopContext).object(at: indexPath)
+        
+        let shopCoreData = shopFetchedResultsController.object(at: indexPath)
         
         collectionCell.refresh(shop: mapShopCoreDataIntoShop(shopCoreData: shopCoreData))
         
@@ -34,7 +36,7 @@ extension ShopViewController{
         if segue.identifier == "shopShowDetail"{
             let indexPath = shopCollectionView.indexPathsForSelectedItems![0]            
             let vc = segue.destination as! ShopDetailViewController
-            let shopToDetail = self.fetchedResultsController.object(at: indexPath)
+            let shopToDetail = self.shopFetchedResultsController.object(at: indexPath)
             vc.shopDetail = mapShopCoreDataIntoShop(shopCoreData: shopToDetail)
         }
     }
