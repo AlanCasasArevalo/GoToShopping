@@ -247,9 +247,9 @@
 			isa = PBXGroup;
 			children = (
 				510C196E1F6C51AA00BFCB6E /* ShopViewController.swift */,
-				5154648C1F6E933200A42E41 /* ShopDetailViewController.swift */,
-				512C28FA1F6D1FC200AD9714 /* ShopCollectionViewCell.swift */,
 				512C28F81F6D1C7D00AD9714 /* ShopViewController+CollectionViewController.swift */,
+				512C28FA1F6D1FC200AD9714 /* ShopCollectionViewCell.swift */,
+				5154648C1F6E933200A42E41 /* ShopDetailViewController.swift */,
 				51C6EEC91F77D51700AFFF1C /* ShopViewController+MapKit.swift */,
 			);
 			path = ShopControllers;
@@ -258,10 +258,10 @@
 		5118A4CE1F7BAD1A00FA3D5F /* ActivityControllers */ = {
 			isa = PBXGroup;
 			children = (
-				514FCE071F7BA655005DFB38 /* ActivityCollectionViewCell.swift */,
 				5135C11E1F7A14EA008C8A77 /* ActivityViewController.swift */,
-				5135C1201F7A1502008C8A77 /* ActivityDetailViewController.swift */,
 				5118A4CB1F7BAB9600FA3D5F /* ActivityViewController+CollectionViewController.swift */,
+				514FCE071F7BA655005DFB38 /* ActivityCollectionViewCell.swift */,
+				5135C1201F7A1502008C8A77 /* ActivityDetailViewController.swift */,
 				5118A4CF1F7BAD4D00FA3D5F /* ActivityViewController+MapKit.swift */,
 			);
 			path = ActivityControllers;

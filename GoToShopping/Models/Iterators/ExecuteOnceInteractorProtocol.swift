@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ExecuteOnceInteractorProtocol {
-    func execute(clousure: () -> Void) 
+    func execute(clousure: () -> Void, key: String) 
 }

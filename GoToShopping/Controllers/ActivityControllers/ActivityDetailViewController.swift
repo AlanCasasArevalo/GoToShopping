@@ -33,7 +33,19 @@ class ActivityDetailViewController: UIViewController {
         self.openingDetailLabel.text = activityDetail?.openingHours
         self.addressDetailLabel.text = activityDetail?.address
         self.activityDetail?.image.loadImage(imageView: activityImageView)
-
+        
+        self.detailActivityMap.showsScale = true
+        self.detailActivityMap.showsUserLocation = true
+        self.detailActivityMap.delegate = self
+        
+        centerMapOnLocation(mapView: detailActivityMap, regionRadius: 70)
+        let activityLocation = CLLocationCoordinate2D(latitude:CLLocationDegrees(exactly: (activityDetail?.latitude)!)!, longitude: CLLocationDegrees(exactly: (activityDetail?.longitude)!)!)
+        detailActivityMap.setCenter(activityLocation, animated: true)
+        
+        let activityAnnotation = MapPin(coordinate: activityLocation)
+        activityAnnotation.title = activityDetail?.name
+        activityAnnotation.subtitle = activityDetail?.openingHours
+        detailActivityMap.addAnnotation(activityAnnotation)
     }
 
     override func didReceiveMemoryWarning() {
