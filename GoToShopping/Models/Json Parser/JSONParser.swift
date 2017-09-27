@@ -79,6 +79,70 @@ func parseDataToShop(data: Data) -> Shops {
     return shopsList
 }
 
+func parseDataToActivity(data: Data) -> Activities {
+    
+    let local = Locale.current.languageCode as! String
+    print(local)
+    
+    let activitiesList = Activities()
+    do {
+        
+        let jsonObject = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! Dictionary<String,Any>
+        let result = jsonObject["result"] as! [Dictionary<String,Any>]
+        for activityJSON in result {
+            let activity = Activity(name: activityJSON["name"]! as! String)
+            activity.address = activityJSON["address"]! as! String
+            activity.image = activityJSON["img"] as! String
+            activity.logo = activityJSON["logo_img"] as! String
+            
+            switch local.lowercased() {
+            case "es":
+                activity.descriptionAct = activityJSON ["description_es"] as? String
+                activity.openingHours = (activityJSON["opening_hours_es"] as? String)!
+                
+            case "en":
+                activity.descriptionAct = activityJSON ["description_en"] as? String
+                activity.openingHours = (activityJSON["opening_hours_en"] as? String)!
+                
+            case "ja" :
+                activity.descriptionAct = activityJSON ["description_jp"] as? String
+                activity.openingHours = (activityJSON["opening_hours_jp"] as? String)!
+                
+            case "zh":
+                activity.descriptionAct = activityJSON ["description_cn"] as? String
+                activity.openingHours = (activityJSON["opening_hours_cn"] as? String)!
+                
+            default:
+                activity.descriptionAct = activityJSON ["description_en"] as? String
+                activity.openingHours = (activityJSON["opening_hours_en"] as? String)!
+            }
+            
+            if var latitudeParser = activityJSON["gps_lat"] as? String,
+                let longitude = activityJSON["gps_lon"] as? String{
+                activity.latitude = 40.000
+                
+                var latitude = ""
+                for myCharacter in latitudeParser.characters{
+                    if myCharacter != " "{
+                        latitude.append(myCharacter)
+                    }
+                }
+                activity.latitude = Float(latitude)
+                
+                activity.longitude = Float(longitude)
+            }
+            
+            activity.telephone = activityJSON["telephone"] as! String
+            activity.email = activityJSON["email"] as! String
+            activity.url = activityJSON["url"] as! String
+            
+            activitiesList.addActivity(activity: activity)
+        }
+    }catch  {
+    }
+    return activitiesList
+}
+
 
 
 

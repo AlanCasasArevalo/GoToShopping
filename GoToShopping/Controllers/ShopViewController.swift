@@ -15,6 +15,8 @@ import SDWebImage
 
 class ShopViewController: UIViewController,CLLocationManagerDelegate {
 
+    var loadingView = RSLoadingView()
+
     @IBOutlet weak var shopMapView: MKMapView!
     @IBOutlet weak var shopCollectionView: UICollectionView!
     
@@ -22,7 +24,6 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
         
     let cellID = "CollectionCell"
     var shops:Shops?
-    var shopsDownloadFinished = false
     var core = CoreDataStackSingleton()
     var context:NSManagedObjectContext!
     
@@ -44,7 +45,6 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
             initializeData()
         }
         initializeDelegates()
-        RSLoadingView.hide(from: view)
         
     }
     
@@ -62,6 +62,8 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
                 self.initializeDelegates()
 
             })
+            self.loadingView.hide()
+            self.loadingView.removeFromSuperview()
         }
     }
 
@@ -89,7 +91,9 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
             let nserror = error as NSError
             alertControllerToView(message: "\(nserror)")
         }
+
         return _fetchedResultsController!
+        
     }
     
     func internetTest(){
@@ -112,21 +116,17 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
         self.shopCollectionView.delegate = self
         self.shopCollectionView.dataSource = self
         self.shopCollectionView.reloadData()
-        
-        
-        
-        
     }
     
     func showOnWindow() {
-        let loadingView = RSLoadingView(effectType: RSLoadingView.Effect.twins)
+        loadingView = RSLoadingView(effectType: RSLoadingView.Effect.twins)
         loadingView.mainColor = UIColor(red: 72, green: 176, blue: 226, alpha: 0.8)
         loadingView.shouldTapToDismiss = false
         loadingView.isBlocking = true
         loadingView.variantKey = "inAndOut"
         loadingView.speedFactor = 1.0
         loadingView.sizeFactor = 2.0
-        loadingView.lifeSpanFactor = 1.0
+//        loadingView.lifeSpanFactor = 5.0
         loadingView.show(on: view)
     }
 

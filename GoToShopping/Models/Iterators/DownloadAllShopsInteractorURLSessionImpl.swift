@@ -1,3 +1,4 @@
+
 //
 //  DownloadAllShopsInteractorURLSessionImpl.swift
 //  MadridShops
@@ -7,6 +8,7 @@
 //
 
 import Foundation
+import RSLoadingView
 
 class DownloadAllShopsInteractorURLSessionImpl: DownloadAllShopsIteractorProtocol {
     func execute(onSuccess: @escaping (Shops) -> Void, onError: onErrorClosure) {
@@ -25,6 +27,7 @@ class DownloadAllShopsInteractorURLSessionImpl: DownloadAllShopsIteractorProtoco
                     }else{
                         let shops = parseDataToShop(data: data!)
                         onSuccess(shops)
+                        print("El ultimo pasoooooooooo")
                     }
                 }
             }
