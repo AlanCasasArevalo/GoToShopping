@@ -15,8 +15,6 @@ class ActivityDetailViewController: UIViewController {
     var activityDetail: Activity?
     
     @IBOutlet weak var detailActivityMap: MKMapView!
-    @IBOutlet weak var activityImageView: UIImageView!
-    
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var openingDetailLabel: UILabel!
     @IBOutlet weak var addressDetailLabel: UILabel!
@@ -24,7 +22,6 @@ class ActivityDetailViewController: UIViewController {
     override var prefersStatusBarHidden: Bool{
         return true
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +29,6 @@ class ActivityDetailViewController: UIViewController {
         self.detailDescriptionLabel.text = activityDetail?.descriptionAct
         self.openingDetailLabel.text = activityDetail?.openingHours
         self.addressDetailLabel.text = activityDetail?.address
-        self.activityDetail?.image.loadImage(imageView: activityImageView)
         
         self.detailActivityMap.showsScale = true
         self.detailActivityMap.showsUserLocation = true

@@ -22,8 +22,8 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
     var core = CoreDataStack()
     var context:NSManagedObjectContext!
     
-    var valueForCoreData: String = "Activity Saved"
-    var keyForCoreData: String = "activityOnce"
+    var activityValueForCoreData: String = "Activity Saved"
+    var activityKeyForCoreData: String = "activityOnce"
     
     @IBOutlet weak var activitiesMap: MKMapView!
     
@@ -33,20 +33,15 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
         return true
     }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        showOnWindow()
         
         internetTest()
-
-//        ExecuteOnceInteractorImplementation().execute() {
-//            initializeData()
-//        }
         
         ExecuteOnceInteractorImplementation().execute(clousure: {
             initializeData()
-        }, key: keyForCoreData)
+        }, key: activityKeyForCoreData)
         
         initializeDelegates()
         
@@ -65,7 +60,7 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
             let cacheInteractor = SaveAllActivitiesInteractorImplementation()
             cacheInteractor.execute(activities: activities, context: self.context, onSuccess: { (activities: Activities) in
 
-                SetExecutedOnceInteractorImplementation().execute(value: self.valueForCoreData, key: self.keyForCoreData)
+                SetExecutedOnceInteractorImplementation().execute(value: self.activityValueForCoreData, key: self.activityKeyForCoreData)
                 self._activityFetchedResultsController = nil
                 self.initializeDelegates()
                 
@@ -74,16 +69,6 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
             self.loadingView.removeFromSuperview()
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     var _activityFetchedResultsController: NSFetchedResultsController<ActivityCoreData>? = nil
     
@@ -108,7 +93,6 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
         return _activityFetchedResultsController!
         
     }
-
     
     func initializeDelegates(){
         
@@ -132,7 +116,6 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
         }
     }
 
-
     func showOnWindow() {
         loadingView = RSLoadingView(effectType: RSLoadingView.Effect.twins)
         loadingView.mainColor = UIColor(red: 72, green: 176, blue: 226, alpha: 0.8)
@@ -144,6 +127,5 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
         //        loadingView.lifeSpanFactor = 5.0
         loadingView.show(on: view)
     }
-    
 
 }

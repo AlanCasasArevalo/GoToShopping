@@ -26,8 +26,8 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
     var shops:Shops?
     var core = CoreDataStack()
     var context:NSManagedObjectContext!
-    var valueForCoreData: String = "Shop Saved"
-    var keyForCoreData: String = "shopOnce"
+    var shopValueForCoreData: String = "Shop Saved"
+    var shopKeyForCoreData: String = "shopOnce"
 
     
     override var prefersStatusBarHidden: Bool{
@@ -40,15 +40,14 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
 //        showOnWindow()
         
         internetTest()
-
         
         ExecuteOnceInteractorImplementation().execute(clousure: {
             initializeData()
-        }, key: keyForCoreData)
+        }, key: shopKeyForCoreData)
         
-        
+        initializeDelegates()
+
     }
-    
     
     func initializeData () {
         let downloadShops:DownloadAllShopsIteractorProtocol = DownloadAllShopsInteractorURLSessionImpl()
@@ -57,7 +56,7 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
             let cacheInteractor = SaveAllShopsInteractorImplementation()
             cacheInteractor.execute(shops: shops, context: self.context, onSuccess: { (shops: Shops) in
                 
-                SetExecutedOnceInteractorImplementation().execute(value: self.valueForCoreData, key: self.keyForCoreData)
+                SetExecutedOnceInteractorImplementation().execute(value: self.shopValueForCoreData, key: self.shopKeyForCoreData)
 
                 self._shopFetchedResultsController = nil
                 self.initializeDelegates()
@@ -80,17 +79,11 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
             return _shopFetchedResultsController!
         }
         let shopFetchRequest: NSFetchRequest<ShopCoreData> = ShopCoreData.fetchRequest()
-        
-//        let entity = NSEntityDescription.entity(forEntityName: "ShopCoreData", in: self.context)
-//        let shopCore = ShopCoreData(entity: entity!, insertInto: self.context)
-        
-        
-        
+                
         shopFetchRequest.fetchBatchSize = 20
         shopFetchRequest.sortDescriptors = [NSSortDescriptor(key: "nameCD", ascending: true)]
         let shopFetchedResultsController = NSFetchedResultsController(fetchRequest: shopFetchRequest, managedObjectContext: self.context!, sectionNameKeyPath: nil, cacheName: "ShopsCacheFile")
 
-        
         _shopFetchedResultsController = shopFetchedResultsController
         
         do {
@@ -137,7 +130,6 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
         //        loadingView.lifeSpanFactor = 5.0
         loadingView.show(on: view)
     }
-    
 
 }
 
