@@ -28,7 +28,6 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
     var context:NSManagedObjectContext!
     var shopValueForCoreData: String = "Shop Saved"
     var shopKeyForCoreData: String = "shopOnce"
-
     
     override var prefersStatusBarHidden: Bool{
         return true
@@ -44,7 +43,7 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
         ExecuteOnceInteractorImplementation().execute(clousure: {
             initializeData()
         }, key: shopKeyForCoreData)
-        
+
         initializeDelegates()
 
     }
@@ -55,9 +54,8 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
         downloadShops.execute { (shops:Shops) in
             let cacheInteractor = SaveAllShopsInteractorImplementation()
             cacheInteractor.execute(shops: shops, context: self.context, onSuccess: { (shops: Shops) in
-                
+ 
                 SetExecutedOnceInteractorImplementation().execute(value: self.shopValueForCoreData, key: self.shopKeyForCoreData)
-
                 self._shopFetchedResultsController = nil
                 self.initializeDelegates()
 
@@ -78,8 +76,9 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
         if (_shopFetchedResultsController != nil) {
             return _shopFetchedResultsController!
         }
+
         let shopFetchRequest: NSFetchRequest<ShopCoreData> = ShopCoreData.fetchRequest()
-                
+        
         shopFetchRequest.fetchBatchSize = 20
         shopFetchRequest.sortDescriptors = [NSSortDescriptor(key: "nameCD", ascending: true)]
         let shopFetchedResultsController = NSFetchedResultsController(fetchRequest: shopFetchRequest, managedObjectContext: self.context!, sectionNameKeyPath: nil, cacheName: "ShopsCacheFile")

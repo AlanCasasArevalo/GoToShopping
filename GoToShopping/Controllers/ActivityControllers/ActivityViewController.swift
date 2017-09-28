@@ -21,8 +21,7 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
     let cellID = "activityCell"
     var core = CoreDataStack()
     var context:NSManagedObjectContext!
-    
-    var activityValueForCoreData: String = "Activity Saved"
+    var activityValueForCoreData: String = "ActivitySaved"
     var activityKeyForCoreData: String = "activityOnce"
     
     @IBOutlet weak var activitiesMap: MKMapView!

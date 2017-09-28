@@ -9,7 +9,7 @@
 import Foundation
 
 class SetExecutedOnceInteractorImplementation : SetExecutedOnceInteractorProtocol{
-    func execute(value: String, key: String) {
+    func execute(value:String, key:String) {
         let defaults = UserDefaults.standard
         
         defaults.set(value, forKey: key)
