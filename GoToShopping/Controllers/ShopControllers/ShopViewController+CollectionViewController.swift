@@ -24,10 +24,13 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let shopCoreData = shopFetchedResultsController.object(at: indexPath)
         
         collectionCell.refresh(shop: mapShopCoreDataIntoShop(shopCoreData: shopCoreData))
-        
+
         return collectionCell
     }
+    
 }
+
+
 
 extension ShopViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

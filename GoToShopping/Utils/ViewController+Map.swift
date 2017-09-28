@@ -18,6 +18,15 @@ extension UIViewController{
     }    
 }
 
+extension UIViewController {
+    
+    public func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
+        
+        
+        
+    }
+    
+}
 
 
 

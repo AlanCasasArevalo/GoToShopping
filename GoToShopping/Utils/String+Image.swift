@@ -9,8 +9,6 @@
 import UIKit
 import SDWebImage
 
-
-
 extension String{
     func loadImage(imageView: UIImageView) {
         let queue = OperationQueue()

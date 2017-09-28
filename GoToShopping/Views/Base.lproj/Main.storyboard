@@ -25,6 +25,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="GoToShopping"/>
                                 <connections>
+                                    <action selector="goToShops:" destination="wAW-6R-8CS" eventType="touchUpInside" id="w0z-Bw-w61"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="goToShopping" id="Tea-1A-5cV"/>
                                 </connections>
                             </button>
@@ -33,6 +34,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
+                                    <action selector="goToActivities:" destination="wAW-6R-8CS" eventType="touchUpInside" id="zdR-nj-ccg"/>
                                     <segue destination="aQ7-0A-QKY" kind="show" identifier="goToActivities" id="1a1-B0-y46"/>
                                 </connections>
                             </button>

@@ -15,7 +15,7 @@ import SDWebImage
 
 class ShopViewController: UIViewController,CLLocationManagerDelegate {
 
-    var loadingView = RSLoadingView()
+    var loadingView :RSLoadingView?
 
     @IBOutlet weak var shopMapView: MKMapView!
     @IBOutlet weak var shopCollectionView: UICollectionView!
@@ -28,15 +28,23 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
     var context:NSManagedObjectContext!
     var shopValueForCoreData: String = "Shop Saved"
     var shopKeyForCoreData: String = "shopOnce"
-    
+    var activityView = UIActivityIndicatorView()
+
     override var prefersStatusBarHidden: Bool{
         return true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        showOnWindow()
+        
+        activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityView.color = UIColor.brown
+        
+        let newFrame = CGRect(x: view.center.x, y: view.center.y, width: 60.0, height: 60.0)
+        activityView.frame = newFrame
+        activityView.startAnimating()        
+        
+        view.addSubview(activityView)
         
         internetTest()
         
@@ -60,8 +68,8 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
                 self.initializeDelegates()
 
             })
-            self.loadingView.hide()
-            self.loadingView.removeFromSuperview()
+//            self.loadingView?.hide()
+//            self.loadingView?.removeFromSuperview()
         }
     }
 
@@ -118,18 +126,6 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
         self.shopCollectionView.reloadData()
     }
     
-    func showOnWindow() {
-        loadingView = RSLoadingView(effectType: RSLoadingView.Effect.twins)
-        loadingView.mainColor = UIColor(red: 72, green: 176, blue: 226, alpha: 0.8)
-        loadingView.shouldTapToDismiss = false
-        loadingView.isBlocking = true
-        loadingView.variantKey = "inAndOut"
-        loadingView.speedFactor = 1.0
-        loadingView.sizeFactor = 2.0
-        //        loadingView.lifeSpanFactor = 5.0
-        loadingView.show(on: view)
-    }
-
 }
 
 

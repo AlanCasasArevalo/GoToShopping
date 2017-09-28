@@ -16,7 +16,7 @@ import SDWebImage
 class ActivityViewController: UIViewController,CLLocationManagerDelegate {
 
     var activities:Activities?
-    var loadingView = RSLoadingView()
+    var loadingView : RSLoadingView?
     let locationManager = CLLocationManager()
     let cellID = "activityCell"
     var core = CoreDataStack()
@@ -34,7 +34,6 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        showOnWindow()
         
         internetTest()
         
@@ -64,9 +63,9 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
                 self.initializeDelegates()
                 
             })
-            self.loadingView.hide()
-            self.loadingView.removeFromSuperview()
         }
+//        self.loadingView?.hide()
+//        self.loadingView?.removeFromSuperview()
     }
     
     var _activityFetchedResultsController: NSFetchedResultsController<ActivityCoreData>? = nil
@@ -107,6 +106,7 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
         self.activitiesCollection.delegate = self
         self.activitiesCollection.dataSource = self
         self.activitiesCollection.reloadData()
+        
     }
 
     func internetTest(){
@@ -114,17 +114,4 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
             alertControllerToView(message: "Necesita tener acceso a internet para poder acceder al menos una vez a los datos.")
         }
     }
-
-    func showOnWindow() {
-        loadingView = RSLoadingView(effectType: RSLoadingView.Effect.twins)
-        loadingView.mainColor = UIColor(red: 72, green: 176, blue: 226, alpha: 0.8)
-        loadingView.shouldTapToDismiss = false
-        loadingView.isBlocking = true
-        loadingView.variantKey = "inAndOut"
-        loadingView.speedFactor = 1.0
-        loadingView.sizeFactor = 2.0
-        //        loadingView.lifeSpanFactor = 5.0
-        loadingView.show(on: view)
-    }
-
 }
