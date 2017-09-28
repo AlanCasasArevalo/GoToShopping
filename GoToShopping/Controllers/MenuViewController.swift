@@ -11,6 +11,7 @@ import CoreData
 import RSLoadingView
 
 class MenuViewController: UIViewController {
+    
     var loadingView = RSLoadingView()
     var context:NSManagedObjectContext!
 
@@ -27,12 +28,10 @@ class MenuViewController: UIViewController {
         if segue.identifier == "goToShopping"{
             let vc = segue.destination as! ShopViewController
             vc.context = self.context
-            vc.loadingView = self.loadingView
         }
         if segue.identifier == "goToActivities"{
             let vc = segue.destination as! ActivityViewController
             vc.context = self.context
-            vc.loadingView = self.loadingView
         }
         
     }

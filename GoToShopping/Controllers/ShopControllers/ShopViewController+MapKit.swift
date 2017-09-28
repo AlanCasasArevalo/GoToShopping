@@ -61,6 +61,17 @@ extension ShopViewController{
     }
 }
 
+extension ShopViewController{
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView{
+            print("Boton pulsado de informacion")
+        }
+        
+    }
+    
+    
+}
 
 
 

@@ -15,8 +15,6 @@ import SDWebImage
 
 class ShopViewController: UIViewController,CLLocationManagerDelegate {
 
-    var loadingView :RSLoadingView?
-
     @IBOutlet weak var shopMapView: MKMapView!
     @IBOutlet weak var shopCollectionView: UICollectionView!
     
