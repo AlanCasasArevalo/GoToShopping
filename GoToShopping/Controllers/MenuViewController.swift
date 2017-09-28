@@ -50,11 +50,11 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func goToShops(_ sender: UIButton) {
-        showOnWindow()
+//        showOnWindow()
     }
     
     @IBAction func goToActivities(_ sender: UIButton) {
-        showOnWindow()
+//        showOnWindow()
     }
     
     

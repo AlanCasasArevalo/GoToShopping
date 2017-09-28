@@ -59,7 +59,7 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
             cacheInteractor.execute(activities: activities, context: self.context, onSuccess: { (activities: Activities) in
 
                 SetExecutedOnceInteractorImplementation().execute(value: self.activityValueForCoreData, key: self.activityKeyForCoreData)
-                self._activityFetchedResultsController = nil
+                self._fetchedResultsController = nil
                 self.initializeDelegates()
                 
             })
@@ -68,27 +68,27 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
 //        self.loadingView?.removeFromSuperview()
     }
     
-    var _activityFetchedResultsController: NSFetchedResultsController<ActivityCoreData>? = nil
+    var _fetchedResultsController: NSFetchedResultsController<ActivityCoreData>? = nil
     
-    var activityFetchedResultsController: NSFetchedResultsController<ActivityCoreData> {
-        if (_activityFetchedResultsController != nil) {
-            return _activityFetchedResultsController!
+    var fetchedResultsController: NSFetchedResultsController<ActivityCoreData> {
+        if (_fetchedResultsController != nil) {
+            return _fetchedResultsController!
         }
-        let activityFetchRequest: NSFetchRequest<ActivityCoreData> = ActivityCoreData.fetchRequest()
-        activityFetchRequest.fetchBatchSize = 20
-        activityFetchRequest.sortDescriptors = [NSSortDescriptor(key: "nameCD", ascending: true)]
-        let activityFetchedResultsController = NSFetchedResultsController(fetchRequest: activityFetchRequest, managedObjectContext: self.context!, sectionNameKeyPath: nil, cacheName: "ActivitiesCacheFile")
+        let fetchRequest: NSFetchRequest<ActivityCoreData> = ActivityCoreData.fetchRequest()
+        fetchRequest.fetchBatchSize = 20
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "nameCD", ascending: true)]
+        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context!, sectionNameKeyPath: nil, cacheName: "ActivitiesCacheFile")
         
-        _activityFetchedResultsController = activityFetchedResultsController
+        _fetchedResultsController = aFetchedResultsController
         
         do {
-            try _activityFetchedResultsController!.performFetch()
+            try _fetchedResultsController!.performFetch()
         } catch {
             let nserror = error as NSError
             alertControllerToView(message: "\(nserror)")
         }
         
-        return _activityFetchedResultsController!
+        return _fetchedResultsController!
         
     }
     

@@ -13,7 +13,7 @@ import SDWebImage
 extension ActivityViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let sectionInfo = activityFetchedResultsController.sections![section]
+        let sectionInfo = fetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
     }
     
@@ -21,7 +21,7 @@ extension ActivityViewController: UICollectionViewDelegate, UICollectionViewData
         
         let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ActivityCollectionViewCell
         
-        let activityCoreData = activityFetchedResultsController.object(at: indexPath)
+        let activityCoreData = fetchedResultsController.object(at: indexPath)
         
         collectionCell.refresh(activity: mapActivityCoreDataIntoActivity(activityCoreData: activityCoreData))
         
@@ -34,7 +34,7 @@ extension ActivityViewController{
         if segue.identifier == "activityShowDetail"{
             let indexPath = activitiesCollection.indexPathsForSelectedItems![0]
             let vc = segue.destination as! ActivityDetailViewController
-            let activityToDetail = self.activityFetchedResultsController.object(at: indexPath)
+            let activityToDetail = self.fetchedResultsController.object(at: indexPath)
             vc.activityDetail = mapActivityCoreDataIntoActivity(activityCoreData: activityToDetail)
         }
     }

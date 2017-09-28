@@ -64,7 +64,7 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
             cacheInteractor.execute(shops: shops, context: self.context, onSuccess: { (shops: Shops) in
  
                 SetExecutedOnceInteractorImplementation().execute(value: self.shopValueForCoreData, key: self.shopKeyForCoreData)
-                self._shopFetchedResultsController = nil
+                self._fetchedResultsController = nil
                 self.initializeDelegates()
 
             })
@@ -78,29 +78,29 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
         
     }
     
-    var _shopFetchedResultsController: NSFetchedResultsController<ShopCoreData>? = nil
+    var _fetchedResultsController: NSFetchedResultsController<ShopCoreData>? = nil
     
-    var shopFetchedResultsController: NSFetchedResultsController<ShopCoreData> {
-        if (_shopFetchedResultsController != nil) {
-            return _shopFetchedResultsController!
+    var fetchedResultsController: NSFetchedResultsController<ShopCoreData> {
+        if (_fetchedResultsController != nil) {
+            return _fetchedResultsController!
         }
 
-        let shopFetchRequest: NSFetchRequest<ShopCoreData> = ShopCoreData.fetchRequest()
+        let fetchRequest: NSFetchRequest<ShopCoreData> = ShopCoreData.fetchRequest()
         
-        shopFetchRequest.fetchBatchSize = 20
-        shopFetchRequest.sortDescriptors = [NSSortDescriptor(key: "nameCD", ascending: true)]
-        let shopFetchedResultsController = NSFetchedResultsController(fetchRequest: shopFetchRequest, managedObjectContext: self.context!, sectionNameKeyPath: nil, cacheName: "ShopsCacheFile")
+        fetchRequest.fetchBatchSize = 20
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "nameCD", ascending: true)]
+        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context!, sectionNameKeyPath: nil, cacheName: "ShopsCacheFile")
 
-        _shopFetchedResultsController = shopFetchedResultsController
+        _fetchedResultsController = aFetchedResultsController
         
         do {
-            try _shopFetchedResultsController!.performFetch()
+            try _fetchedResultsController!.performFetch()
         } catch {
             let nserror = error as NSError
             alertControllerToView(message: "\(nserror)")
         }
 
-        return _shopFetchedResultsController!
+        return _fetchedResultsController!
         
     }
     
