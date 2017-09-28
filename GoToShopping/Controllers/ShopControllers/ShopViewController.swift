@@ -29,7 +29,7 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
     var shopValueForCoreData: String = "Shop Saved"
     var shopKeyForCoreData: String = "shopOnce"
     var activityView = UIActivityIndicatorView()
-
+    
     override var prefersStatusBarHidden: Bool{
         return true
     }
@@ -53,7 +53,7 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
         }, key: shopKeyForCoreData)
 
         initializeDelegates()
-
+        
     }
     
     func initializeData () {

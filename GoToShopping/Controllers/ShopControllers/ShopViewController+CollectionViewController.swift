@@ -30,8 +30,6 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
 }
 
-
-
 extension ShopViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "shopShowDetail"{
