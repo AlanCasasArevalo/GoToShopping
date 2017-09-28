@@ -11,7 +11,6 @@ import UIKit
 func parseDataToShop(data: Data) -> Shops {
     
     let local = Locale.current.languageCode as! String
-    print(local)
     
     let shopsList = Shops()
     do {
@@ -65,12 +64,6 @@ func parseDataToShop(data: Data) -> Shops {
             shop.email = shopJSON["email"] as! String
             shop.url = shopJSON["url"] as! String
             
-//            print(shop)
-//            if (shop.longitude != nil && shop.longitude != nil ) {
-//                print(shop.latitude!)
-//                print(shop.longitude!)
-//            }
-            
             
             shopsList.addShop(shop: shop)
         }
@@ -82,7 +75,6 @@ func parseDataToShop(data: Data) -> Shops {
 func parseDataToActivity(data: Data) -> Activities {
     
     let local = Locale.current.languageCode as! String
-    print(local)
     
     let activitiesList = Activities()
     do {
