@@ -1,14 +1,14 @@
 //
-//  SetExecutedOnceInteractorImplementation.swift
+//  SetExecutedOnceActivityInteractorImplementation.swift
 //  GoToShopping
 //
-//  Created by Alan Casas on 22/9/17.
+//  Created by Alan Casas on 28/9/17.
 //  Copyright © 2017 Alan. All rights reserved.
 //
 
 import Foundation
 
-class SetExecutedOnceInteractorImplementation : SetExecutedOnceInteractorProtocol{
+class SetExecutedOnceActivityInteractorImplementation : SetExecutedOnceActivityInteractorProtocol{
     func execute() {
         let defaults = UserDefaults.standard
         

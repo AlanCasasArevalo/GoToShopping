@@ -22,8 +22,8 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
     var core = CoreDataStack()
     var context:NSManagedObjectContext!
     
-    var valueForCoreData: String = "Activity Saved"
-    var keyForCoreData: String = "activityOnce"
+    var activityValueForCoreData: String = "ActivitySaved"
+    var activityKeyForCoreData: String = "activityOnce"
     
     @IBOutlet weak var activitiesMap: MKMapView!
     
@@ -40,13 +40,11 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
         
         internetTest()
 
-//        ExecuteOnceInteractorImplementation().execute() {
-//            initializeData()
-//        }
+//        No Funciona bien el apaño de value key 
         
-        ExecuteOnceInteractorImplementation().execute(clousure: {
+        ExecuteOnceActivityInteractorImplementation().execute(clousure: {
             initializeData()
-        }, key: keyForCoreData)
+        })
         
         initializeDelegates()
         
@@ -65,7 +63,7 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
             let cacheInteractor = SaveAllActivitiesInteractorImplementation()
             cacheInteractor.execute(activities: activities, context: self.context, onSuccess: { (activities: Activities) in
 
-                SetExecutedOnceInteractorImplementation().execute(value: self.valueForCoreData, key: self.keyForCoreData)
+                SetExecutedOnceActivityInteractorImplementation().execute()
                 self._activityFetchedResultsController = nil
                 self.initializeDelegates()
                 

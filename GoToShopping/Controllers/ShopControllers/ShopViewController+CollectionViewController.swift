@@ -20,9 +20,7 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ShopCollectionViewCell
-        
-//        let shopCoreData = shopFetchedResultsController(context: self.shopContext).object(at: indexPath)
-        
+                
         let shopCoreData = shopFetchedResultsController.object(at: indexPath)
         
         collectionCell.refresh(shop: mapShopCoreDataIntoShop(shopCoreData: shopCoreData))
