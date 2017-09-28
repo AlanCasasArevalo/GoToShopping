@@ -13,17 +13,17 @@ import SDWebImage
 extension ActivityViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let sectionInfo = fetchedResultsController.sections![section]
-        return sectionInfo.numberOfObjects
+        let sectionInfo = fetchedResultsController?.sections![section]
+        return sectionInfo!.numberOfObjects
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ActivityCollectionViewCell
         
-        let activityCoreData = fetchedResultsController.object(at: indexPath)
+        let activityCoreData = fetchedResultsController?.object(at: indexPath)
         
-        collectionCell.refresh(activity: mapActivityCoreDataIntoActivity(activityCoreData: activityCoreData))
+        collectionCell.refresh(activity: mapActivityCoreDataIntoActivity(activityCoreData: activityCoreData!))
         
         return collectionCell
     }
@@ -34,8 +34,8 @@ extension ActivityViewController{
         if segue.identifier == "activityShowDetail"{
             let indexPath = activitiesCollection.indexPathsForSelectedItems![0]
             let vc = segue.destination as! ActivityDetailViewController
-            let activityToDetail = self.fetchedResultsController.object(at: indexPath)
-            vc.activityDetail = mapActivityCoreDataIntoActivity(activityCoreData: activityToDetail)
+            let activityToDetail = self.fetchedResultsController?.object(at: indexPath)
+            vc.activityDetail = mapActivityCoreDataIntoActivity(activityCoreData: activityToDetail!)
         }
     }
 }

@@ -10,8 +10,9 @@ import Foundation
 import CoreData
 
 class SaveAllActivitiesInteractorImplementation :SaveAllActivitiesInteractorProtocol  {
-    
+
     func execute(activities: Activities, context: NSManagedObjectContext, onSuccess: (Activities) -> Void, onError: onErrorClosure) {
+        
         for i in 0 ..< activities.count(){
             let activity = activities.getActivity(index: i)
             let _ = mapActivityintoActivityCoreData(context: context, activity: activity!)

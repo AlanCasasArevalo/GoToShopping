@@ -14,7 +14,7 @@ extension ActivityViewController{
     
     func addActivityAnnotationsToMap(){
         var annotationsActivity:[MKAnnotation] = []
-        for activityCD in fetchedResultsController.fetchedObjects! {
+        for activityCD in (fetchedResultsController?.fetchedObjects!)! {
             let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(exactly: activityCD.latitudeCD)!, longitude: CLLocationDegrees(exactly: activityCD.longitudeCD)!)
             
             let annotationPin = MapPin(coordinate: location)

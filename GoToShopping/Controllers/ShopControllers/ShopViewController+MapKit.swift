@@ -14,7 +14,7 @@ extension ShopViewController{
     
     func addShopAnnotationsToMap(){
         var annotationsShop:[MKAnnotation] = []
-        for shopCD in fetchedResultsController.fetchedObjects! {
+        for shopCD in (fetchedResultsController?.fetchedObjects!)! {
             let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(exactly: shopCD.latitudeCD)!, longitude: CLLocationDegrees(exactly: shopCD.longitudeCD)!)
             
             let annotationPin = MapPin(coordinate: location)
@@ -69,7 +69,6 @@ extension ShopViewController{
         }
         
     }
-    
     
 }
 

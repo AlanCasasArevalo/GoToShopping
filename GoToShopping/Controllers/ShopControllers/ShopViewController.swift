@@ -22,11 +22,7 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
         
     let cellID = "CollectionCell"
     var shops:Shops?
-    var core = CoreDataStack()
-    var context:NSManagedObjectContext!
-    var shopValueForCoreData: String = "Shop Saved"
-    var shopKeyForCoreData: String = "shopOnce"
-    var activityView = UIActivityIndicatorView()
+    var fetchedResultsController : NSFetchedResultsController<ShopCoreData>?
     
     override var prefersStatusBarHidden: Bool{
         return true
@@ -35,40 +31,8 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        activityView.color = UIColor.brown
-        
-        let newFrame = CGRect(x: view.center.x, y: view.center.y, width: 60.0, height: 60.0)
-        activityView.frame = newFrame
-        activityView.startAnimating()        
-        
-        view.addSubview(activityView)
-        
-        internetTest()
-        
-        ExecuteOnceInteractorImplementation().execute(clousure: {
-            initializeData()
-        }, key: shopKeyForCoreData)
-
         initializeDelegates()
         
-    }
-    
-    func initializeData () {
-        let downloadShops:DownloadAllShopsIteractorProtocol = DownloadAllShopsInteractorURLSessionImpl()
-        
-        downloadShops.execute { (shops:Shops) in
-            let cacheInteractor = SaveAllShopsInteractorImplementation()
-            cacheInteractor.execute(shops: shops, context: self.context, onSuccess: { (shops: Shops) in
- 
-                SetExecutedOnceInteractorImplementation().execute(value: self.shopValueForCoreData, key: self.shopKeyForCoreData)
-                self._fetchedResultsController = nil
-                self.initializeDelegates()
-
-            })
-//            self.loadingView?.hide()
-//            self.loadingView?.removeFromSuperview()
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,40 +40,7 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
         
     }
     
-    var _fetchedResultsController: NSFetchedResultsController<ShopCoreData>? = nil
-    
-    var fetchedResultsController: NSFetchedResultsController<ShopCoreData> {
-        if (_fetchedResultsController != nil) {
-            return _fetchedResultsController!
-        }
-
-        let fetchRequest: NSFetchRequest<ShopCoreData> = ShopCoreData.fetchRequest()
-        
-        fetchRequest.fetchBatchSize = 20
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "nameCD", ascending: true)]
-        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context!, sectionNameKeyPath: nil, cacheName: "ShopsCacheFile")
-
-        _fetchedResultsController = aFetchedResultsController
-        
-        do {
-            try _fetchedResultsController!.performFetch()
-        } catch {
-            let nserror = error as NSError
-            alertControllerToView(message: "\(nserror)")
-        }
-
-        return _fetchedResultsController!
-        
-    }
-    
-    func internetTest(){
-        if !Reachability.isConnectedToNetwork(){
-            alertControllerToView(message: "Necesita tener acceso a internet para poder acceder al menos una vez a los datos.")
-        }
-    }
-    
     func initializeDelegates(){
-    
         self.centerMapOnLocation(mapView: shopMapView, regionRadius: 1000)
         self.addShopAnnotationsToMap()
         self.shopMapView.delegate = self
@@ -118,7 +49,6 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.delegate = self
         self.shopMapView.reloadInputViews()
-        
         self.shopCollectionView.delegate = self
         self.shopCollectionView.dataSource = self
         self.shopCollectionView.reloadData()
