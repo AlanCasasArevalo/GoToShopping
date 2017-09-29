@@ -11,19 +11,16 @@ import CoreData
 import CoreLocation
 import RSLoadingView
 
-var activityDownloadFinished = false
-var shopDownloadFinished = false
-var activitySaveFinished = false
-var shopSaveFinished = false
-var mapShopImageDownloadFinished = false
-var mapActivityImageDownloadFinished = false
-
 struct imageForButtons {
     
     let shopButtonImage = "shopping"
     let activityButtonImage = "activities"
     
 }
+
+var downloadFinished = false
+var shopsSaved = false
+var activitiesSaved = false
 
 class MenuViewController: UIViewController {
     
@@ -33,14 +30,14 @@ class MenuViewController: UIViewController {
     
     var core = CoreDataStack()
     
-    var shopValueForCoreData: String = "ShopSaved"
-    var shopKeyForCoreData: String = "shopOnce"
-    
-    var activityValueForCoreData: String = "ActivitySaved"
-    var activityKeyForCoreData: String = "activityOnce"
+    var valueForCoreData: String = "Saved"
+    var keyForCoreData: String = "Once"
     
     @IBOutlet weak var shopButton: UIButton!
     @IBOutlet weak var activityButton: UIButton!
+    
+    var shops:Shops?
+    var activities: Activities?
     
     override var prefersStatusBarHidden: Bool{
         return true
@@ -53,16 +50,30 @@ class MenuViewController: UIViewController {
         
         self.locationManager.requestWhenInUseAuthorization()
         
+        setUI()
+        
+        ExecuteOnceInteractorImplementation().execute {
+            
+            REVISAR
+            algo no funciona con la base de datos o algo similar porque entramos aqui todo el tiempo
+            
+            startAnimating()
+            initializeData()
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(donwloadAndSaveCompleted), name: NSNotification.Name(rawValue: "downloadFinished"), object: nil)
+        
+    }
+    
+    func setUI (){
         shopButton.imageView?.image = UIImage(named: imageForButtons.init().shopButtonImage)
         activityButton.imageView?.image = UIImage(named: imageForButtons.init().activityButtonImage)
         
         shopButton.imageView?.contentMode = .scaleAspectFit
         activityButton.imageView?.contentMode = .scaleAspectFit
         
-        initializeAllDownloadFromEthernetOnce()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(donwloadAndSaveCompleted), name: NSNotification.Name(rawValue: "shopDownloadFinished"), object: nil)
-        
+        shopButton.isEnabled = false
+        activityButton.isEnabled = false
     }
     
     func startAnimating(){
@@ -77,10 +88,11 @@ class MenuViewController: UIViewController {
     
     @objc func donwloadAndSaveCompleted(){
 
-        print("El estado de descarga de tiendas y actividades en Menu es  \(shopDownloadFinished) \(activityDownloadFinished) \(activitySaveFinished) \(shopSaveFinished)")
-//        if shopDownloadFinished && activityDownloadFinished && activitySaveFinished && shopSaveFinished{
-        if shopDownloadFinished && activityDownloadFinished  {
-            self.activityIndicator.stopAnimating()
+        print("El estado de descarga de tiendas y actividades en Menu es  \(downloadFinished)")
+
+//        if downloadFinished && shopsSaved && activitiesSaved  {
+        if downloadFinished   {
+                self.activityIndicator.stopAnimating()
             self.activityIndicator.hidesWhenStopped = true
             self.view.backgroundColor = UIColor.white
             self.shopButton.isEnabled = true
@@ -111,48 +123,22 @@ class MenuViewController: UIViewController {
         }
     }
     
-    @objc func initializeAllDownloadFromEthernetOnce(){
+    func initializeData () {
         
-        ExecuteOnceInteractorImplementation().execute(clousure: {
-            initializeShopData()
-        }, key: shopKeyForCoreData)
+        let download:DownloadAllIteractorProtocol = DownloadAllInteractorNSOpImplementation()
         
-        ExecuteOnceInteractorImplementation().execute(clousure: {
-            initializeActivityData()
-        }, key: activityKeyForCoreData)
-        
-    }
-    
-    func initializeShopData () {
-        
-        let downloadShops:DownloadAllShopsIteractorProtocol = DownloadAllShopsInteractorURLSessionImpl()
-        
-        downloadShops.execute { (shops:Shops) in
-            let cacheInteractor = SaveAllShopsInteractorImplementation()
-            cacheInteractor.execute(shops: shops, context: self.context, onSuccess: { (shops: Shops) in
-                
-                SetExecutedOnceInteractorImplementation().execute(value: self.shopValueForCoreData, key: self.shopKeyForCoreData)
-                self._shopFetchedResultsController = nil
-                
-            })
-        }
-    }
-    
-    func initializeActivityData () {
-
-        let downloadActivities:DownloadAllActivitiesInteractorProtocol = DownloadAllActivitiesInteractorWithURLSessionImplementation()
-        
-        downloadActivities.execute { (activities: Activities) in
+        download.execute { (shops, activities) in
             
-            let cacheInteractor = SaveAllActivitiesInteractorImplementation()
-            cacheInteractor.execute(activities: activities, context: self.context, onSuccess: { (activities: Activities) in
+            let cacheInteractor = SaveAllInteractorImplementation()
+            cacheInteractor.execute(shops: shops, activities: activities, context: self.context, onSuccess: { (shops: Shops, activities: Activities) in
                 
-                SetExecutedOnceInteractorImplementation().execute(value: self.activityValueForCoreData, key: self.activityKeyForCoreData)
-                
+                SetExecutedOnceInteractorImplementation().execute()
                 self._activityFetchedResultsController = nil
+                self._shopFetchedResultsController = nil
+
             })
+            
         }
-        startAnimating()
         
     }
     
@@ -178,8 +164,7 @@ class MenuViewController: UIViewController {
             alertControllerToView(message: "\(nserror)")
         }
         
-        shopSaveFinished = true
-        print("El estado de las tiendas guardadas es: \(shopSaveFinished)")
+        shopsSaved = true
         return _shopFetchedResultsController!
         
     }
@@ -204,8 +189,7 @@ class MenuViewController: UIViewController {
             alertControllerToView(message: "\(nserror)")
         }
         
-        activitySaveFinished = true
-        print("El estado de las actividades guardadas es: \(activitySaveFinished)")
+        activitiesSaved = true
         return _activityFetchedResultsController!
         
     }

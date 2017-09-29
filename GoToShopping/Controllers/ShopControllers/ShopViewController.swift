@@ -22,6 +22,7 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
         
     let cellID = "CollectionCell"
     var shops:Shops?
+    
     var fetchedResultsController : NSFetchedResultsController<ShopCoreData>?
     
     override var prefersStatusBarHidden: Bool{

@@ -9,11 +9,10 @@
 import Foundation
 
 class ExecuteOnceInteractorImplementation : ExecuteOnceInteractorProtocol{
-    func execute(clousure: () -> Void, key:String) {
+    func execute( clousure: () -> Void ) {
         let defaults = UserDefaults.standard
         
-        if let _ = defaults.string(forKey: key) {
-
+        if let _ = defaults.string(forKey: "once") {
         }else{
             clousure()
         }
