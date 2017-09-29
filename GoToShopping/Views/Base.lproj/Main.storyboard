@@ -20,33 +20,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpm-tr-7UV">
-                                <rect key="frame" x="137" y="318" width="100" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="GoToShopping"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpm-tr-7UV">
+                                <rect key="frame" x="80" y="144" width="215" height="185.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Zpm-tr-7UV" secondAttribute="height" multiplier="22:19" id="6Cc-vD-Ngv"/>
+                                </constraints>
+                                <state key="normal" image="shopping"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="goToShopping" id="Tea-1A-5cV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gE-tr-WuG">
-                                <rect key="frame" x="164" y="499" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gE-tr-WuG">
+                                <rect key="frame" x="80" y="426" width="215" height="161"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1gE-tr-WuG" secondAttribute="height" multiplier="4:3" id="KWT-6d-f0e"/>
+                                </constraints>
+                                <state key="normal" image="activities"/>
                                 <connections>
                                     <segue destination="aQ7-0A-QKY" kind="show" identifier="goToActivities" id="1a1-B0-y46"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="p8C-A6-bju" firstAttribute="bottom" secondItem="1gE-tr-WuG" secondAttribute="bottom" constant="80" id="7wt-uS-92a"/>
+                            <constraint firstItem="Zpm-tr-7UV" firstAttribute="top" secondItem="p8C-A6-bju" secondAttribute="top" constant="80" id="HpF-Vj-r48"/>
+                            <constraint firstItem="p8C-A6-bju" firstAttribute="trailing" secondItem="1gE-tr-WuG" secondAttribute="trailing" constant="80" id="cJg-1W-IO5"/>
+                            <constraint firstItem="Zpm-tr-7UV" firstAttribute="leading" secondItem="p8C-A6-bju" secondAttribute="leading" constant="80" id="fYr-Rf-6nM"/>
+                            <constraint firstItem="1gE-tr-WuG" firstAttribute="leading" secondItem="p8C-A6-bju" secondAttribute="leading" constant="80" id="hBP-Uc-vMK"/>
+                            <constraint firstItem="p8C-A6-bju" firstAttribute="trailing" secondItem="Zpm-tr-7UV" secondAttribute="trailing" constant="80" id="wRo-Qk-iNl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="p8C-A6-bju"/>
                     </view>
                     <navigationItem key="navigationItem" title="¿Que quieres hacer?" id="hs2-oF-26r">
                         <barButtonItem key="backBarButtonItem" title="    " id="uec-P8-q3d"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="activityButton" destination="1gE-tr-WuG" id="qjo-om-aJf"/>
+                        <outlet property="shopButton" destination="Zpm-tr-7UV" id="hnm-GA-wAU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cnv-ES-ORw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-314" y="541"/>
+            <point key="canvasLocation" x="-314.39999999999998" y="540.17991004497753"/>
         </scene>
         <!--Activity View Controller-->
         <scene sceneID="Awe-HD-MMh">
@@ -423,6 +439,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="activities" width="142" height="89"/>
         <image name="placeHolder" width="71" height="44"/>
+        <image name="shopping" width="480" height="360"/>
     </resources>
 </document>

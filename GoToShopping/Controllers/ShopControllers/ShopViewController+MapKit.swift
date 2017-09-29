@@ -52,7 +52,7 @@ extension ShopViewController{
 
         if let annotationView = annotationView {
             annotationView.canShowCallout = true
-            annotationView.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
+            annotationView.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
             annotationView.image = #imageLiteral(resourceName: "location")
         }
 
@@ -65,7 +65,7 @@ extension ShopViewController{
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView{
-            print("Boton pulsado de informacion")
+//            performSegue(withIdentifier: "moreShopDetail", sender: self)       
         }
         
     }

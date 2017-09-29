@@ -46,7 +46,6 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
         self.shopMapView.delegate = self
         self.shopMapView.showsScale = true
         self.shopMapView.showsUserLocation = true
-        self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.delegate = self
         self.shopMapView.reloadInputViews()
         self.shopCollectionView.delegate = self

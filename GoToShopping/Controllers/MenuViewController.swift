@@ -8,12 +8,26 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 import RSLoadingView
+
+var activityDownloadFinished = false
+var shopDownloadFinished = false
+
+struct imageForButtons {
+    
+    let shopButtonImage = "shopping"
+    let activityButtonImage = "activities"
+    
+}
+
 
 class MenuViewController: UIViewController {
     
     var loadingView = RSLoadingView()
     var context:NSManagedObjectContext!
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    let locationManager = CLLocationManager()
 
     var core = CoreDataStack()
     
@@ -22,7 +36,10 @@ class MenuViewController: UIViewController {
 
     var activityValueForCoreData: String = "ActivitySaved"
     var activityKeyForCoreData: String = "activityOnce"
-
+    
+    @IBOutlet weak var shopButton: UIButton!
+    @IBOutlet weak var activityButton: UIButton!
+    
     override var prefersStatusBarHidden: Bool{
         return true
     }
@@ -30,22 +47,40 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.locationManager.requestWhenInUseAuthorization()
+        
         internetTest()
         
-        showOnWindow()
-
-        ExecuteOnceInteractorImplementation().execute(clousure: {
-            initializeShopData()
-        }, key: shopKeyForCoreData)
+        shopButton.imageView?.image = UIImage(named: imageForButtons.init().shopButtonImage)
+        activityButton.imageView?.image = UIImage(named: imageForButtons.init().activityButtonImage)
         
-        ExecuteOnceInteractorImplementation().execute(clousure: {
-            initializeActivityData()
-        }, key: activityKeyForCoreData)
+        shopButton.imageView?.contentMode = .scaleAspectFit
+        activityButton.imageView?.contentMode = .scaleAspectFit
 
-//        loadingView.hide()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        activityIndicator.startAnimating()
+        activityIndicator.center = CGPoint(x: view.center.x, y: view.center.y)
+        view.backgroundColor = UIColor.darkGray
+        view.addSubview(activityIndicator)
+
+        initializeAllDownloadFromEthernetOnce()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(donwloadAndSaveCompleted), name: NSNotification.Name(rawValue: "shopDownloadFinished"), object: nil)
+
     }
 
+    @objc func donwloadAndSaveCompleted(){
+            print("El estado de descarga de tiendas y actividades en Menu es  \(shopDownloadFinished) \(activityDownloadFinished)")
+            if shopDownloadFinished && activityDownloadFinished{
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.hidesWhenStopped = true
+                self.view.backgroundColor = UIColor.white
+                self.shopButton.isEnabled = true
+                self.activityButton.isEnabled = true
+                UIApplication.shared.endIgnoringInteractionEvents()
+            }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -80,6 +115,17 @@ class MenuViewController: UIViewController {
         }
     }
     
+    @objc func initializeAllDownloadFromEthernetOnce(){
+        ExecuteOnceInteractorImplementation().execute(clousure: {
+            initializeShopData()
+        }, key: shopKeyForCoreData)
+        
+        ExecuteOnceInteractorImplementation().execute(clousure: {
+            initializeActivityData()
+        }, key: activityKeyForCoreData)
+
+    }
+    
     func initializeShopData () {
         let downloadShops:DownloadAllShopsIteractorProtocol = DownloadAllShopsInteractorURLSessionImpl()
         
@@ -107,6 +153,8 @@ class MenuViewController: UIViewController {
                 self._activityFetchedResultsController = nil
             })
         }
+//        loadingView.removeFromSuperview()
+
     }
     
     var _shopFetchedResultsController: NSFetchedResultsController<ShopCoreData>? = nil
@@ -131,6 +179,7 @@ class MenuViewController: UIViewController {
             alertControllerToView(message: "\(nserror)")
         }
         
+        shopDownloadFinished = true
         return _shopFetchedResultsController!
         
     }
@@ -155,6 +204,7 @@ class MenuViewController: UIViewController {
             alertControllerToView(message: "\(nserror)")
         }
         
+        activityDownloadFinished = true
         return _activityFetchedResultsController!
         
     }

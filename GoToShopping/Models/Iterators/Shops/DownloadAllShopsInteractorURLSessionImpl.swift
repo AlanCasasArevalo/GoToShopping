@@ -17,8 +17,7 @@ class DownloadAllShopsInteractorURLSessionImpl: DownloadAllShopsIteractorProtoco
         let session = URLSession.shared
 
         if let url = URL(string: urlStringBackEnd){
-            let task = session.dataTask(with: url) { (data:Data?, response:URLResponse? , error:Error?) in
-                
+            let task = session.dataTask(with: url) { (data:Data?, response:URLResponse? , error:Error?) in                
                 OperationQueue.main.addOperation {
                     if error != nil{
                         if let onError = onError{
@@ -27,7 +26,6 @@ class DownloadAllShopsInteractorURLSessionImpl: DownloadAllShopsIteractorProtoco
                     }else{
                         let shops = parseDataToShop(data: data!)
                         onSuccess(shops)
-                        print("El ultimo pasoooooooooo")
                     }
                 }
             }

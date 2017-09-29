@@ -52,7 +52,7 @@ extension ActivityViewController{
         
         if let annotationView = annotationView {
             annotationView.canShowCallout = true
-            annotationView.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
+            annotationView.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
             annotationView.image = #imageLiteral(resourceName: "location")
         }
         

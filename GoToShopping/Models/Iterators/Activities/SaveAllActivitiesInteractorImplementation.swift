@@ -10,7 +10,8 @@ import Foundation
 import CoreData
 
 class SaveAllActivitiesInteractorImplementation :SaveAllActivitiesInteractorProtocol  {
-
+    
+    
     func execute(activities: Activities, context: NSManagedObjectContext, onSuccess: (Activities) -> Void, onError: onErrorClosure) {
         
         for i in 0 ..< activities.count(){
@@ -20,6 +21,13 @@ class SaveAllActivitiesInteractorImplementation :SaveAllActivitiesInteractorProt
         do {
             try context.save()
             onSuccess(activities)
+            activityDownloadFinished = true
+            
+            let activityChangeNotification = Notification(name: Notification.Name(rawValue: "activityDownloadFinished"), object: self, userInfo: ["activityDownloadCompleted" : activityDownloadFinished])
+
+            NotificationCenter.default.post(activityChangeNotification)
+            
+            print("El estado en descarga de shops es: \(activityDownloadFinished)")
         }catch{
             print("Error")
         }

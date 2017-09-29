@@ -48,10 +48,8 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
         self.activitiesMap.delegate = self
         self.activitiesMap.showsScale = true
         self.activitiesMap.showsUserLocation = true
-        self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.delegate = self
-        self.activitiesMap.reloadInputViews()
-        
+        self.activitiesMap.reloadInputViews()        
         self.activitiesCollection.delegate = self
         self.activitiesCollection.dataSource = self
         self.activitiesCollection.reloadData()
