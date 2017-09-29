@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpm-tr-7UV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpm-tr-7UV">
                                 <rect key="frame" x="80" y="144" width="215" height="185.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Zpm-tr-7UV" secondAttribute="height" multiplier="22:19" id="6Cc-vD-Ngv"/>
@@ -30,7 +30,7 @@
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="goToShopping" id="Tea-1A-5cV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gE-tr-WuG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gE-tr-WuG">
                                 <rect key="frame" x="80" y="426" width="215" height="161"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1gE-tr-WuG" secondAttribute="height" multiplier="4:3" id="KWT-6d-f0e"/>
@@ -174,32 +174,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aNl-df-hRa">
-                                <rect key="frame" x="4" y="68" width="367" height="172"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="aNl-df-hRa" secondAttribute="height" multiplier="326:153" id="utK-HL-mAP"/>
-                                </constraints>
-                            </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FY7-wR-GZF">
-                                <rect key="frame" x="4" y="244" width="367" height="419"/>
+                                <rect key="frame" x="4" y="255" width="367" height="408"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="iTl-Rc-Dv4">
-                                        <rect key="frame" x="0.0" y="0.0" width="367" height="207"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="367" height="201.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Dy1-pb-Zp7">
-                                        <rect key="frame" x="0.0" y="212" width="367" height="207"/>
+                                        <rect key="frame" x="0.0" y="206.5" width="367" height="201.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nSO-8P-yqN">
-                                                <rect key="frame" x="0.0" y="0.0" width="367" height="103.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="367" height="101"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sae-Hy-AXN">
-                                                <rect key="frame" x="0.0" y="103.5" width="367" height="103.5"/>
+                                                <rect key="frame" x="0.0" y="101" width="367" height="100.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -208,23 +202,32 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BxL-Of-jWz">
+                                <rect key="frame" x="4" y="68" width="367" height="172"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BxL-Of-jWz" secondAttribute="height" multiplier="367:172" id="LHt-Wf-MEI"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3NC-x1-EF8" firstAttribute="trailing" secondItem="FY7-wR-GZF" secondAttribute="trailing" constant="4" id="2Jn-n8-jD9"/>
-                            <constraint firstItem="aNl-df-hRa" firstAttribute="top" secondItem="3NC-x1-EF8" secondAttribute="top" constant="4" id="88q-VV-jaI"/>
+                            <constraint firstAttribute="trailing" secondItem="BxL-Of-jWz" secondAttribute="trailing" constant="4" id="M8Q-C6-zGK"/>
+                            <constraint firstItem="BxL-Of-jWz" firstAttribute="top" secondItem="3NC-x1-EF8" secondAttribute="top" constant="4" id="Nat-IG-wds"/>
+                            <constraint firstItem="3NC-x1-EF8" firstAttribute="trailing" secondItem="FY7-wR-GZF" secondAttribute="trailing" constant="4" id="OxM-dC-JtW"/>
                             <constraint firstItem="FY7-wR-GZF" firstAttribute="leading" secondItem="3NC-x1-EF8" secondAttribute="leading" constant="4" id="WPO-82-TFa"/>
-                            <constraint firstItem="aNl-df-hRa" firstAttribute="leading" secondItem="3NC-x1-EF8" secondAttribute="leading" constant="4" id="Z8E-Ny-XyA"/>
+                            <constraint firstItem="BxL-Of-jWz" firstAttribute="leading" secondItem="3NC-x1-EF8" secondAttribute="leading" constant="4" id="XOT-g0-upN"/>
                             <constraint firstItem="3NC-x1-EF8" firstAttribute="bottom" secondItem="FY7-wR-GZF" secondAttribute="bottom" constant="4" id="ZV8-pn-sBc"/>
-                            <constraint firstItem="FY7-wR-GZF" firstAttribute="top" secondItem="aNl-df-hRa" secondAttribute="bottom" constant="4" id="aqu-mV-Czv"/>
-                            <constraint firstItem="3NC-x1-EF8" firstAttribute="trailing" secondItem="aNl-df-hRa" secondAttribute="trailing" constant="4" id="krf-t3-kcf"/>
+                            <constraint firstItem="FY7-wR-GZF" firstAttribute="top" secondItem="BxL-Of-jWz" secondAttribute="bottom" constant="15" id="arZ-Fe-5Sd"/>
+                            <constraint firstItem="FY7-wR-GZF" firstAttribute="leading" secondItem="3NC-x1-EF8" secondAttribute="leading" constant="4" id="nnk-Dc-h1Z"/>
+                            <constraint firstItem="3NC-x1-EF8" firstAttribute="bottom" secondItem="FY7-wR-GZF" secondAttribute="bottom" constant="4" id="qgS-98-Sz3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3NC-x1-EF8"/>
                     </view>
                     <connections>
                         <outlet property="addressDetailLabel" destination="sae-Hy-AXN" id="vnK-Rl-OTi"/>
-                        <outlet property="detailActivityMap" destination="aNl-df-hRa" id="asi-dS-VbI"/>
                         <outlet property="detailDescriptionLabel" destination="iTl-Rc-Dv4" id="X1V-34-SUj"/>
+                        <outlet property="mapDetailImage" destination="BxL-Of-jWz" id="FhX-oV-5id"/>
                         <outlet property="openingDetailLabel" destination="nSO-8P-yqN" id="qcN-hL-JcT"/>
                     </connections>
                 </viewController>
@@ -356,62 +359,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="i37-zh-LmC">
-                                <rect key="frame" x="0.0" y="64" width="375" height="217"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="fQb-ER-zC8">
+                                <rect key="frame" x="8" y="282" width="359" height="377"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uaF-Ge-uZJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="187"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="slX-IM-GVZ">
+                                        <rect key="frame" x="0.0" y="190" width="359" height="187"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="horario de apertura" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uON-tH-fzK">
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="92"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="direccion de la tienda" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="d85-oG-Kng">
+                                                <rect key="frame" x="0.0" y="95" width="359" height="92"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolder" translatesAutoresizingMaskIntoConstraints="NO" id="AEp-dj-O4S">
+                                <rect key="frame" x="8" y="72" width="359" height="202"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="i37-zh-LmC" secondAttribute="height" multiplier="375:217" id="oRA-SV-ano"/>
+                                    <constraint firstAttribute="width" secondItem="AEp-dj-O4S" secondAttribute="height" multiplier="359:202" id="OCO-ya-5GY"/>
                                 </constraints>
-                            </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="direccion de la tienda" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="d85-oG-Kng">
-                                <rect key="frame" x="16" y="572" width="343" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Iys-04-lpN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="horario de apertura" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uON-tH-fzK">
-                                <rect key="frame" x="16" y="502" width="343" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="3os-SR-jBp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uaF-Ge-uZJ">
-                                <rect key="frame" x="16" y="297" width="343" height="185"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="uaF-Ge-uZJ" secondAttribute="height" multiplier="343:185" id="A6c-pu-PA6"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="i37-zh-LmC" firstAttribute="top" secondItem="eNJ-JT-OZ6" secondAttribute="top" id="07V-UY-EHb"/>
-                            <constraint firstItem="uON-tH-fzK" firstAttribute="top" secondItem="uaF-Ge-uZJ" secondAttribute="bottom" constant="20" id="AFk-er-S3t"/>
-                            <constraint firstItem="eNJ-JT-OZ6" firstAttribute="trailing" secondItem="uaF-Ge-uZJ" secondAttribute="trailing" constant="16" id="PhJ-No-yDd"/>
-                            <constraint firstItem="eNJ-JT-OZ6" firstAttribute="trailing" secondItem="d85-oG-Kng" secondAttribute="trailing" constant="16" id="TcY-2i-hIK"/>
-                            <constraint firstItem="uaF-Ge-uZJ" firstAttribute="top" secondItem="i37-zh-LmC" secondAttribute="bottom" constant="16" id="V7H-aY-lBf"/>
-                            <constraint firstItem="uaF-Ge-uZJ" firstAttribute="leading" secondItem="eNJ-JT-OZ6" secondAttribute="leading" constant="16" id="WlP-kV-OHU"/>
-                            <constraint firstItem="i37-zh-LmC" firstAttribute="trailing" secondItem="eNJ-JT-OZ6" secondAttribute="trailing" id="abp-w8-ocT"/>
-                            <constraint firstItem="uON-tH-fzK" firstAttribute="leading" secondItem="eNJ-JT-OZ6" secondAttribute="leading" constant="16" id="fhn-ns-M8Y"/>
-                            <constraint firstItem="d85-oG-Kng" firstAttribute="top" secondItem="uON-tH-fzK" secondAttribute="bottom" constant="20" id="m4Z-Xc-5uv"/>
-                            <constraint firstItem="d85-oG-Kng" firstAttribute="leading" secondItem="eNJ-JT-OZ6" secondAttribute="leading" constant="16" id="mbr-a9-iGQ"/>
-                            <constraint firstItem="i37-zh-LmC" firstAttribute="leading" secondItem="eNJ-JT-OZ6" secondAttribute="leading" id="nDk-yu-uKE"/>
-                            <constraint firstItem="eNJ-JT-OZ6" firstAttribute="trailing" secondItem="uON-tH-fzK" secondAttribute="trailing" constant="16" id="tGU-xM-Ro6"/>
+                            <constraint firstItem="fQb-ER-zC8" firstAttribute="top" secondItem="AEp-dj-O4S" secondAttribute="bottom" constant="8" id="7ag-5o-SpB"/>
+                            <constraint firstItem="eNJ-JT-OZ6" firstAttribute="bottom" secondItem="fQb-ER-zC8" secondAttribute="bottom" constant="8" id="9Zj-Qr-RCQ"/>
+                            <constraint firstItem="eNJ-JT-OZ6" firstAttribute="trailing" secondItem="fQb-ER-zC8" secondAttribute="trailing" constant="8" id="EgJ-ki-n8b"/>
+                            <constraint firstItem="fQb-ER-zC8" firstAttribute="leading" secondItem="eNJ-JT-OZ6" secondAttribute="leading" constant="8" id="G2t-R0-rLf"/>
+                            <constraint firstItem="AEp-dj-O4S" firstAttribute="leading" secondItem="eNJ-JT-OZ6" secondAttribute="leading" constant="8" id="KgZ-Jp-uzl"/>
+                            <constraint firstItem="eNJ-JT-OZ6" firstAttribute="trailing" secondItem="AEp-dj-O4S" secondAttribute="trailing" constant="8" id="eB0-Ql-TF1"/>
+                            <constraint firstItem="AEp-dj-O4S" firstAttribute="top" secondItem="eNJ-JT-OZ6" secondAttribute="top" constant="8" id="fml-tY-JsU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eNJ-JT-OZ6"/>
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="d85-oG-Kng" id="Rdw-VY-9ok"/>
-                        <outlet property="detailMapView" destination="i37-zh-LmC" id="u7i-rx-pMz"/>
                         <outlet property="detailTextView" destination="uaF-Ge-uZJ" id="g54-I9-zx6"/>
+                        <outlet property="mapShopDetailImage" destination="AEp-dj-O4S" id="CCk-A1-TdQ"/>
                         <outlet property="openingHoursLabel" destination="uON-tH-fzK" id="dzp-pv-Az0"/>
                     </connections>
                 </viewController>

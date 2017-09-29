@@ -13,6 +13,8 @@ import RSLoadingView
 
 var activityDownloadFinished = false
 var shopDownloadFinished = false
+var mapShopImageDownloadFinished = false
+var mapActivityImageDownloadFinished = false
 
 struct imageForButtons {
     
@@ -28,12 +30,12 @@ class MenuViewController: UIViewController {
     var context:NSManagedObjectContext!
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     let locationManager = CLLocationManager()
-
+    
     var core = CoreDataStack()
     
     var shopValueForCoreData: String = "ShopSaved"
     var shopKeyForCoreData: String = "shopOnce"
-
+    
     var activityValueForCoreData: String = "ActivitySaved"
     var activityKeyForCoreData: String = "activityOnce"
     
@@ -43,7 +45,7 @@ class MenuViewController: UIViewController {
     override var prefersStatusBarHidden: Bool{
         return true
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,36 +58,40 @@ class MenuViewController: UIViewController {
         
         shopButton.imageView?.contentMode = .scaleAspectFit
         activityButton.imageView?.contentMode = .scaleAspectFit
-
+        
+        initializeAllDownloadFromEthernetOnce()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(donwloadAndSaveCompleted), name: NSNotification.Name(rawValue: "shopDownloadFinished"), object: nil)
+        
+    }
+    
+    func startAnimating(){
+        
         UIApplication.shared.beginIgnoringInteractionEvents()
         activityIndicator.startAnimating()
         activityIndicator.center = CGPoint(x: view.center.x, y: view.center.y)
         view.backgroundColor = UIColor.darkGray
         view.addSubview(activityIndicator)
-
-        initializeAllDownloadFromEthernetOnce()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(donwloadAndSaveCompleted), name: NSNotification.Name(rawValue: "shopDownloadFinished"), object: nil)
-
     }
-
+    
     @objc func donwloadAndSaveCompleted(){
-            print("El estado de descarga de tiendas y actividades en Menu es  \(shopDownloadFinished) \(activityDownloadFinished)")
-            if shopDownloadFinished && activityDownloadFinished{
-                self.activityIndicator.stopAnimating()
-                self.activityIndicator.hidesWhenStopped = true
-                self.view.backgroundColor = UIColor.white
-                self.shopButton.isEnabled = true
-                self.activityButton.isEnabled = true
-                UIApplication.shared.endIgnoringInteractionEvents()
-            }
+        print("El estado de descarga de tiendas y actividades en Menu es  \(shopDownloadFinished) \(activityDownloadFinished)")
+        if shopDownloadFinished && activityDownloadFinished{
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.hidesWhenStopped = true
+            self.view.backgroundColor = UIColor.white
+            self.shopButton.isEnabled = true
+            self.activityButton.isEnabled = true
+            UIApplication.shared.endIgnoringInteractionEvents()
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToShopping"{
             let vc = segue.destination as! ShopViewController
@@ -96,18 +102,6 @@ class MenuViewController: UIViewController {
             vc.fetchedResultsController = self.activityFetchedResultsController
         }
     }
-
-    func showOnWindow() {
-        loadingView = RSLoadingView(effectType: RSLoadingView.Effect.twins)
-        loadingView.mainColor = UIColor(red: 72, green: 176, blue: 226, alpha: 0.8)
-        loadingView.shouldTapToDismiss = false
-        loadingView.isBlocking = true
-        loadingView.variantKey = "inAndOut"
-        loadingView.speedFactor = 1.0
-        loadingView.sizeFactor = 2.0
-        loadingView.lifeSpanFactor = 5.0
-        loadingView.show(on: view)
-    }
     
     func internetTest(){
         if !Reachability.isConnectedToNetwork(){
@@ -116,6 +110,7 @@ class MenuViewController: UIViewController {
     }
     
     @objc func initializeAllDownloadFromEthernetOnce(){
+        
         ExecuteOnceInteractorImplementation().execute(clousure: {
             initializeShopData()
         }, key: shopKeyForCoreData)
@@ -123,7 +118,7 @@ class MenuViewController: UIViewController {
         ExecuteOnceInteractorImplementation().execute(clousure: {
             initializeActivityData()
         }, key: activityKeyForCoreData)
-
+        
     }
     
     func initializeShopData () {
@@ -153,8 +148,9 @@ class MenuViewController: UIViewController {
                 self._activityFetchedResultsController = nil
             })
         }
-//        loadingView.removeFromSuperview()
-
+        
+        startAnimating()
+        
     }
     
     var _shopFetchedResultsController: NSFetchedResultsController<ShopCoreData>? = nil

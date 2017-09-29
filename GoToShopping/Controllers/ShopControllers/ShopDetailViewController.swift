@@ -12,11 +12,17 @@ import CoreLocation
 
 class ShopDetailViewController: UIViewController {
     
-    @IBOutlet weak var detailMapView: MKMapView!
+//    @IBOutlet weak var detailMapView: MKMapView!
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var openingHoursLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var mapShopDetailImage: UIImageView!
     
+    var zoom = "17"
+    var size = "320x220"
+    var format = "PNG"
+    var key = "AIzaSyAqwAB0pI49m4YX9IMzneB0H7uQHIPVS1k"
+
     var shopDetail: Shop?
     
     override var prefersStatusBarHidden: Bool{
@@ -29,52 +35,22 @@ class ShopDetailViewController: UIViewController {
         self.detailTextView.text = shopDetail?.description
         self.openingHoursLabel.text = shopDetail?.openingHours
         self.addressLabel.text = shopDetail?.address
-        self.detailMapView.showsScale = true
-        self.detailMapView.showsUserLocation = true
-        self.detailMapView.delegate = self
-        
-        centerMapOnLocation(mapView: detailMapView, regionRadius: 70)
-        let shopLocation = CLLocationCoordinate2D(latitude:CLLocationDegrees(exactly: (shopDetail?.latitude)!)!, longitude: CLLocationDegrees(exactly: (shopDetail?.longitude)!)!)
-        detailMapView.setCenter(shopLocation, animated: true)
+        let latitude = shopDetail?.latitude ?? 40.4252643
+        let longitude = shopDetail?.longitude ?? -3.6920596
 
-        let shopAnnotation = MapPin(coordinate: shopLocation)
-        shopAnnotation.title = shopDetail?.name
-        shopAnnotation.subtitle = shopDetail?.openingHours
-        detailMapView.addAnnotation(shopAnnotation)
+//        let staticMapUrl: String =  "https://maps.googleapis.com/maps/api/staticmap?center=\(String(latitude)),\(String(longitude))&zoom=\(zoom)&size=\(size)&scale=2&markers=%7Ccolor:0x9C7B14%7C\(String(latitude)),\(String(longitude))"
+
+        
+        let staticMapUrl: String =  "https://maps.googleapis.com/maps/api/staticmap?center=\(String(latitude)),\(String(longitude))&zoom=\(zoom)&size=\(size)&scale=2&markers=%7Ccolor:0x9C7B14%7C40.4252643,-3.6920596"
+        
+        staticMapUrl.loadImage(imageView: mapShopDetailImage)
+
     }
     
 }
 
-extension UIViewController: MKMapViewDelegate {
-    public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let annotationIdentifier = "AnnotationIdentifier"
-        
-        guard !(annotation is MKUserLocation) else {
-            return nil
-        }
-        
-        var annotationView: MKAnnotationView?
-        
-        
-        if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
-            annotationView = dequeuedAnnotationView
-            annotationView?.annotation = annotation
-        }
-        else {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-//            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-        }
-        
-        if let annotationView = annotationView {            
-            annotationView.canShowCallout = true
-            annotationView.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
-            annotationView.image = #imageLiteral(resourceName: "location")
-        }
-        
-        return annotationView
-        
-    }
-}
+
+
 
 
 

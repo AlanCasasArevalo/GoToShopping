@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,12 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var coreDataStack = CoreDataStack()
     var context:NSManagedObjectContext?
+    let apiKeyFromGoogleMaps = "AIzaSyAqwAB0pI49m4YX9IMzneB0H7uQHIPVS1k"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.context = coreDataStack.createContainer(dataBaseName: "GoToShopping").viewContext
         let navVC = self.window?.rootViewController as! UINavigationController
         let mainVC = navVC.topViewController as! MenuViewController
         mainVC.context = self.context
+        GMSServices.provideAPIKey(apiKeyFromGoogleMaps)
         
         return true
     }

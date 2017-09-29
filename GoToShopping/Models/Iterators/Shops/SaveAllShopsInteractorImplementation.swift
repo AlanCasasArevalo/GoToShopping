@@ -18,10 +18,10 @@ class SaveAllShopsInteractorImplementation: SaveAllShopsInteractorProtocol{
         do {
             try context.save()
             onSuccess(shops)
-//            sdfj
+
             print("El estado en descarga de shops es: \(shopDownloadFinished)")
-            shopDownloadFinished = true
             
+            shopDownloadFinished = true
             let shopChangeNotification = Notification(name: Notification.Name(rawValue: "shopDownloadFinished"), object: self, userInfo: ["shopDownloadCompleted" : shopDownloadFinished])
             
             NotificationCenter.default.post(shopChangeNotification)

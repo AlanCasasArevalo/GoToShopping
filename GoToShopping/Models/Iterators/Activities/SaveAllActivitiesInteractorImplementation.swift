@@ -21,8 +21,8 @@ class SaveAllActivitiesInteractorImplementation :SaveAllActivitiesInteractorProt
         do {
             try context.save()
             onSuccess(activities)
+
             activityDownloadFinished = true
-            
             let activityChangeNotification = Notification(name: Notification.Name(rawValue: "activityDownloadFinished"), object: self, userInfo: ["activityDownloadCompleted" : activityDownloadFinished])
 
             NotificationCenter.default.post(activityChangeNotification)

@@ -9,12 +9,18 @@
 import UIKit
 import MapKit
 import CoreLocation
+import GoogleMaps
 
 class ActivityDetailViewController: UIViewController {
     
+    var zoom = "17"
+    var size = "320x220"
+    var format = "PNG"
+    var key = "AIzaSyAqwAB0pI49m4YX9IMzneB0H7uQHIPVS1k"
+    
     var activityDetail: Activity?
     
-    @IBOutlet weak var detailActivityMap: MKMapView!
+    @IBOutlet weak var mapDetailImage: UIImageView!
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var openingDetailLabel: UILabel!
     @IBOutlet weak var addressDetailLabel: UILabel!
@@ -29,19 +35,13 @@ class ActivityDetailViewController: UIViewController {
         self.detailDescriptionLabel.text = activityDetail?.descriptionAct
         self.openingDetailLabel.text = activityDetail?.openingHours
         self.addressDetailLabel.text = activityDetail?.address
+        let latitude = activityDetail?.latitude ?? 40.4252643
+        let longitude = activityDetail?.longitude ?? -3.6920596
         
-        self.detailActivityMap.showsScale = true
-        self.detailActivityMap.showsUserLocation = true
-        self.detailActivityMap.delegate = self
+        let staticMapUrl: String =  "https://maps.googleapis.com/maps/api/staticmap?center=\(String(latitude)),\(String(longitude))&zoom=\(zoom)&size=\(size)&scale=2&markers=%7Ccolor:0x9C7B14%7C40.452048,-3.686463"
+
+        staticMapUrl.loadImage(imageView: mapDetailImage)
         
-        centerMapOnLocation(mapView: detailActivityMap, regionRadius: 70)
-        let activityLocation = CLLocationCoordinate2D(latitude:CLLocationDegrees(exactly: (activityDetail?.latitude)!)!, longitude: CLLocationDegrees(exactly: (activityDetail?.longitude)!)!)
-        detailActivityMap.setCenter(activityLocation, animated: true)
-        
-        let activityAnnotation = MapPin(coordinate: activityLocation)
-        activityAnnotation.title = activityDetail?.name
-        activityAnnotation.subtitle = activityDetail?.openingHours
-        detailActivityMap.addAnnotation(activityAnnotation)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,3 +49,14 @@ class ActivityDetailViewController: UIViewController {
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
