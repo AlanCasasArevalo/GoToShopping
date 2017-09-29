@@ -31,6 +31,12 @@ class ShopDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setUI()
+
+    }
+    
+    func setUI(){
         self.title = shopDetail?.name
         self.detailTextView.text = shopDetail?.description
         self.openingHoursLabel.text = shopDetail?.openingHours
@@ -38,13 +44,11 @@ class ShopDetailViewController: UIViewController {
         let latitude = shopDetail?.latitude ?? 40.4252643
         let longitude = shopDetail?.longitude ?? -3.6920596
 
-//        let staticMapUrl: String =  "https://maps.googleapis.com/maps/api/staticmap?center=\(String(latitude)),\(String(longitude))&zoom=\(zoom)&size=\(size)&scale=2&markers=%7Ccolor:0x9C7B14%7C\(String(latitude)),\(String(longitude))"
+        let staticMapUrl: String =  "https://maps.googleapis.com/maps/api/staticmap?center=\(String(latitude)),\(String(longitude))&zoom=\(zoom)&size=\(size)&scale=2&markers=%7Ccolor:0x9C7B14%7C\(String(latitude)),\(String(longitude))"
 
-        
-        let staticMapUrl: String =  "https://maps.googleapis.com/maps/api/staticmap?center=\(String(latitude)),\(String(longitude))&zoom=\(zoom)&size=\(size)&scale=2&markers=%7Ccolor:0x9C7B14%7C40.4252643,-3.6920596"
+//        let staticMapUrl: String =  "https://maps.googleapis.com/maps/api/staticmap?center=\(String(latitude)),\(String(longitude))&zoom=\(zoom)&size=\(size)&scale=2&markers=%7Ccolor:0x9C7B14%7C40.4252643,-3.6920596"
         
         staticMapUrl.loadImage(imageView: mapShopDetailImage)
-
     }
     
 }

@@ -13,6 +13,8 @@ import RSLoadingView
 
 var activityDownloadFinished = false
 var shopDownloadFinished = false
+var activitySaveFinished = false
+var shopSaveFinished = false
 var mapShopImageDownloadFinished = false
 var mapActivityImageDownloadFinished = false
 
@@ -23,10 +25,8 @@ struct imageForButtons {
     
 }
 
-
 class MenuViewController: UIViewController {
     
-    var loadingView = RSLoadingView()
     var context:NSManagedObjectContext!
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     let locationManager = CLLocationManager()
@@ -49,9 +49,9 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.locationManager.requestWhenInUseAuthorization()
-        
         internetTest()
+        
+        self.locationManager.requestWhenInUseAuthorization()
         
         shopButton.imageView?.image = UIImage(named: imageForButtons.init().shopButtonImage)
         activityButton.imageView?.image = UIImage(named: imageForButtons.init().activityButtonImage)
@@ -76,8 +76,10 @@ class MenuViewController: UIViewController {
     }
     
     @objc func donwloadAndSaveCompleted(){
-        print("El estado de descarga de tiendas y actividades en Menu es  \(shopDownloadFinished) \(activityDownloadFinished)")
-        if shopDownloadFinished && activityDownloadFinished{
+
+        print("El estado de descarga de tiendas y actividades en Menu es  \(shopDownloadFinished) \(activityDownloadFinished) \(activitySaveFinished) \(shopSaveFinished)")
+//        if shopDownloadFinished && activityDownloadFinished && activitySaveFinished && shopSaveFinished{
+        if shopDownloadFinished && activityDownloadFinished  {
             self.activityIndicator.stopAnimating()
             self.activityIndicator.hidesWhenStopped = true
             self.view.backgroundColor = UIColor.white
@@ -122,6 +124,7 @@ class MenuViewController: UIViewController {
     }
     
     func initializeShopData () {
+        
         let downloadShops:DownloadAllShopsIteractorProtocol = DownloadAllShopsInteractorURLSessionImpl()
         
         downloadShops.execute { (shops:Shops) in
@@ -136,6 +139,7 @@ class MenuViewController: UIViewController {
     }
     
     func initializeActivityData () {
+
         let downloadActivities:DownloadAllActivitiesInteractorProtocol = DownloadAllActivitiesInteractorWithURLSessionImplementation()
         
         downloadActivities.execute { (activities: Activities) in
@@ -148,7 +152,6 @@ class MenuViewController: UIViewController {
                 self._activityFetchedResultsController = nil
             })
         }
-        
         startAnimating()
         
     }
@@ -175,7 +178,8 @@ class MenuViewController: UIViewController {
             alertControllerToView(message: "\(nserror)")
         }
         
-        shopDownloadFinished = true
+        shopSaveFinished = true
+        print("El estado de las tiendas guardadas es: \(shopSaveFinished)")
         return _shopFetchedResultsController!
         
     }
@@ -200,7 +204,8 @@ class MenuViewController: UIViewController {
             alertControllerToView(message: "\(nserror)")
         }
         
-        activityDownloadFinished = true
+        activitySaveFinished = true
+        print("El estado de las actividades guardadas es: \(activitySaveFinished)")
         return _activityFetchedResultsController!
         
     }

@@ -31,6 +31,15 @@ class ActivityDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUI()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func setUI(){
+
         self.title = activityDetail?.name
         self.detailDescriptionLabel.text = activityDetail?.descriptionAct
         self.openingDetailLabel.text = activityDetail?.openingHours
@@ -38,14 +47,12 @@ class ActivityDetailViewController: UIViewController {
         let latitude = activityDetail?.latitude ?? 40.4252643
         let longitude = activityDetail?.longitude ?? -3.6920596
         
-        let staticMapUrl: String =  "https://maps.googleapis.com/maps/api/staticmap?center=\(String(latitude)),\(String(longitude))&zoom=\(zoom)&size=\(size)&scale=2&markers=%7Ccolor:0x9C7B14%7C40.452048,-3.686463"
+//        let staticMapUrl: String =  "https://maps.googleapis.com/maps/api/staticmap?center=\(String(latitude)),\(String(longitude))&zoom=\(zoom)&size=\(size)&scale=2&markers=%7Ccolor:0x9C7B14%7C40.452048,-3.686463"
+
+        let staticMapUrl: String =  "https://maps.googleapis.com/maps/api/staticmap?center=\(String(latitude)),\(String(longitude))&zoom=\(zoom)&size=\(size)&scale=2&markers=%7Ccolor:0x9C7B14%7C\(String(latitude)),\(String(longitude))"
 
         staticMapUrl.loadImage(imageView: mapDetailImage)
-        
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
 }

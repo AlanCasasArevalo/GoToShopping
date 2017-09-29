@@ -19,7 +19,7 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     let cellID = "activityCell"
     var fetchedResultsController : NSFetchedResultsController<ActivityCoreData>?
-
+    
     
     @IBOutlet weak var activitiesMap: MKMapView!
     
@@ -55,4 +55,24 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
         self.activitiesCollection.reloadData()
         
     }
+        
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
