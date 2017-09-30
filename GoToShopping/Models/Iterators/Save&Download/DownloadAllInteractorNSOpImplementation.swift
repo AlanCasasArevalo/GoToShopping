@@ -26,6 +26,10 @@ final class DownloadAllInteractorNSOpImplementation : DownloadAllIteractorProtoc
                 
                 OperationQueue.main.addOperation {
                     onSuccess(shopList, activiesList)
+                    downloadFinished = true
+                    let downloadFinishedNotification = Notification(name: Notification.Name(rawValue: "downloadFinished"), object: self, userInfo: ["downloadFinished" : downloadFinished])
+                    NotificationCenter.default.post(downloadFinishedNotification)
+
                 }
             }
         }

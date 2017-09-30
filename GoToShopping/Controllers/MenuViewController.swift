@@ -19,8 +19,10 @@ struct imageForButtons {
 }
 
 var downloadFinished = false
+var saveFinished = false
 var shopsSaved = false
 var activitiesSaved = false
+var weHaveInternet = false
 
 class MenuViewController: UIViewController {
     
@@ -49,20 +51,18 @@ class MenuViewController: UIViewController {
         internetTest()
         
         self.locationManager.requestWhenInUseAuthorization()
-        
-        setUI()
-        
-        ExecuteOnceInteractorImplementation().execute {
-            
-            REVISAR
-            algo no funciona con la base de datos o algo similar porque entramos aqui todo el tiempo
-            
-            startAnimating()
-            initializeData()
+
+        if weHaveInternet {
+            ExecuteOnceInteractorImplementation().execute {
+                startAnimating()
+                initializeData()
+            }
         }
         
+        setUI()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(donwloadAndSaveCompleted), name: NSNotification.Name(rawValue: "saveFinished"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(donwloadAndSaveCompleted), name: NSNotification.Name(rawValue: "downloadFinished"), object: nil)
-        
     }
     
     func setUI (){
@@ -72,8 +72,8 @@ class MenuViewController: UIViewController {
         shopButton.imageView?.contentMode = .scaleAspectFit
         activityButton.imageView?.contentMode = .scaleAspectFit
         
-        shopButton.isEnabled = false
-        activityButton.isEnabled = false
+        shopButton.isEnabled = true
+        activityButton.isEnabled = true
     }
     
     func startAnimating(){
@@ -88,11 +88,12 @@ class MenuViewController: UIViewController {
     
     @objc func donwloadAndSaveCompleted(){
 
-        print("El estado de descarga de tiendas y actividades en Menu es  \(downloadFinished)")
+        print("El estado de descarga de tiendas y actividades en descarga completada es: \(downloadFinished) y de salvado es: \(saveFinished) ")
 
 //        if downloadFinished && shopsSaved && activitiesSaved  {
-        if downloadFinished   {
-                self.activityIndicator.stopAnimating()
+        if downloadFinished && saveFinished  {
+            print("El estado de descarga de tiendas y actividades en descarga completada es: \(downloadFinished) y de salvado es: \(saveFinished) ")
+            self.activityIndicator.stopAnimating()
             self.activityIndicator.hidesWhenStopped = true
             self.view.backgroundColor = UIColor.white
             self.shopButton.isEnabled = true
@@ -100,6 +101,10 @@ class MenuViewController: UIViewController {
             UIApplication.shared.endIgnoringInteractionEvents()
         }
     }
+    
+    
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -120,26 +125,22 @@ class MenuViewController: UIViewController {
     func internetTest(){
         if !Reachability.isConnectedToNetwork(){
             alertControllerToView(message: "Necesita tener acceso a internet para poder acceder al menos una vez a los datos.")
+        }else{
+            weHaveInternet = true
         }
     }
     
     func initializeData () {
-        
         let download:DownloadAllIteractorProtocol = DownloadAllInteractorNSOpImplementation()
-        
-        download.execute { (shops, activities) in
-            
+            download.execute { (shops, activities) in
             let cacheInteractor = SaveAllInteractorImplementation()
             cacheInteractor.execute(shops: shops, activities: activities, context: self.context, onSuccess: { (shops: Shops, activities: Activities) in
                 
                 SetExecutedOnceInteractorImplementation().execute()
                 self._activityFetchedResultsController = nil
                 self._shopFetchedResultsController = nil
-
             })
-            
         }
-        
     }
     
     var _shopFetchedResultsController: NSFetchedResultsController<ShopCoreData>? = nil
@@ -164,7 +165,6 @@ class MenuViewController: UIViewController {
             alertControllerToView(message: "\(nserror)")
         }
         
-        shopsSaved = true
         return _shopFetchedResultsController!
         
     }
@@ -189,7 +189,6 @@ class MenuViewController: UIViewController {
             alertControllerToView(message: "\(nserror)")
         }
         
-        activitiesSaved = true
         return _activityFetchedResultsController!
         
     }

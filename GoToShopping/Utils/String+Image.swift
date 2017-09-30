@@ -17,7 +17,7 @@ extension String{
                 OperationQueue.main.addOperation {
                     imageView.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "placeHolder"), options: [.continueInBackground, .refreshCached, .highPriority, .retryFailed], completed: nil)
                 }
-            }
+            }            
         }
     }
 }

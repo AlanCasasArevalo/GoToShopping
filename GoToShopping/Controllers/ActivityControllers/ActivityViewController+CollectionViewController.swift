@@ -29,16 +29,6 @@ extension ActivityViewController: UICollectionViewDelegate, UICollectionViewData
     }
 }
 
-extension ActivityViewController{
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "activityShowDetail"{
-            let indexPath = activitiesCollection.indexPathsForSelectedItems![0]
-            let vc = segue.destination as! ActivityDetailViewController
-            let activityToDetail = self.fetchedResultsController?.object(at: indexPath)
-            vc.activityDetail = mapActivityCoreDataIntoActivity(activityCoreData: activityToDetail!)
-        }
-    }
-}
 
 
 

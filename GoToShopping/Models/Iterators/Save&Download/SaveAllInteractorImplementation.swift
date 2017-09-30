@@ -23,11 +23,11 @@ class SaveAllInteractorImplementation: SaveAllInteractorProtocol{
  
         do {
             try context.save()
+            onSuccess(shops, activities)
             
-            downloadFinished = true
-            let changeNotification = Notification(name: Notification.Name(rawValue: "downloadFinished"), object: self, userInfo: ["downloadCompleted" : downloadFinished])
-            
-            NotificationCenter.default.post(changeNotification)
+            saveFinished = true
+            let saveFinishedNotification = Notification(name: Notification.Name(rawValue: "saveFinished"), object: self, userInfo: ["saveFinished" : saveFinished])
+            NotificationCenter.default.post(saveFinishedNotification)
 
         } catch  {
             print("Error")

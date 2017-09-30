@@ -30,10 +30,8 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
     }
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
+        super.viewDidLoad()        
         initializeDelegates()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,7 +40,6 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     func initializeDelegates(){
-        
         self.centerMapOnLocation(mapView: activitiesMap, regionRadius: 1000)
         self.addActivityAnnotationsToMap()
         self.activitiesMap.delegate = self
@@ -53,9 +50,18 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
         self.activitiesCollection.delegate = self
         self.activitiesCollection.dataSource = self
         self.activitiesCollection.reloadData()
-        
     }
-        
+}
+
+extension ActivityViewController{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "activityShowDetail"{
+            let indexPath = activitiesCollection.indexPathsForSelectedItems![0]
+            let vc = segue.destination as! ActivityDetailViewController
+            let activityToDetail = self.fetchedResultsController?.object(at: indexPath)
+            vc.activityDetail = mapActivityCoreDataIntoActivity(activityCoreData: activityToDetail!)
+        }
+    }
 }
 
 
