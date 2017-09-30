@@ -59,10 +59,18 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
 extension ShopViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "shopShowDetail"{
-            let indexPath = shopCollectionView.indexPathsForSelectedItems![0]
             let vc = segue.destination as! ShopDetailViewController
-            let shopToDetail = self.fetchedResultsController?.object(at: indexPath)
-            vc.shopDetail = mapShopCoreDataIntoShop(shopCoreData: shopToDetail!)
+
+            if sender is ShopCoreData{
+                let indexPath = shopCollectionView.indexPathsForSelectedItems![0]
+                let shopToDetail = self.fetchedResultsController?.object(at: indexPath)
+                vc.shopDetail = mapShopCoreDataIntoShop(shopCoreData: shopToDetail!)
+            }
+            
+            if sender is MapPin {
+                let shopMapPinDetail = sender as! MapPin
+                vc.shopMapPin = shopMapPinDetail
+            }
         }
     }
 }

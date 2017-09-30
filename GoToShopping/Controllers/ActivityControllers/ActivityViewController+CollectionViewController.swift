@@ -18,17 +18,20 @@ extension ActivityViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ActivityCollectionViewCell
-        
         let activityCoreData = fetchedResultsController?.object(at: indexPath)
-        
         collectionCell.refresh(activity: mapActivityCoreDataIntoActivity(activityCoreData: activityCoreData!))
-        
         return collectionCell
     }
 }
 
+extension ActivityViewController{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let shop: ActivityCoreData = self.fetchedResultsController!.object(at: indexPath)
+        isActivityMapPin = false
+        self.performSegue(withIdentifier: "activityShowDetail", sender: shop)
+    }
+}
 
 
 

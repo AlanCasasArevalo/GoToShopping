@@ -25,6 +25,13 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
+extension ShopViewController{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let shop: ShopCoreData = self.fetchedResultsController!.object(at: indexPath)
+        isShopMapPin = false
+        self.performSegue(withIdentifier: "shopShowDetail", sender: shop)
+    }
+}
 
 
 

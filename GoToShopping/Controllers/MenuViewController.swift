@@ -23,6 +23,8 @@ var saveFinished = false
 var shopsSaved = false
 var activitiesSaved = false
 var weHaveInternet = false
+var isShopMapPin = false
+var isActivityMapPin = false
 
 class MenuViewController: UIViewController {
     
@@ -101,10 +103,6 @@ class MenuViewController: UIViewController {
             UIApplication.shared.endIgnoringInteractionEvents()
         }
     }
-    
-    
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

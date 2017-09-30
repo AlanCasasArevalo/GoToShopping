@@ -20,21 +20,12 @@ extension ShopViewController{
             let annotationPin = MapPin(coordinate: location)
             annotationPin.title = shopCD.nameCD
             annotationPin.subtitle = shopCD.openingHoursCD
+            annotationPin.address = shopCD.addressCD
+            annotationPin.descriptionDetail = shopCD.descriptionCD
             annotationsShop.append(annotationPin)
         }
         
         shopMapView.addAnnotations(annotationsShop)
-    }
-    
-}
-
-extension ShopViewController{
-    
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if control == view.rightCalloutAccessoryView{
-//            performSegue(withIdentifier: "moreShopDetail", sender: self)       
-        }
-        
     }
     
 }

@@ -24,6 +24,8 @@ class ShopDetailViewController: UIViewController {
     var key = "AIzaSyAqwAB0pI49m4YX9IMzneB0H7uQHIPVS1k"
 
     var shopDetail: Shop?
+    var shopMapPin: MapPin?
+    var staticMapUrl: String?
     
     override var prefersStatusBarHidden: Bool{
         return true
@@ -31,12 +33,15 @@ class ShopDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setUI()
-
+        if isShopMapPin {
+            setShopMapUI()
+        }else{
+            setShopUI()
+        }
     }
     
-    func setUI(){
+    func setShopUI(){
+        
         self.title = shopDetail?.name
         self.detailTextView.text = shopDetail?.description
         self.openingHoursLabel.text = shopDetail?.openingHours
@@ -44,11 +49,29 @@ class ShopDetailViewController: UIViewController {
         let latitude = shopDetail?.latitude ?? 40.4252643
         let longitude = shopDetail?.longitude ?? -3.6920596
 
-        let staticMapUrl: String =  "https://maps.googleapis.com/maps/api/staticmap?center=\(String(latitude)),\(String(longitude))&zoom=\(zoom)&size=\(size)&scale=2&markers=%7Ccolor:0x9C7B14%7C\(String(latitude)),\(String(longitude))"
-
-//        let staticMapUrl: String =  "https://maps.googleapis.com/maps/api/staticmap?center=\(String(latitude)),\(String(longitude))&zoom=\(zoom)&size=\(size)&scale=2&markers=%7Ccolor:0x9C7B14%7C40.4252643,-3.6920596"
+        staticMapUrl =  "https://maps.googleapis.com/maps/api/staticmap?center=\(String(latitude)),\(String(longitude))&zoom=\(zoom)&size=\(size)&scale=2&markers=%7Ccolor:0x9C7B14%7C\(String(latitude)),\(String(longitude))"
         
-        staticMapUrl.loadImage(imageView: mapShopDetailImage)
+        staticMapUrl?.loadImage(imageView: mapShopDetailImage)
+    }
+    
+    func setShopMapUI(){
+        self.title = shopMapPin?.title
+        self.detailTextView.text = shopMapPin?.descriptionDetail
+        self.addressLabel.text = shopMapPin?.address
+        self.openingHoursLabel.text = shopMapPin?.openingHours
+        
+        let latitude = shopMapPin?.coordinate.latitude ?? 40.4252643
+        let longitude = shopMapPin?.coordinate.longitude ?? -3.6920596
+        
+        print(latitude)
+        print(longitude)
+
+//        staticMapUrl =  "https://maps.googleapis.com/maps/api/staticmap?center=\(String(latitude)),\(String(longitude))&zoom=\(zoom)&size=\(size)&scale=2"
+        
+        staticMapUrl =  "https://maps.googleapis.com/maps/api/staticmap?center=\(String(latitude)),\(String(longitude))&zoom=\(zoom)&size=\(size)&scale=2&markers=%7Ccolor:0x9C7B14%7C\(String(latitude)),\(String(longitude))"
+        
+        staticMapUrl?.loadImage(imageView: mapShopDetailImage)
+
     }
     
 }

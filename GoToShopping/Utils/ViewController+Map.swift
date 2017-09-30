@@ -35,12 +35,12 @@ extension UIViewController: MKMapViewDelegate {
         }
         else {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-            //            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         
         if let annotationView = annotationView {
             annotationView.canShowCallout = true
-            annotationView.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
+            annotationView.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
             annotationView.image = #imageLiteral(resourceName: "location")
         }
         
@@ -49,7 +49,23 @@ extension UIViewController: MKMapViewDelegate {
     }
 }
 
+extension ShopViewController {
+    public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView{
+            isShopMapPin = true
+            performSegue(withIdentifier: "shopShowDetail", sender: view.annotation as! MapPin)
+        }
+    }
+}
 
+extension ActivityViewController {
+    public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView{
+            isActivityMapPin = true
+            performSegue(withIdentifier: "activityShowDetail", sender: view.annotation as! MapPin)
+        }
+    }
+}
 
 
 
