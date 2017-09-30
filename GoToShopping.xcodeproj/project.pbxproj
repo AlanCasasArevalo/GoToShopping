@@ -86,6 +86,7 @@
 		5115606C1F7420CC007E5583 /* CoreDataSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSingleton.swift; sourceTree = "<group>"; };
 		5118A4CB1F7BAB9600FA3D5F /* ActivityViewController+CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityViewController+CollectionViewController.swift"; sourceTree = "<group>"; };
 		5118A4CF1F7BAD4D00FA3D5F /* ActivityViewController+MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityViewController+MapKit.swift"; sourceTree = "<group>"; };
+		511BA0251F7FC94B00728D89 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5124A58B1F7658A0009A8958 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		5129A36D1F6E6AF9001DD298 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		5129A36F1F6E6DD6001DD298 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
@@ -149,6 +150,7 @@
 		510C19601F6C51AA00BFCB6E = {
 			isa = PBXGroup;
 			children = (
+				511BA0251F7FC94B00728D89 /* README.md */,
 				510BA0B71F76C50C001FEE37 /* Podfile */,
 				510C196B1F6C51AA00BFCB6E /* GoToShopping */,
 				510C19801F6C51AA00BFCB6E /* GoToShoppingTests */,
