@@ -18,10 +18,11 @@ class ActivityCollectionViewCell: UICollectionViewCell {
     func refresh(activity: Activity){
         self.activity = activity
         
-        activityImage.image = #imageLiteral(resourceName: "placeHolder")
         
         if let image = UIImage(data: activity.logo! as Data){
             activityImage.image = image 
+        }else{
+            activityImage.image = #imageLiteral(resourceName: "placeHolder")
         }
         
         self.nameActivitiyLabel.text = activity.name
