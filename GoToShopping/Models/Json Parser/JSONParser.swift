@@ -64,7 +64,6 @@ func parseDataToShop(data: Data) -> Shops {
             shop.email = shopJSON["email"] as! String
             shop.url = shopJSON["url"] as! String
             
-            
             shopsList.addShop(shop: shop)
         }
     }catch  {

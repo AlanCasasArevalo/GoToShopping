@@ -36,6 +36,11 @@ extension UIViewController: MKMapViewDelegate {
         else {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
             annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+            imageView.image = #imageLiteral(resourceName: "bolos")
+            annotationView?.leftCalloutAccessoryView = imageView
+            
         }
         
         if let annotationView = annotationView {

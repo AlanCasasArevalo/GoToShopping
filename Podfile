@@ -5,6 +5,7 @@ use_frameworks!
 def common_pods
 pod 'RSLoadingView'
 pod 'SDWebImage', '~> 4.0'
+pod 'Cache'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
 #pod 'Bubble'
