@@ -18,7 +18,11 @@ class ShopCollectionViewCell: UICollectionViewCell {
     func refresh(shop:Shop){
         self.shop = shop
 
-        shop.logo.loadImage(imageView: self.shopImage)
+        shopImage.image = #imageLiteral(resourceName: "placeHolder")
+        
+        if let image = UIImage(data: shop.logo! as Data){
+            shopImage.image = image
+        }
         self.nameShopLabel.text = shop.name
         self.openingHoursLabel.text = shop.openingHours
     }

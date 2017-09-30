@@ -14,8 +14,14 @@ func mapActivityCoreDataIntoActivity(activityCoreData: ActivityCoreData) -> Acti
     
     let activity = Activity(name: activityCoreData.nameCD ?? "Empty" )
     activity.address = activityCoreData.addressCD ?? ""
-    activity.image = activityCoreData.imageCD ?? ""
-    activity.logo = activityCoreData.logoCD ?? ""
+
+    if let imageData = activityCoreData.imageCD as Data? {
+        activity.image = imageData as NSData
+    }
+    if let logoData = activityCoreData.logoCD as Data? {
+        activity.logo = logoData as NSData
+    }
+
     activity.openingHours = activityCoreData.openingHoursCD ?? ""
     activity.descriptionAct = activityCoreData.descriptionCD ?? ""
     activity.latitude = activityCoreData.latitudeCD
@@ -24,6 +30,7 @@ func mapActivityCoreDataIntoActivity(activityCoreData: ActivityCoreData) -> Acti
     activity.telephone = activityCoreData.telephoneCD ?? ""
     activity.speciaOffer = activityCoreData.specialOfferCD
     activity.url = activityCoreData.urlCD ?? ""
+//    activity.googleMapImage = (activityCoreData.googleMapImageCD! as NSData)
     
     return activity
 }
@@ -33,8 +40,14 @@ func mapActivityintoActivityCoreData(context:NSManagedObjectContext, activity:Ac
     let activityCoreData = ActivityCoreData(context: context)
     activityCoreData.nameCD = activity.name
     activityCoreData.addressCD = activity.address
-    activityCoreData.imageCD = activity.image
-    activityCoreData.logoCD = activity.logo
+    
+    if let imageCD = activity.image as Data? {
+        activityCoreData.imageCD = imageCD
+    }
+    if let logoCD = activity.logo as Data? {
+        activityCoreData.logoCD = logoCD
+    }
+
     activityCoreData.openingHoursCD = activity.openingHours
     activityCoreData.descriptionCD = activity.descriptionAct
     activityCoreData.latitudeCD = activity.latitude ?? 0
@@ -43,6 +56,7 @@ func mapActivityintoActivityCoreData(context:NSManagedObjectContext, activity:Ac
     activityCoreData.telephoneCD = activity.telephone
     activityCoreData.specialOfferCD = activity.speciaOffer
     activityCoreData.urlCD = activity.url
+//    activityCoreData.googleMapImageCD = (activity.googleMapImage! as Data)
     
     return activityCoreData
 }

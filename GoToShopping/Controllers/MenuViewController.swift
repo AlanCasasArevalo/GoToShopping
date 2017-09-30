@@ -61,10 +61,11 @@ class MenuViewController: UIViewController {
             }
         }
         
-        setUI()
 
         NotificationCenter.default.addObserver(self, selector: #selector(donwloadAndSaveCompleted), name: NSNotification.Name(rawValue: "saveFinished"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(donwloadAndSaveCompleted), name: NSNotification.Name(rawValue: "downloadFinished"), object: nil)
+
+        setUI()
     }
     
     func setUI (){
@@ -74,8 +75,6 @@ class MenuViewController: UIViewController {
         shopButton.imageView?.contentMode = .scaleAspectFit
         activityButton.imageView?.contentMode = .scaleAspectFit
         
-        shopButton.isEnabled = true
-        activityButton.isEnabled = true
     }
     
     func startAnimating(){
@@ -83,6 +82,8 @@ class MenuViewController: UIViewController {
         UIApplication.shared.beginIgnoringInteractionEvents()
         activityIndicator.startAnimating()
         activityIndicator.center = CGPoint(x: view.center.x, y: view.center.y)
+        activityButton.isEnabled = false
+        shopButton.isEnabled = false
         view.backgroundColor = UIColor.darkGray
         view.addSubview(activityIndicator)
         

@@ -20,8 +20,16 @@ func parseDataToShop(data: Data) -> Shops {
         for shopJSON in result {
             let shop = Shop(name: shopJSON["name"]! as! String)
             shop.address = shopJSON["address"]! as! String
-            shop.image = shopJSON["img"] as! String
-            shop.logo = shopJSON["logo_img"] as! String
+            
+            if let urlImage = URL(string: shopJSON["img"] as! String),
+                let dataImage = NSData(contentsOf: urlImage){
+                shop.image = dataImage
+            }
+
+            if let urlLogo = URL(string: shopJSON["logo_img"] as! String),
+                let dataLogo = NSData(contentsOf: urlLogo){
+                shop.logo = dataLogo
+            }
 
         switch local.lowercased() {
         case "es":
@@ -84,9 +92,18 @@ func parseDataToActivity(data: Data) -> Activities {
         for activityJSON in result {
             let activity = Activity(name: activityJSON["name"]! as! String)
             activity.address = activityJSON["address"]! as! String
-            activity.image = activityJSON["img"] as! String
-            activity.logo = activityJSON["logo_img"] as! String
             
+            
+            if let urlImage = URL(string: activityJSON["img"] as! String),
+                let dataImage = NSData(contentsOf: urlImage){
+                activity.image = dataImage
+            }
+            
+            if let urlLogo = URL(string: activityJSON["logo_img"] as! String),
+                let dataLogo = NSData(contentsOf: urlLogo){
+                activity.logo = dataLogo
+            }
+
             switch local.lowercased() {
             case "es":
                 activity.descriptionAct = activityJSON ["description_es"] as? String

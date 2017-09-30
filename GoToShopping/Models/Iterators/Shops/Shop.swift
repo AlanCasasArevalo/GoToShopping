@@ -13,15 +13,15 @@ final class Shop {
     var description: String = ""
     var latitude: Float? = 40.4137053
     var longitude: Float? = -3.6682823
-    var image: String = ""
-    var logo: String = ""
+    var image: NSData?
+    var logo: NSData?
     var openingHours: String = ""
     var address: String = ""
     var telephone: String = ""
     var email: String = ""
     var url:String = ""
     var speciaOffer:Bool = false
-    
+    var googleMapImage : NSData?
     
     init(name: String) {
         self.name = name
@@ -30,7 +30,7 @@ final class Shop {
 
 extension Shop{
     var proxy : String{
-        return "\(name) \(image)"
+        return "\(name)"
     }
 }
 
