@@ -46,7 +46,7 @@ class ActivityDetailViewController: UIViewController {
         self.openingDetailLabel.text = activityDetailCoreData.openingHoursCD
         self.addressDetailLabel.text = activityDetailCoreData.addressCD
         
-        if let image = UIImage(data: activityDetailCoreData.googleMapImageCD!){
+        if let image = UIImage(data: activityDetailCoreData.imageCD!){
             self.mapDetailImage.image = image
         }
     }

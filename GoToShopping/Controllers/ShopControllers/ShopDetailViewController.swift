@@ -41,7 +41,7 @@ class ShopDetailViewController: UIViewController {
         self.openingHoursLabel.text = shopDetailCoreData?.openingHoursCD
         self.addressLabel.text = shopDetailCoreData?.addressCD
 
-        if let image = UIImage(data: (shopDetailCoreData?.googleMapImageCD)!){
+        if let image = UIImage(data: (shopDetailCoreData?.imageCD)!){
             self.mapShopDetailImage.image = image
         }
         

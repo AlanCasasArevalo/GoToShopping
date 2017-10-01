@@ -41,7 +41,6 @@ func mapShopintoShopCoreData(context:NSManagedObjectContext, shop:Shop) -> ShopC
     
     shopCoreData.googleMapImageCD = downloadAndCacheImage(urlString: staticMapUrl) as Data
     
-    
     return shopCoreData
 }
 

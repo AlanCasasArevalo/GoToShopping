@@ -63,7 +63,6 @@ class MenuViewController: UIViewController {
                 initializeData()
             }
         }
-        
 
         NotificationCenter.default.addObserver(self, selector: #selector(donwloadAndSaveCompleted), name: NSNotification.Name(rawValue: "saveFinished"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(donwloadAndSaveCompleted), name: NSNotification.Name(rawValue: "downloadFinished"), object: nil)
