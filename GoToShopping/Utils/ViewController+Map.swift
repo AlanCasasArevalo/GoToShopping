@@ -52,8 +52,12 @@ extension UIViewController: MKMapViewDelegate {
 extension ShopViewController {
     public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView{
+            
+            let shopPinDetail = view.annotation as! MapPin
+        
             isShopMapPin = true
-            performSegue(withIdentifier: "shopShowDetail", sender: view.annotation as! MapPin)
+            performSegue(withIdentifier: "shopShowDetail", sender: shopPinDetail)
+            
         }
     }
 }
@@ -61,6 +65,11 @@ extension ShopViewController {
 extension ActivityViewController {
     public func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView{
+            
+            //            if let shopPinDetail = view.annotation as MapPin{
+            //                vc.shopMapPin = shopPinDetail
+            //            }
+            
             isActivityMapPin = true
             performSegue(withIdentifier: "activityShowDetail", sender: view.annotation as! MapPin)
         }

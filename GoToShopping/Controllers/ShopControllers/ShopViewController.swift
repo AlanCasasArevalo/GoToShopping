@@ -19,10 +19,7 @@ class ShopViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var shopCollectionView: UICollectionView!
     
     let locationManager = CLLocationManager()
-        
     let cellID = "CollectionCell"
-    var shops:Shops?
-    
     var fetchedResultsController : NSFetchedResultsController<ShopCoreData>?
     
     override var prefersStatusBarHidden: Bool{
@@ -63,8 +60,8 @@ extension ShopViewController{
 
             if sender is ShopCoreData{
                 let indexPath = shopCollectionView.indexPathsForSelectedItems![0]
-                let shopToDetail = self.fetchedResultsController?.object(at: indexPath)
-                vc.shopDetail = mapShopCoreDataIntoShop(shopCoreData: shopToDetail!)
+                let shopToDetailCoreData = self.fetchedResultsController?.object(at: indexPath)
+                vc.shopDetailCoreData = shopToDetailCoreData!
             }
             
             if sender is MapPin {
@@ -74,6 +71,29 @@ extension ShopViewController{
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

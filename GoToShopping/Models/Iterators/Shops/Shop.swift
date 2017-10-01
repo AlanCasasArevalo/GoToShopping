@@ -13,15 +13,11 @@ final class Shop {
     var description: String = ""
     var latitude: Float? = 40.4137053
     var longitude: Float? = -3.6682823
-    var image: NSData?
-    var logo: NSData?
+    var image: String?
+    var logo: String?
     var openingHours: String = ""
     var address: String = ""
-    var telephone: String = ""
-    var email: String = ""
-    var url:String = ""
-    var speciaOffer:Bool = false
-    var googleMapImage : NSData?
+    var googleMapImage : String?
     
     init(name: String) {
         self.name = name

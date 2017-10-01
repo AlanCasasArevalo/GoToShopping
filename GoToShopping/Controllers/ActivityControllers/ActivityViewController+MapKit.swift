@@ -19,6 +19,7 @@ extension ActivityViewController{
             
             let annotationPin = MapPin(coordinate: location)
             annotationPin.title = activityCD.nameCD
+            annotationPin.subtitle = activityCD.openingHoursCD
             annotationPin.descriptionDetail = activityCD.descriptionCD
             annotationPin.address = activityCD.addressCD
             annotationPin.openingHours = activityCD.openingHoursCD
@@ -27,6 +28,56 @@ extension ActivityViewController{
         activitiesMap.addAnnotations(annotationsActivity)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,21 +13,48 @@ class ShopCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameShopLabel: UILabel!
     @IBOutlet weak var openingHoursLabel: UILabel!
     @IBOutlet weak var shopImage: UIImageView!
-    var shop:Shop?
+    var shop:ShopCoreData!
     
-    func refresh(shop:Shop){
+    func refresh(shop:ShopCoreData){
         self.shop = shop
-
         
-        
-        if let image = UIImageView().image {
+        if let image = UIImage(data: shop.logoCD! as Data){
             shopImage.image = image
-        }else{
-            shopImage.image = #imageLiteral(resourceName: "placeHolder")
         }
         
-        self.nameShopLabel.text = shop.name
-        self.openingHoursLabel.text = shop.openingHours
+        self.nameShopLabel.text = shop.nameCD
+        self.openingHoursLabel.text = shop.openingHoursCD
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

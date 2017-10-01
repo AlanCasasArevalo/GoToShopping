@@ -12,7 +12,7 @@ import SDWebImage
 
 func parseDataToShop(data: Data) -> Shops {
     
-    let local = Locale.current.languageCode as! String
+    let local = (Locale.current.languageCode as! String)
     
     let shopsList = Shops()
     do {
@@ -22,74 +22,8 @@ func parseDataToShop(data: Data) -> Shops {
         for shopJSON in result {
             let shop = Shop(name: shopJSON["name"]! as! String)
             shop.address = shopJSON["address"]! as! String
-            
-            
-            if let urlString = (shopJSON["img"] as! String).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed),
-                let url = URL(string:urlString),
-                let dataImage = NSData(contentsOf: url),
-                let shopImage = UIImage(data:dataImage as Data ){
-                let imageCache = SDImageCache()
-                imageCache.store(shopImage, forKey: shop.name, completion: nil)
-                let donwloader = SDWebImageDownloader()
-                let manager = SDWebImageManager(cache: imageCache, downloader: donwloader)
-                
-                manager.saveImage(toCache: shopImage, for: url)
-                
-                
-                
-            }
-            
-            
-            
-            
-//            let imageCache = SDImageCache()
-//            imageCache.store(<#T##image: UIImage?##UIImage?#>, forKey: <#T##String?#>, completion: <#T##SDWebImageNoParamsBlock?##SDWebImageNoParamsBlock?##() -> Void#>)
-//
-//            let donwloader = SDWebImageDownloader()
-//
-//            let manager = SDWebImageManager(cache: imageCache, downloader: donwloader)
-//
-//            if let urlShopImage = URL(string: (shopJSON["img"] as! String).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!){
-//                imageView.sd_setImage(with: urlShopImage, placeholderImage: #imageLiteral(resourceName: "placeHolder"), options: [], completed: { (imageCached, error, imageCacheStyle, url) in
-//                    if let data = UIImagePNGRepresentation(imageCached!) as NSData?{
-//                        shop.image = data
-//                    }
-//                })
-//            }
-            //
-            //            if let urlString = (shopJSON["img"] as! String).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed),
-            //                let url = URL(string:urlString),
-            //                let dataImage = NSData(contentsOf: url){
-            //                shop.image = dataImage
-            //            }
-            
-//            if let urlShopLogo = URL(string: (shopJSON["logo_img"] as! String).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!){
-//                imageView.sd_setImage(with: urlShopLogo, placeholderImage: #imageLiteral(resourceName: "placeHolder"), options: [], completed: { (imageCached, error, imageCacheStyle, url) in
-//                    if let data = UIImagePNGRepresentation(imageCached!) as NSData?{
-//                        shop.logo = data
-//                    }
-//                })
-//            }
-            
-            
-            //            if let urlString = (shopJSON["logo_img"] as! String).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed),
-            //                let url = URL(string:urlString),
-            //                let dataImage = NSData(contentsOf: url){
-            //                shop.logo = dataImage
-            //            }
-            
-            if let urlString = (shopJSON["logo_img"] as! String).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed),
-                let url = URL(string:urlString),
-                let dataImage = NSData(contentsOf: url),
-                let shopImage = UIImage(data:dataImage as Data ){
-                let imageCache = SDImageCache()
-                imageCache.store(shopImage, forKey: shop.name, completion: nil)
-                let donwloader = SDWebImageDownloader()
-                let manager = SDWebImageManager(cache: imageCache, downloader: donwloader)
-            }
-
-            
-            
+            shop.image = (shopJSON["img"]! as! String)
+            shop.logo = (shopJSON["logo_img"]! as! String)
             
             switch local.lowercased() {
             case "es":
@@ -127,12 +61,6 @@ func parseDataToShop(data: Data) -> Shops {
                 
                 shop.longitude = Float(longitude)
             }
-            
-            shop.telephone = shopJSON["telephone"] as! String
-            shop.email = shopJSON["email"] as! String
-            shop.url = shopJSON["url"] as! String
-            
-            
             shopsList.addShop(shop: shop)
         }
     }catch  {
@@ -142,7 +70,7 @@ func parseDataToShop(data: Data) -> Shops {
 
 func parseDataToActivity(data: Data) -> Activities {
     
-    let local = Locale.current.languageCode as! String
+    let local = (Locale.current.languageCode) as! String
     
     let activitiesList = Activities()
     do {
@@ -152,33 +80,8 @@ func parseDataToActivity(data: Data) -> Activities {
         for activityJSON in result {
             let activity = Activity(name: activityJSON["name"]! as! String)
             activity.address = activityJSON["address"]! as! String
-            
-            
-            //
-            //            if let urlImage = URL(string: activityJSON["img"] as! String),
-            //                let dataImage = NSData(contentsOf: urlImage){
-            //                activity.image = dataImage
-            //            }
-            //
-            //
-            //            if let urlLogo = URL(string: activityJSON["logo_img"] as! String),
-            //                let dataLogo = NSData(contentsOf: urlLogo){
-            //                activity.logo = dataLogo
-            //            }
-            //
-            
-            if let urlString = (activityJSON["img"] as! String).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed),
-                let url = URL(string:urlString),
-                let dataImage = NSData(contentsOf: url){
-                activity.image = dataImage
-            }
-            
-            
-            if let urlString = (activityJSON["logo_img"] as! String).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed),
-                let url = URL(string:urlString),
-                let dataImage = NSData(contentsOf: url){
-                activity.logo = dataImage
-            }
+            activity.image = (activityJSON["img"]! as! String)
+            activity.logo = (activityJSON["logo_img"]! as! String)
             
             switch local.lowercased() {
             case "es":
@@ -216,10 +119,6 @@ func parseDataToActivity(data: Data) -> Activities {
                 
                 activity.longitude = Float(longitude)
             }
-            
-            activity.telephone = activityJSON["telephone"] as! String
-            activity.email = activityJSON["email"] as! String
-            activity.url = activityJSON["url"] as! String
             
             activitiesList.addActivity(activity: activity)
         }

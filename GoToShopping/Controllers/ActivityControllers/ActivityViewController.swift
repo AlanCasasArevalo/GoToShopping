@@ -15,16 +15,13 @@ import SDWebImage
 
 class ActivityViewController: UIViewController,CLLocationManagerDelegate {
 
-    var activities:Activities?
+    @IBOutlet weak var activitiesMap: MKMapView!
+    @IBOutlet weak var activitiesCollection: UICollectionView!
+
     let locationManager = CLLocationManager()
     let cellID = "activityCell"
     var fetchedResultsController : NSFetchedResultsController<ActivityCoreData>?
-    
-    
-    @IBOutlet weak var activitiesMap: MKMapView!
-    
-    @IBOutlet weak var activitiesCollection: UICollectionView!
-    
+
     override var prefersStatusBarHidden: Bool{
         return true
     }
@@ -55,17 +52,14 @@ class ActivityViewController: UIViewController,CLLocationManagerDelegate {
 
 extension ActivityViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
         if segue.identifier == "activityShowDetail"{
             let vc = segue.destination as! ActivityDetailViewController
             
             if sender is ActivityCoreData{
                 let indexPath = activitiesCollection.indexPathsForSelectedItems![0]
                 let activityToDetail = self.fetchedResultsController?.object(at: indexPath)
-                vc.activityDetail = mapActivityCoreDataIntoActivity(activityCoreData: activityToDetail!)
+                vc.activityDetailCoreData = activityToDetail!
             }
-            
             if sender is MapPin {
                 let activityMapPinDetail = sender as! MapPin
                 vc.activityMapPin = activityMapPinDetail                
@@ -73,6 +67,29 @@ extension ActivityViewController{
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

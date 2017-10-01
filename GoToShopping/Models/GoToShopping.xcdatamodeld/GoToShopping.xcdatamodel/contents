@@ -3,35 +3,31 @@
     <entity name="ActivityCoreData" representedClassName="ActivityCoreData" syncable="YES" codeGenerationType="class">
         <attribute name="addressCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="descriptionCD" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="emailCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="googleMapImageCD" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="imageCD" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="imageURLCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitudeCD" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="logoCD" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="logoURLCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitudeCD" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nameCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="openingHoursCD" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="specialOfferCD" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="telephoneCD" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="urlCD" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="ShopCoreData" representedClassName="ShopCoreData" syncable="YES" codeGenerationType="class">
         <attribute name="addressCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="descriptionCD" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="emailCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="googleMapImageCD" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="imageCD" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="imageURLCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitudeCD" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="logoCD" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="logoURLCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitudeCD" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nameCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="openingHoursCD" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="specialOfferCD" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="telephoneCD" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="urlCD" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ActivityCoreData" positionX="-63" positionY="72" width="128" height="240"/>
-        <element name="ShopCoreData" positionX="-63" positionY="-18" width="128" height="240"/>
+        <element name="ActivityCoreData" positionX="-63" positionY="72" width="128" height="210"/>
+        <element name="ShopCoreData" positionX="-63" positionY="-18" width="128" height="210"/>
     </elements>
 </model>

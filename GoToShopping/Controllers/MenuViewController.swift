@@ -49,7 +49,10 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        activityButton.isEnabled = true
+        shopButton.isEnabled = true
+
         internetTest()
         
         self.locationManager.requestWhenInUseAuthorization()
@@ -74,7 +77,6 @@ class MenuViewController: UIViewController {
         
         shopButton.imageView?.contentMode = .scaleAspectFit
         activityButton.imageView?.contentMode = .scaleAspectFit
-        
     }
     
     func startAnimating(){
@@ -138,6 +140,7 @@ class MenuViewController: UIViewController {
                 SetExecutedOnceInteractorImplementation().execute()
                 self._activityFetchedResultsController = nil
                 self._shopFetchedResultsController = nil
+            
             })
         }
     }

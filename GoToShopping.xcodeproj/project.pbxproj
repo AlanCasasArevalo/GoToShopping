@@ -23,6 +23,7 @@
 		5118A4CC1F7BAB9600FA3D5F /* ActivityViewController+CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118A4CB1F7BAB9600FA3D5F /* ActivityViewController+CollectionViewController.swift */; };
 		5118A4D01F7BAD4D00FA3D5F /* ActivityViewController+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5118A4CF1F7BAD4D00FA3D5F /* ActivityViewController+MapKit.swift */; };
 		5124A58C1F7658A0009A8958 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5124A58B1F7658A0009A8958 /* Reachability.swift */; };
+		512998211F80DD7000E4BF91 /* String+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512998201F80DD7000E4BF91 /* String+Data.swift */; };
 		5129A36E1F6E6AF9001DD298 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5129A36D1F6E6AF9001DD298 /* JSONParser.swift */; };
 		5129A3701F6E6DD6001DD298 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5129A36F1F6E6DD6001DD298 /* Alerts.swift */; };
 		512C28F91F6D1C7D00AD9714 /* ShopViewController+CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C28F81F6D1C7D00AD9714 /* ShopViewController+CollectionViewController.swift */; };
@@ -88,6 +89,7 @@
 		5118A4CF1F7BAD4D00FA3D5F /* ActivityViewController+MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityViewController+MapKit.swift"; sourceTree = "<group>"; };
 		511BA0251F7FC94B00728D89 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5124A58B1F7658A0009A8958 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		512998201F80DD7000E4BF91 /* String+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Data.swift"; sourceTree = "<group>"; };
 		5129A36D1F6E6AF9001DD298 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		5129A36F1F6E6DD6001DD298 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		512C28F81F6D1C7D00AD9714 /* ShopViewController+CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShopViewController+CollectionViewController.swift"; sourceTree = "<group>"; };
@@ -216,6 +218,8 @@
 		510C198E1F6C51F200BFCB6E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				514FCE061F7BA4DE005DFB38 /* Activities */,
+				514FCE051F7BA490005DFB38 /* Shops */,
 				5167A5FE1F759061001200F0 /* Mappers */,
 				5129A36C1F6E6ADC001DD298 /* Json Parser */,
 				51873B261F6C737C0067D6B3 /* Iterators */,
@@ -272,6 +276,7 @@
 				510BA0C31F77184E001FEE37 /* ViewController+Map.swift */,
 				512C28FD1F6D221500AD9714 /* String+Image.swift */,
 				5124A58B1F7658A0009A8958 /* Reachability.swift */,
+				512998201F80DD7000E4BF91 /* String+Data.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -282,7 +287,8 @@
 				510C198F1F6C520700BFCB6E /* Shop.swift */,
 				510C19911F6C521200BFCB6E /* Shops.swift */,
 			);
-			path = Shops;
+			name = Shops;
+			path = Iterators/Shops;
 			sourceTree = "<group>";
 		};
 		514FCE061F7BA4DE005DFB38 /* Activities */ = {
@@ -291,7 +297,8 @@
 				5135C1221F7A162D008C8A77 /* Activity.swift */,
 				5135C1241F7A1735008C8A77 /* Activities.swift */,
 			);
-			path = Activities;
+			name = Activities;
+			path = Iterators/Activities;
 			sourceTree = "<group>";
 		};
 		5167A5FE1F759061001200F0 /* Mappers */ = {
@@ -312,8 +319,6 @@
 				51A2D4131F759DAA00FA4770 /* SetExecutedOnceInteractorImplementation.swift */,
 				51A2D40D1F759CE300FA4770 /* ExecuteOnceInteractorProtocol.swift */,
 				51A2D40F1F759D1600FA4770 /* ExecuteOnceInteractorImplementation.swift */,
-				514FCE051F7BA490005DFB38 /* Shops */,
-				514FCE061F7BA4DE005DFB38 /* Activities */,
 			);
 			path = Iterators;
 			sourceTree = "<group>";
@@ -532,6 +537,7 @@
 				512C28FE1F6D221500AD9714 /* String+Image.swift in Sources */,
 				5135C11F1F7A14EA008C8A77 /* ActivityViewController.swift in Sources */,
 				51CD3BB71F7EDD3300E3C592 /* DownloadAllInteractorNSOpImplementation.swift in Sources */,
+				512998211F80DD7000E4BF91 /* String+Data.swift in Sources */,
 				51A2D4141F759DAA00FA4770 /* SetExecutedOnceInteractorImplementation.swift in Sources */,
 				5124A58C1F7658A0009A8958 /* Reachability.swift in Sources */,
 				51325B501F78D5C50001026D /* MapPin.swift in Sources */,

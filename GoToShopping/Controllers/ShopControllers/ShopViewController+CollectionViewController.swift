@@ -20,7 +20,7 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ShopCollectionViewCell
         let shopCoreData = fetchedResultsController?.object(at: indexPath)
-        collectionCell.refresh(shop: mapShopCoreDataIntoShop(shopCoreData: shopCoreData!))
+        collectionCell.refresh(shop: shopCoreData!)
         return collectionCell
     }
 }
@@ -32,6 +32,33 @@ extension ShopViewController{
         self.performSegue(withIdentifier: "shopShowDetail", sender: shop)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

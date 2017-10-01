@@ -22,6 +22,7 @@ extension ShopViewController{
             annotationPin.subtitle = shopCD.openingHoursCD
             annotationPin.address = shopCD.addressCD
             annotationPin.descriptionDetail = shopCD.descriptionCD
+            annotationPin.openingHours = shopCD.openingHoursCD
             annotationsShop.append(annotationPin)
         }
         
@@ -29,6 +30,31 @@ extension ShopViewController{
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

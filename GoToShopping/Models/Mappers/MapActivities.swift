@@ -14,23 +14,12 @@ func mapActivityCoreDataIntoActivity(activityCoreData: ActivityCoreData) -> Acti
     
     let activity = Activity(name: activityCoreData.nameCD ?? "Empty" )
     activity.address = activityCoreData.addressCD ?? ""
-
-    if let imageData = activityCoreData.imageCD as Data? {
-        activity.image = imageData as NSData
-    }
-    if let logoData = activityCoreData.logoCD as Data? {
-        activity.logo = logoData as NSData
-    }
-
+    activity.image = (activityCoreData.imageURLCD)?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    activity.logo = (activityCoreData.logoURLCD)?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     activity.openingHours = activityCoreData.openingHoursCD ?? ""
     activity.descriptionAct = activityCoreData.descriptionCD ?? ""
     activity.latitude = activityCoreData.latitudeCD
     activity.longitude = activityCoreData.longitudeCD
-    activity.email = activityCoreData.emailCD ?? ""
-    activity.telephone = activityCoreData.telephoneCD ?? ""
-    activity.speciaOffer = activityCoreData.specialOfferCD
-    activity.url = activityCoreData.urlCD ?? ""
-//    activity.googleMapImage = (activityCoreData.googleMapImageCD! as NSData)
     
     return activity
 }
@@ -40,27 +29,26 @@ func mapActivityintoActivityCoreData(context:NSManagedObjectContext, activity:Ac
     let activityCoreData = ActivityCoreData(context: context)
     activityCoreData.nameCD = activity.name
     activityCoreData.addressCD = activity.address
-    
-    if let imageCD = activity.image as Data? {
-        activityCoreData.imageCD = imageCD
-    }
-    if let logoCD = activity.logo as Data? {
-        activityCoreData.logoCD = logoCD
-    }
-
+    activityCoreData.imageURLCD = activity.image!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    activityCoreData.logoURLCD = activity.logo!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     activityCoreData.openingHoursCD = activity.openingHours
     activityCoreData.descriptionCD = activity.descriptionAct
     activityCoreData.latitudeCD = activity.latitude ?? 0
     activityCoreData.longitudeCD = activity.longitude ?? 0
-    activityCoreData.emailCD = activity.email
-    activityCoreData.telephoneCD = activity.telephone
-    activityCoreData.specialOfferCD = activity.speciaOffer
-    activityCoreData.urlCD = activity.url
-//    activityCoreData.googleMapImageCD = (activity.googleMapImage! as Data)
+    
+    activityCoreData.logoCD = downloadAndCacheImage(urlString: activity.logo!) as Data
+    
+    activityCoreData.imageCD = downloadAndCacheImage(urlString: activity.image!) as Data
+    
+    let staticMapUrl = "https://www.elpaisdelosjuguetes.es/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/h/p/hpe0349_correpasillos_de_madera_para_ni_os_caracol.jpg"
+
+    
+    activityCoreData.googleMapImageCD = downloadAndCacheImage(urlString: staticMapUrl) as Data
     
     return activityCoreData
 }
 
+  
 
 
 
