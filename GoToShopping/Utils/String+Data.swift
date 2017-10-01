@@ -9,41 +9,21 @@
 import Foundation
 
 
-func downloadAndCacheImage(urlString: String) -> Data {
-    let imageTest = #imageLiteral(resourceName: "defaultPhoto")
-    let dataTest = UIImagePNGRepresentation(imageTest)!
+func downloadAndCacheImage(urlString: String) -> NSData? {    
     
-    var dataToCoreData = Data()
-    print( "Imprimo la urlString que viene por parametro \(urlString)" )
-
-    if let url = URL(string: urlString) {
+    if let urlFromString = URL(string: urlString),
+        let dataToString = NSData(contentsOf: urlFromString){
+        return dataToString as NSData
         
-        print( "Imprimo la urlString que viene por parametro \(urlString) modificada" )
-
-        print( "Imprimo la url que convertimos  \(url)" )
-
-        
-        do {
-            dataToCoreData = try Data(contentsOf: url)
-            return dataToCoreData
-        } catch{
-            
-            print("Una 💩💩💩💩💩💩💩 pa mi ")
-            return dataTest
-        }
+    }else{
+        let imageTest = #imageLiteral(resourceName: "defaultPhoto")
+        let dataTest = UIImagePNGRepresentation(imageTest)!
+        print("Una 💩💩💩💩💩💩💩 pa mi ")
+        return dataTest as NSData
     }
-    
-    return dataToCoreData
-
-//
-//    if let urlCD = URL(string: urlString),
-//        let dataToCD = NSData(contentsOf: urlCD){
-//        return dataToCD
-//    }else{
-//        print("Una 💩💩💩💩💩💩💩 pa mi ")
-//        return dataTest as NSData
-//    }
 }
+
+
 
 
 

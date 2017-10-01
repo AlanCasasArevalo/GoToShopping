@@ -57,9 +57,7 @@ func parseDataToShop(data: Data) -> Shops {
             }
             
             staticMapUrl =  "https://maps.googleapis.com/maps/api/staticmap?center=\(shop.latitude ?? 40.4137053),\(shop.longitude ?? 40.4137053)&zoom=17&size=320x220&scale=2&markers=%7Ccolor:0x9C7B14%7C\(shop.latitude ?? -3.6682823),\(shop.longitude ?? -3.6682823)"
-            
-//            staticMapUrl = "http://www.elpaisdelosjuguetes.es/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/h/p/hpe0349_correpasillos_de_madera_para_ni_os_caracol.jpg"
-            
+                        
             shop.googleMapImage = staticMapUrl
 
             shopsList.addShop(shop: shop)

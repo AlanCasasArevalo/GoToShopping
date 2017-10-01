@@ -38,11 +38,11 @@ func mapActivityintoActivityCoreData(context:NSManagedObjectContext, activity:Ac
     activityCoreData.googleMapImageCDURL = activity.googleMapImage
 
     
-    activityCoreData.logoCD = downloadAndCacheImage(urlString: activity.logo!) as Data
+    activityCoreData.logoCD = downloadAndCacheImage(urlString: activity.logo!)! as Data
     
-    activityCoreData.imageCD = downloadAndCacheImage(urlString: activity.image!) as Data
+    activityCoreData.imageCD = downloadAndCacheImage(urlString: activity.image!)! as Data
 
-    activityCoreData.googleMapImageCD = downloadAndCacheImage(urlString: activityCoreData.googleMapImageCDURL!) as Data
+    activityCoreData.googleMapImageCD = downloadAndCacheImage(urlString: activityCoreData.googleMapImageCDURL!)! as Data
     
     return activityCoreData
 }

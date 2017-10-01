@@ -34,11 +34,11 @@ func mapShopintoShopCoreData(context:NSManagedObjectContext, shop:Shop) -> ShopC
     shopCoreData.longitudeCD = shop.longitude ?? 0
     shopCoreData.googleMapImageCDURL = shop.googleMapImage
     
-    shopCoreData.logoCD = downloadAndCacheImage(urlString: shop.logo!) as Data
-    shopCoreData.imageCD = downloadAndCacheImage(urlString: shop.image!) as Data
+    shopCoreData.logoCD = downloadAndCacheImage(urlString: shop.logo!)! as Data
+    shopCoreData.imageCD = downloadAndCacheImage(urlString: shop.image!)! as Data
     
     
-    shopCoreData.googleMapImageCD = downloadAndCacheImage(urlString: shopCoreData.googleMapImageCDURL!) as Data
+    shopCoreData.googleMapImageCD = downloadAndCacheImage(urlString: shopCoreData.googleMapImageCDURL!)! as Data
     
     return shopCoreData
 }
