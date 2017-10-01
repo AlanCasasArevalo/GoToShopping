@@ -4,6 +4,7 @@
         <attribute name="addressCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="descriptionCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="googleMapImageCD" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="googleMapImageCDURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageCD" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="imageURLCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitudeCD" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -17,6 +18,7 @@
         <attribute name="addressCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="descriptionCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="googleMapImageCD" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="googleMapImageCDURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageCD" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="imageURLCD" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitudeCD" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -27,7 +29,7 @@
         <attribute name="openingHoursCD" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ActivityCoreData" positionX="-63" positionY="72" width="128" height="210"/>
-        <element name="ShopCoreData" positionX="-63" positionY="-18" width="128" height="210"/>
+        <element name="ActivityCoreData" positionX="-63" positionY="72" width="128" height="225"/>
+        <element name="ShopCoreData" positionX="-63" positionY="-18" width="128" height="225"/>
     </elements>
 </model>

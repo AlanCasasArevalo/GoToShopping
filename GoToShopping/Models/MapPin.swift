@@ -18,6 +18,7 @@ class MapPin: NSObject, MKAnnotation {
     var openingHours: String?
     var address: String?
     var descriptionDetail:String?
+    var imageData: Data?
     
     init(coordinate: CLLocationCoordinate2D) {
         self.coordinate = coordinate

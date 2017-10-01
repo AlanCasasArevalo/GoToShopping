@@ -35,15 +35,14 @@ func mapActivityintoActivityCoreData(context:NSManagedObjectContext, activity:Ac
     activityCoreData.descriptionCD = activity.descriptionAct
     activityCoreData.latitudeCD = activity.latitude ?? 0
     activityCoreData.longitudeCD = activity.longitude ?? 0
+    activityCoreData.googleMapImageCDURL = activity.googleMapImage
+
     
     activityCoreData.logoCD = downloadAndCacheImage(urlString: activity.logo!) as Data
     
     activityCoreData.imageCD = downloadAndCacheImage(urlString: activity.image!) as Data
-    
-    let staticMapUrl = "https://www.elpaisdelosjuguetes.es/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/h/p/hpe0349_correpasillos_de_madera_para_ni_os_caracol.jpg"
 
-    
-    activityCoreData.googleMapImageCD = downloadAndCacheImage(urlString: staticMapUrl) as Data
+    activityCoreData.googleMapImageCD = downloadAndCacheImage(urlString: activityCoreData.googleMapImageCDURL!) as Data
     
     return activityCoreData
 }

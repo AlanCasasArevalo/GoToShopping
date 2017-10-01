@@ -23,6 +23,7 @@ extension ShopViewController{
             annotationPin.address = shopCD.addressCD
             annotationPin.descriptionDetail = shopCD.descriptionCD
             annotationPin.openingHours = shopCD.openingHoursCD
+            annotationPin.imageData = shopCD.googleMapImageCD
             annotationsShop.append(annotationPin)
         }
         

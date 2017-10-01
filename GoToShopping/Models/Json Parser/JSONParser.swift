@@ -13,6 +13,7 @@ import SDWebImage
 func parseDataToShop(data: Data) -> Shops {
     
     let local = (Locale.current.languageCode as! String)
+    var staticMapUrl:String!
     
     let shopsList = Shops()
     do {
@@ -47,20 +48,20 @@ func parseDataToShop(data: Data) -> Shops {
                 shop.openingHours = shopJSON["opening_hours_en"] as! String
             }
             
-            if var latitudeParser = shopJSON["gps_lat"] as? String,
-                let longitude = shopJSON["gps_lon"] as? String{
-                shop.latitude = 40.000
-                
-                var latitude = ""
-                for myCharacter in latitudeParser.characters{
-                    if myCharacter != " "{
-                        latitude.append(myCharacter)
-                    }
-                }
-                shop.latitude = Float(latitude)
-                
-                shop.longitude = Float(longitude)
+            
+            if let latitudeJson = shopJSON["gps_lat"] as? NSString {
+                shop.latitude = latitudeJson.floatValue
             }
+            if let longitudeJson = shopJSON["gps_lon"] as? NSString {
+                shop.longitude = longitudeJson.floatValue
+            }
+            
+            staticMapUrl =  "https://maps.googleapis.com/maps/api/staticmap?center=\(shop.latitude ?? 40.4137053),\(shop.longitude ?? 40.4137053)&zoom=17&size=320x220&scale=2&markers=%7Ccolor:0x9C7B14%7C\(shop.latitude ?? -3.6682823),\(shop.longitude ?? -3.6682823)"
+            
+//            staticMapUrl = "http://www.elpaisdelosjuguetes.es/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/h/p/hpe0349_correpasillos_de_madera_para_ni_os_caracol.jpg"
+            
+            shop.googleMapImage = staticMapUrl
+
             shopsList.addShop(shop: shop)
         }
     }catch  {
@@ -119,6 +120,10 @@ func parseDataToActivity(data: Data) -> Activities {
                 
                 activity.longitude = Float(longitude)
             }
+            
+            let staticMapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=\(activity.latitude ?? 40.4252643),\(activity.longitude ?? -3.6920596)&zoom=17&size=320x220&scale=2&markers=%7Ccolor:0x9C7B14%7C\(activity.latitude ?? 40.4252643),\(activity.longitude ?? -3.6920596)"
+            activity.googleMapImage = staticMapUrl
+
             
             activitiesList.addActivity(activity: activity)
         }

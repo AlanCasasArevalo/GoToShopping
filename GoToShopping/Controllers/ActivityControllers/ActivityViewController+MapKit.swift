@@ -23,6 +23,7 @@ extension ActivityViewController{
             annotationPin.descriptionDetail = activityCD.descriptionCD
             annotationPin.address = activityCD.addressCD
             annotationPin.openingHours = activityCD.openingHoursCD
+            annotationPin.imageData = activityCD.googleMapImageCD
             annotationsActivity.append(annotationPin)
         }
         activitiesMap.addAnnotations(annotationsActivity)

@@ -53,7 +53,7 @@ class ShopDetailViewController: UIViewController {
         self.addressLabel.text = shopMapPin?.address
         self.openingHoursLabel.text = shopMapPin?.openingHours
         
-        if let image = UIImage(data: (shopDetailCoreData?.googleMapImageCD)!){
+        if let image = UIImage(data: (shopMapPin?.imageData)!){
             self.mapShopDetailImage.image = image
         }
 
