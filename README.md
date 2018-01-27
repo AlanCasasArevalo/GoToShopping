@@ -5,7 +5,7 @@
 > iOS Advance module app for V bootcamp mobile. This app is a list of thinks that you can do in Madrid, activities or shop to buy a lot of thinks 😉 , we take from API all shops and activities information. 
 
 ## Preview
-![](https://github.com/AlanCasasArevalo/SuperHeroes/blob/master/SuperHeroes.gif)
+![](https://github.com/AlanCasasArevalo/GoToShopping/blob/master/GoToShopping.gif)
 
 ## Installation
 
