@@ -13,7 +13,7 @@
 
 ## Getting started
 
-`npm install`
+`pod install`
 
 ## This simple app shows Madrid shops and activities.
 
